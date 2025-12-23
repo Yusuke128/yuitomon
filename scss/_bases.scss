@@ -1,0 +1,28 @@
+// ================================================
+// Base 全体に影響するもの
+// ================================================
+@use "variables" as v;
+
+// カラー変数の定義 -
+:root {
+  --color-child-primary: #{v.$color-child-primary};
+  --color-child-secondary: #{v.$color-child-secondary};
+  --color-child-accent-primary: #{v.$color-child-accent};
+  --color-child-accent-secondary: #{v.$color-child-accent-secondary};
+
+  font-family: v.$font-main;
+  font-size: 16px;
+  line-height: 1.5;
+  color: v.$color-child-text;
+
+  /**
+  @include v.media("sp") {
+    font-size: 10px;
+    line-height: 1;
+  } **/
+}
+
+// ハンバーガーオープン時のスクロール制御
+.no-scroll {
+  overflow: hidden;
+}

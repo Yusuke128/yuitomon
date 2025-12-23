@@ -1,0 +1,56 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+  align-items: center;
+
+  &-content {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  &-title {
+    @extend %sub-title;
+  }
+
+  &-imgbox {
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  &-sublist {
+    @extend %list-disc;
+  }
+
+  // カードがリンクだった場合の設定
+  &-link,
+  a {
+    color: var(--dark-color);
+
+    :visited,
+    :active {
+      color: var(--dark-color);
+    }
+  }
+}
