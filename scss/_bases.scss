@@ -5,15 +5,20 @@
 
 // カラー変数の定義 -
 :root {
-  --color-child-primary: #{v.$color-child-primary};
-  --color-child-secondary: #{v.$color-child-secondary};
-  --color-child-accent-primary: #{v.$color-child-accent};
-  --color-child-accent-secondary: #{v.$color-child-accent-secondary};
+  --green: #{v.$green};
+  --lightgreen: #{v.$lightgreen};
+  --yellow: #{v.$yellow};
+  --white: #{v.$white};
+  --black: #{v.$black};
+  --gray: #{v.$gray};
+  --red: #{v.$red};
+  --font-md: 1.2857rem;
+  --font-lg: 1.4286rem;
 
-  font-family: v.$font-main;
-  font-size: 16px;
+  font-family: #{v.$font-main};
+  font-size: 14px;
   line-height: 1.5;
-  color: v.$color-child-text;
+  color: var(--black);
 
   /**
   @include v.media("sp") {
@@ -22,7 +27,22 @@
   } **/
 }
 
-// ハンバーガーオープン時のスクロール制御
-.no-scroll {
-  overflow: hidden;
+main {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    background-image: repeating-linear-gradient(
+        to bottom,
+        var(--lightgreen) 0,
+        var(--lightgreen) 1px,
+        transparent 1px,
+        transparent 21px
+      ),
+      repeating-linear-gradient(to right, var(--lightgreen) 0, var(--lightgreen) 1px, transparent 1px, transparent 17px);
+  }
 }

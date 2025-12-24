@@ -1,0 +1,34 @@
+@use "variables" as v;
+
+// ハンバーガーオープン時のスクロール制御
+.no-scroll {
+  overflow: hidden;
+}
+
+.bg {
+  &-green {
+    background-color: var(--green);
+  }
+
+  &-yellow {
+    background-color: var(--yellow);
+  }
+
+  &-white {
+    background-color: var(--white);
+  }
+}
+
+.bd {
+  &-green {
+    border-color: var(--green);
+
+    @extend %border-base;
+  }
+
+  &-yellow {
+    border-color: var(--yellow);
+
+    @extend %border-base;
+  }
+}

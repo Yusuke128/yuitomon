@@ -1,0 +1,25 @@
+@use "../variables" as v;
+
+a.link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--black);
+  text-decoration: none;
+
+  @extend %radius;
+
+  &:has(.icon) {
+    display: grid;
+    place-items: center;
+    border-radius: 100%;
+  }
+
+  .bg-green & {
+    color: var(--white);
+    background-color: transparent;
+  }
+
+  .bg-yellow & {
+    background-color: var(--white);
+  }
+}

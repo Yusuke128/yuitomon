@@ -2,12 +2,14 @@
 // Variables 変数
 // ================================================
 
-$color-child-primary: #f3f3f3;
-$color-child-secondary: #0c0c0c;
-$color-child-accent: #f00;
-$color-child-accent-secondary: #00f;
-$color-child-text: #f3f3f3;
-$font-main: "Shippori Mincho", "Noto Sans JP", "Noto Serif JP", "游明朝", serif, "Material Icons";
+$green: #54b565;
+$lightgreen: #c4e6ca;
+$yellow: #ffe34d;
+$white: #fff;
+$black: #333;
+$gray: #9d9c9c;
+$red: #ed5454;
+$font-main: "VDL-V7MaruGothic", "Zen Maru Gothic", "M PLUS Rounded 1c", "Noto Sans JP", system-ui, sans-serif;
 $breakpoints: (
   sp: "screen and (max-width: 767px)",
   tab: "screen and (min-width : 768px) and (max-width: 1023px)",
@@ -36,28 +38,19 @@ $breakpoints: (
   justify-content: $content;
 }
 
-// 行指定でおりかえし(最大縦列を引数で指定)
-@mixin grid-row($rows) {
-  grid-template-rows: repeat($rows, auto);
-  grid-auto-flow: column;
-}
-
 // 絶対指定で上下中央
 %absolute-center {
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50%, -50%;
+  transform: translate(-50%, -50%);
 }
 
-%sub-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  text-align: center;
+%border-base {
+  border-style: solid;
+  border-width: 15px;
 }
-
-%list-disc {
-  text-align: left;
-  list-style: disc;
-  list-style-position: inside;
+%radius {
+  overflow: hidden;
+  border-radius: 30px;
 }
