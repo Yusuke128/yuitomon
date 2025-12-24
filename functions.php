@@ -16,9 +16,10 @@ function astra_child_enqueue_assets()
   wp_enqueue_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',  array(), false, 'all');
   wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css',  array(), false, 'all');
   wp_enqueue_style('google-icons', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded', array(), false, 'all');
-  wp_enqueue_style('google-fonts-noto_sans_jp', 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap', array(), false, 'all');
-  wp_enqueue_style('google-fonts-Shippori_Mincho', 'https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&display=swap', array(), false, 'all');
   wp_enqueue_style('google-fonts-Noto_Serif_JP', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap', array(), false, 'all');
+  wp_enqueue_style('google-fonts-noto-sans-jp', 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap', array(), null);
+  wp_enqueue_style('google-fonts-m-plus-rounded-1c', 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap', array(), null);
+  wp_enqueue_style('google-fonts-zen-maru-gothic', 'https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap', array(), null);
 
 
   // javasctipt読み込み
