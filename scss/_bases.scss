@@ -18,7 +18,7 @@
   font-family: v.$font-main;
   font-size: 14px;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 1;
   color: var(--black);
 
   /**
@@ -26,6 +26,10 @@
     font-size: 10px;
     line-height: 1;
   } **/
+}
+
+body {
+  margin: 0;
 }
 
 main {
@@ -45,5 +49,33 @@ main {
         transparent 21px
       ),
       repeating-linear-gradient(to right, var(--lightgreen) 0, var(--lightgreen) 1px, transparent 1px, transparent 17px);
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  main & {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    gap: 3rem;
+  }
+}
+
+.radius {
+  @extend %radius;
+}
+
+.title-box {
+  font-weight: bolder;
+  text-align: center;
+
+  &-title {
+    font-size: var(--font-lg);
+  }
+
+  &-sub-title {
+    font-size: var(--font-md);
   }
 }

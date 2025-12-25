@@ -1,6 +1,6 @@
 @use "../variables" as v;
 
-a.link {
+.link {
   display: inline-block;
   align-items: center;
   color: var(--black);
@@ -8,10 +8,7 @@ a.link {
 
   @extend %radius;
 
-  &:has(.icon) {
-    display: grid;
-    place-items: center;
-    border-radius: 100%;
+  &.icon {
   }
 
   .bg-green & {
@@ -25,5 +22,23 @@ a.link {
 
   .disabled & {
     background-color: var(--gray);
+  }
+}
+
+.icon::after {
+  width: 40px;
+  height: 40px;
+  font-family: "Material Symbols Rounded";
+  font-size: 2rem;
+  text-align: center;
+  content: "\e315";
+  border-radius: 100%;
+
+  .header & {
+    background-color: var(--white);
+  }
+
+  .bg-yellow & {
+    background-color: var(--yellow);
   }
 }

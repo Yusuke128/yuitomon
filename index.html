@@ -6,7 +6,7 @@
     <title>Document</title>
 
     <!-- SEO -->
-    <meta name="description" content="ページの概要を記述します" />
+    <meta name="title-box-sub-title" content="ページの概要を記述します" />
     <link rel="canonical" href="https://example.com/page-url" />
 
     <!-- General -->
@@ -23,47 +23,50 @@
     <link
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans+JP&family=Zen+Maru+Gothic&display=swap"
       rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
 
   <body>
-    <header class="front-page">
-      <div class="title_box">
-        <h1 class="logo"><img src="img/logo.png" alt="ロゴ" /></h1>
-        <!-- .logo end-->
-        <p class="description">小学校受験対策教材</p>
-        <!-- .description end-->
+    <header class="header front-page">
+      <div class="container">
+        <div class="title-box">
+          <h1 class="logo"><img src="img/logo.png" alt="ロゴ" /></h1>
+          <!-- .logo end-->
+          <p class="title-box-sub-title">小学校受験対策教材</p>
+          <!-- .title-box-sub-title end-->
+        </div>
+        <!-- .title_box end-->
+        <nav>
+          <ul class="header-nav" role="list">
+            <li class="header-nav-list">
+              <a href="" class="link bg-yellow icon">パック教材</a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+            <li class="header-nav-list">
+              <a href="" class="link bg-yellow icon">単元別</a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+            <li class="header-nav-list disabled">
+              <p>Comming&nbsp;Soon...</p>
+              <a href="" class="link icon">学校別</a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+            <li class="header-nav-list">
+              <a href="" class="link">マイページ</a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+          </ul>
+          <!-- .header-nav end-->
+        </nav>
       </div>
-      <!-- .title_box end-->
-      <nav>
-        <ul class="header-nav" role="list">
-          <li class="header-nav-list">
-            <a href="" class="link">パック教材</a>
-            <!-- .link end-->
-          </li>
-          <!-- .header-nav-list end-->
-          <li class="header-nav-list">
-            <a href="" class="link">単元別</a>
-            <!-- .link end-->
-          </li>
-          <!-- .header-nav-list end-->
-          <li class="header-nav-list disabled">
-            <p>Comming&nbsp;Soon...</p>
-            <a href="" class="link">学校別</a>
-            <!-- .link end-->
-          </li>
-          <!-- .header-nav-list end-->
-          <li class="header-nav-list">
-            <a href="" class="link">マイページ</a>
-            <!-- .link end-->
-          </li>
-          <!-- .header-nav-list end-->
-        </ul>
-        <!-- .header-nav end-->
-      </nav>
+      <!-- .container end-->
     </header>
     <main>
       <section class="kv bd-green has-seal">
@@ -86,191 +89,197 @@
         <img src="img/front-page/triangle.png" alt="" class="seal seal--pickup--buttom2" />
       </section>
       <!-- .pickup-product end-->
-      <section class="product-list bg-yellow">
-        <section class="school-prep has-seal">
-          <div class="title-box">
-            <h2 class="title-box-main">小学校受験対策教材</h2>
-          </div>
-          <!-- .title-box end-->
-          <ul class="material-tags" role="list">
-            <li class="tag-item">
-              <a href="" class="link icon">
-                <p class="tag-name">パック教材</p>
-                <!-- .tag-name end-->
-                <p class="tag-content">学年別や目標別にまとめられたお得なパック教材です。</p>
-                <!-- .tag-content end-->
-              </a>
-              <!-- .link end-->
-            </li>
-            <!-- .tag-item end-->
-            <li class="tag-item">
-              <a href="" class="link icon">
-                <p class="tag-name">単元別</p>
-                <!-- .tag-name end-->
-                <p class="tag-content">苦手な分野を克服したい方におすすめ、単元別教材です。</p>
-                <!-- .tag-content end-->
-              </a>
-              <!-- .link end-->
-            </li>
-            <!-- .tag-item end-->
-          </ul>
-          <ul class="material-tags disabled" role="list">
-            <li class="tag-item">
-              <a href="" class="link icon">
-                <p class="tag-name">学校別</p>
-                <!-- .tag-name end-->
-                <p class="tag-content">特定の小学校対策に特化した教材は近日公開予定です。</p>
-                <!-- .tag-content end-->
-              </a>
-              <!-- .link end-->
-            </li>
-            <!-- .tag-item end-->
-          </ul>
-          <!-- .material-tags end-->
-          <img src="img/front-page/school.png" alt="" class="seal seal--prep" />
+
+      <div class="container">
+        <section class="product-list radius">
+          <section class="school-prep bg-yellow radius has-seal">
+            <div class="title-box">
+              <h2 class="title-box-main">小学校受験対策教材</h2>
+            </div>
+            <!-- .title-box end-->
+            <ul class="material-tags" role="list">
+              <li class="tag-item">
+                <a href="" class="link icon">
+                  <p class="tag-name">パック教材</p>
+                  <!-- .tag-name end-->
+                  <p class="tag-content">学年別や目標別にまとめられたお得なパック教材です。</p>
+                  <!-- .tag-content end-->
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .tag-item end-->
+              <li class="tag-item">
+                <a href="" class="link icon">
+                  <p class="tag-name">単元別</p>
+                  <!-- .tag-name end-->
+                  <p class="tag-content">苦手な分野を克服したい方におすすめ、単元別教材です。</p>
+                  <!-- .tag-content end-->
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .tag-item end-->
+            </ul>
+            <ul class="material-tags disabled" role="list">
+              <li class="tag-item">
+                <a href="" class="link icon">
+                  <p class="tag-name">学校別</p>
+                  <!-- .tag-name end-->
+                  <p class="tag-content">特定の小学校対策に特化した教材は近日公開予定です。</p>
+                  <!-- .tag-content end-->
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .tag-item end-->
+            </ul>
+            <!-- .material-tags end-->
+            <img src="img/front-page/school.png" alt="" class="seal seal--prep" />
+          </section>
+          <!-- .school-prep end-->
+          <section class="school-basic bg-yellow radius">
+            <div class="title-box">
+              <h2 class="title-box-main">小学校基礎学習教材</h2>
+            </div>
+            <!-- .title-box end-->
+            <ul class="material-tags" role="list">
+              <li class="tag-item disabled">
+                <a href="" class="link icon">
+                  <p class="tag-name">単元別</p>
+                  <!-- .tag-name end-->
+                  <p class="tag-content">小学生向けの基礎学習教材は近日公開予定です。</p>
+                  <!-- .tag-content end-->
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .tag-item end-->
+            </ul>
+            <!-- .material-tags end-->
+          </section>
+          <!-- .school-basic end-->
         </section>
-        <!-- .school-prep end-->
-        <section class="school-basic">
-          <div class="title-box">
-            <h2 class="title-box-main">小学校基礎学習教材</h2>
-          </div>
-          <!-- .title-box end-->
-          <ul class="material-tags" role="list">
-            <li class="tag-item disabled">
-              <a href="" class="link icon">
-                <p class="tag-name">単元別</p>
-                <!-- .tag-name end-->
-                <p class="tag-content">小学生向けの基礎学習教材は近日公開予定です。</p>
-                <!-- .tag-content end-->
-              </a>
-              <!-- .link end-->
-            </li>
-            <!-- .tag-item end-->
-          </ul>
-          <!-- .material-tags end-->
-        </section>
-        <!-- .school-basic end-->
-      </section>
-      <!-- .product-list end-->
-      <aside class="sidemenu">
-        <section class="site-navigation bg-green radius has-seal">
-          <div class="title-box">
-            <h2 class="section-title">ナビゲーション</h2>
-            <!-- .section-title end-->
-          </div>
-          <!-- .title-box end-->
-          <ul class="site-navigation-list" role="list">
-            <li class="list-item">
-              <a href="" class="link">ご利用ガイド</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item">
-              <a href="" class="link">教材特徴</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item">
-              <a href="" class="link">監修者/運営者紹介</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-          </ul>
-          <!-- .site-navigation-list end-->
-          <img src="img/front-page/pancil&erase.png" alt="" class="seal seal--site-nav" />
-        </section>
-        <!-- .site-navigation bg-green radius end-->
-        <section class="site-navigation bg-green radius">
-          <div class="title-box">
-            <h2 class="section-title">カテゴリ</h2>
-            <!-- .section-title end-->
-          </div>
-          <!-- .title-box end-->
-          <ul class="site-navigation-list" role="list">
-            <li class="list-item">
-              <a href="" class="link">年中向け</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item">
-              <a href="" class="link">年長向け</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item">
-              <a href="" class="link">図形</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item">
-              <a href="" class="link">数量</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-          </ul>
-          <!-- .site-navigation-list end-->
-        </section>
-        <!-- .site-navigation bg-green radius end-->
-        <section class="site-navigation bg-green radius has-seal">
-          <div class="title-box">
-            <h2 class="section-title">SNS紹介</h2>
-            <!-- .section-title end-->
-          </div>
-          <!-- .title-box end-->
-          <ul class="site-navigation-list" role="list">
-            <li class="list-item x">
-              <a href="" class="link">TERRACE LAB.COM</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item facebook">
-              <a href="" class="link">TERRACE LAB.COM</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-            <li class="list-item instagram">
-              <a href="" class="link">TERRACE LAB.COM</a>
-              <!-- .link end-->
-            </li>
-            <!-- .list-item end-->
-          </ul>
-          <!-- .site-navigation-list end-->
-          <img src="img/front-page/note.png" alt="" class="seal seal--sns1" />
-          <img src="img/front-page/pencil.png" alt="" class="seal seal--sns2" />
-        </section>
-        <!-- .site-navigation bg-green radius end-->
-      </aside>
-      <!-- .sidemenu end-->
+        <!-- .product-list end-->
+        <aside class="sidemenu">
+          <section class="site-navigation bg-green radius has-seal">
+            <div class="title-box">
+              <h2 class="section-title">ナビゲーション</h2>
+              <!-- .section-title end-->
+            </div>
+            <!-- .title-box end-->
+            <ul class="site-navigation-list" role="list">
+              <li class="list-item">
+                <a href="" class="link">ご利用ガイド</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item">
+                <a href="" class="link">教材特徴</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item">
+                <a href="" class="link">監修者/運営者紹介</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+            </ul>
+            <!-- .site-navigation-list end-->
+            <img src="img/front-page/pancil&erase.png" alt="" class="seal seal--site-nav" />
+          </section>
+          <!-- .site-navigation bg-green radius end-->
+          <section class="site-navigation bg-green radius">
+            <div class="title-box">
+              <h2 class="section-title">カテゴリ</h2>
+              <!-- .section-title end-->
+            </div>
+            <!-- .title-box end-->
+            <ul class="site-navigation-list" role="list">
+              <li class="list-item">
+                <a href="" class="link">年中向け</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item">
+                <a href="" class="link">年長向け</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item">
+                <a href="" class="link">図形</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item">
+                <a href="" class="link">数量</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+            </ul>
+            <!-- .site-navigation-list end-->
+          </section>
+          <!-- .site-navigation bg-green radius end-->
+          <section class="site-navigation bg-green radius has-seal">
+            <div class="title-box">
+              <h2 class="section-title">SNS紹介</h2>
+              <!-- .section-title end-->
+            </div>
+            <!-- .title-box end-->
+            <ul class="site-navigation-list" role="list">
+              <li class="list-item x">
+                <a href="" class="link">TERRACE LAB.COM</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item facebook">
+                <a href="" class="link">TERRACE LAB.COM</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+              <li class="list-item instagram">
+                <a href="" class="link">TERRACE LAB.COM</a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item end-->
+            </ul>
+            <!-- .site-navigation-list end-->
+            <img src="img/front-page/note.png" alt="" class="seal seal--sns1" />
+            <img src="img/front-page/pencil.png" alt="" class="seal seal--sns2" />
+          </section>
+          <!-- .site-navigation bg-green radius end-->
+        </aside>
+        <!-- .sidemenu end-->
+      </div>
     </main>
     <footer>
-      <img src="img/logo.png" alt="" class="footer-logo" />
-      <nav>
-        <ul class="footer-nav" role="list">
-          <li class="footer-nav-item">
-            <a href="" class="link">FAQ</a>
-            <!-- .link end-->
-          </li>
-          <!-- .footer-nav-item end-->
-          <li class="footer-nav-item">
-            <a href="" class="link">特商標表記</a>
-            <!-- .link end-->
-          </li>
-          <!-- .footer-nav-item end-->
-          <li class="footer-nav-item">
-            <a href="" class="link">プライバシーポリシー</a>
-            <!-- .link end-->
-          </li>
-          <!-- .footer-nav-item end-->
-          <li class="footer-nav-item">
-            <a href="" class="link">お問い合わせ</a>
-            <!-- .link end-->
-          </li>
-          <!-- .footer-nav-item end-->
-        </ul>
-        <!-- .footer-nav end-->
-      </nav>
-      <p class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</p>
-      <!-- .copyright end-->
+      <div class="container">
+        <img src="img/logo.png" alt="" class="footer-logo" />
+        <nav>
+          <ul class="footer-nav" role="list">
+            <li class="footer-nav-item">
+              <a href="" class="link">FAQ</a>
+              <!-- .link end-->
+            </li>
+            <!-- .footer-nav-item end-->
+            <li class="footer-nav-item">
+              <a href="" class="link">特商標表記</a>
+              <!-- .link end-->
+            </li>
+            <!-- .footer-nav-item end-->
+            <li class="footer-nav-item">
+              <a href="" class="link">プライバシーポリシー</a>
+              <!-- .link end-->
+            </li>
+            <!-- .footer-nav-item end-->
+            <li class="footer-nav-item">
+              <a href="" class="link">お問い合わせ</a>
+              <!-- .link end-->
+            </li>
+            <!-- .footer-nav-item end-->
+          </ul>
+          <!-- .footer-nav end-->
+        </nav>
+        <p class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</p>
+        <!-- .copyright end-->
+      </div>
+      <!-- .container end-->
     </footer>
 
     <!-- JavaScript -->
