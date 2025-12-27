@@ -17,7 +17,7 @@
 
   font-family: v.$font-main;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 900;
   line-height: 1;
   color: var(--black);
 
@@ -26,10 +26,6 @@
     font-size: 10px;
     line-height: 1;
   } **/
-}
-
-body {
-  margin: 0;
 }
 
 main {
@@ -45,15 +41,16 @@ main {
         to bottom,
         var(--lightgreen) 0,
         var(--lightgreen) 1px,
-        transparent 1px,
-        transparent 21px
+        transparent 0,
+        transparent 10px
       ),
-      repeating-linear-gradient(to right, var(--lightgreen) 0, var(--lightgreen) 1px, transparent 1px, transparent 17px);
+      repeating-linear-gradient(to right, var(--lightgreen) 0, var(--lightgreen) 1px, transparent 0, transparent 10px);
   }
 }
 
 .container {
   max-width: 1440px;
+  padding: 2rem 0;
   margin: 0 auto;
 
   main & {

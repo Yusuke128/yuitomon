@@ -8,9 +8,6 @@
 
   @extend %radius;
 
-  &.icon {
-  }
-
   .bg-green & {
     color: var(--white);
     background-color: transparent;

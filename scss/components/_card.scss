@@ -1,15 +1,17 @@
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: stretch;
-}
+@use "../variables";
 
 .card {
   display: grid;
   grid-template-rows: 1fr;
   gap: 1rem;
   align-items: center;
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+  }
 
   &-content {
     display: grid;

@@ -1,6 +1,31 @@
 // ==================================================================
 // footer
 // ==================================================================
+@use "../variables" as v;
+
 footer {
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+.footer {
+  &-nav {
+    gap: 4.5rem;
+
+    @include v.flex(space-evenly, center);
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .copyright {
+    display: block;
+    width: 35%;
+    padding-top: 1rem;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 1px solid var(--black);
+  }
 }

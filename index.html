@@ -16,16 +16,15 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 
     <!-- Fonts -->
+    <!-- Google Fonts 読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Google Fonts 読み込み -->
     <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans+JP&family=Zen+Maru+Gothic&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
 
@@ -70,17 +69,24 @@
     </header>
     <main>
       <section class="kv bd-green has-seal">
-        <img src="" alt="TOP画像" class="kv-img" />
+        <img src="img/front-page/image_sample.png" alt="TOP画像" class="kv-img" />
         <img src="img/front-page/ABC.png" alt="英語イメージ" class="seal seal--kv" />
       </section>
       <!-- .kv end-->
-      <section class="pickup-product">
-        <div class="pickup-cards">
-          <a href="" class="link bd-green"><img src="" alt="" class="pickup-img" /></a>
+      <section class="pickup-product has-seal">
+        <div class="pickup-cards container pickup-slider">
+          <!-- .prebiew end-->
+          <a href="" class="link card bd-green">
+            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+          </a>
           <!-- .link bd-green end-->
-          <a href="" class="link bd-green"><img src="" alt="" class="pickup-img" /></a>
+          <a href="" class="link card bd-green">
+            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+          </a>
           <!-- .link bd-green end-->
-          <a href="" class="link bd-green"><img src="" alt="" class="pickup-img" /></a>
+          <a href="" class="link card bd-green">
+            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+          </a>
           <!-- .link bd-green end-->
         </div>
         <!-- .pickup-cards end-->
@@ -118,9 +124,7 @@
                 <!-- .link end-->
               </li>
               <!-- .tag-item end-->
-            </ul>
-            <ul class="material-tags disabled" role="list">
-              <li class="tag-item">
+              <li class="tag-item disabled">
                 <a href="" class="link icon">
                   <p class="tag-name">学校別</p>
                   <!-- .tag-name end-->
@@ -248,7 +252,7 @@
         <!-- .sidemenu end-->
       </div>
     </main>
-    <footer>
+    <footer class="footer front-page">
       <div class="container">
         <img src="img/logo.png" alt="" class="footer-logo" />
         <nav>
@@ -276,16 +280,16 @@
           </ul>
           <!-- .footer-nav end-->
         </nav>
-        <p class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</p>
-        <!-- .copyright end-->
       </div>
       <!-- .container end-->
+      <small class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</small>
+      <!-- .copyright end-->
     </footer>
 
     <!-- JavaScript -->
     <script src="https://kit.fontawesome.com/fc4b29f1b1.js" crossorigin="anonymous" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
-    <script src="js/function.js" defer></script>
+    <script src="js/functions.js" defer></script>
   </body>
 </html>

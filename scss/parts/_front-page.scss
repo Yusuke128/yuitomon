@@ -1,0 +1,72 @@
+/** ==============================
+** フロントページ
+**================================ */
+@use "../variables" as v;
+
+.kv {
+  height: 515px; // サンプル用
+  margin-bottom: 10rem;
+  background-color: #fff; // サンプル用
+  border-right-width: 0;
+  border-left-width: 0;
+
+  &-img {
+    height: 100%; // サンプル用
+    margin: 0 auto; // サンプル用
+  }
+
+  .seal {
+    bottom: -100px;
+    left: 73px;
+  }
+}
+
+.pickup {
+  &-product {
+    .card {
+      margin: 0 3rem;
+    }
+  }
+
+  &-cards.container {
+    display: block;
+  }
+
+  &-slider {
+    .slick {
+      &-list {
+        overflow: visible;
+      }
+
+      &-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        width: 82.5px;
+        height: 165px;
+        aspect-ratio: 1;
+        font-family: "Material Symbols Rounded";
+        font-size: 5rem;
+        cursor: pointer;
+        background-color: var(--yellow);
+        border: none;
+        transform: translateY(-50%);
+        transition: all 0.25s ease;
+
+        &:hover {
+          transform: translateY(-50%) scale(1.2);
+        }
+      }
+
+      &-prev {
+        left: 10rem;
+        border-radius: 100% 0 0 100% / 50%;
+      }
+
+      &-next {
+        right: 10rem;
+        border-radius: 0 100% 100% 0 / 50%;
+      }
+    }
+  }
+}

@@ -9,7 +9,8 @@ $white: #fff;
 $black: #333;
 $gray: #9d9c9c;
 $red: #ed5454;
-$font-main: "VDL-V7MaruGothic", "Zen Maru Gothic", "M PLUS Rounded 1c", "Noto Sans JP", system-ui, sans-serif;
+$font-main: "VDL-V7MaruGothic", "Zen Maru Gothic", "M PLUS Rounded 1c", "Noto Sans JP", "Material Symbols Rounded",
+  system-ui, sans-serif;
 $breakpoints: (
   sp: "screen and (max-width: 767px)",
   tab: "screen and (min-width : 768px) and (max-width: 1023px)",
