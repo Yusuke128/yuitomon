@@ -7,18 +7,22 @@
 
 .bg {
   &-green {
+    padding: 3rem 2rem;
     background-color: var(--green);
   }
 
   &-yellow {
+    padding: 3rem 5rem;
     background-color: var(--yellow);
   }
 
   &-white {
+    padding: 3rem 5rem;
     background-color: var(--white);
   }
 
   &-gray {
+    padding: 3rem 5rem;
     background-color: var(--gray);
   }
 }
@@ -43,4 +47,58 @@
 
 .seal {
   position: absolute;
+  transform-origin: 50% 10%;
+  animation: seal-bell 10s ease-in-out infinite;
+
+  &--kv {
+    bottom: -100px;
+    left: 73px;
+  }
+
+  &--prep {
+    bottom: 2rem;
+    left: -1rem;
+  }
+
+  &--site-nav {
+    top: -7rem;
+    right: 0;
+  }
+
+  &--sns {
+    top: -8rem;
+    left: -2rem;
+  }
+}
+
+@keyframes seal-bell {
+  0% {
+    transform: rotate(var(--seal-rotate, 0deg));
+  }
+
+  10% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) + 6deg));
+  }
+
+  25% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) - 4deg));
+  }
+
+  45% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) + 2deg));
+  }
+
+  65% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) - 1deg));
+  }
+
+  100% {
+    transform: rotate(var(--seal-rotate, 0deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal {
+    animation: none;
+  }
 }
