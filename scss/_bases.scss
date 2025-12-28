@@ -54,10 +54,20 @@ main {
   padding: 2rem 0;
   margin: 0 auto;
 
+  @include v.media(mobile) {
+    padding: 1rem 0;
+  }
+
   main & {
     display: grid;
     grid-template-columns: 65% 30%;
     gap: 5%;
+    padding-right: 5rem;
+    padding-left: 5rem;
+
+    @include v.media(mobile) {
+      grid-template-columns: 100%;
+    }
   }
 }
 
@@ -92,4 +102,12 @@ ul {
   display: grid;
   gap: 3rem;
   text-align: center;
+}
+
+.sp {
+  display: none;
+
+  @include v.media(mobile) {
+    display: block;
+  }
 }

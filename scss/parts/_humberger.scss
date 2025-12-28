@@ -1,0 +1,43 @@
+@use "../variables" as v;
+
+.humberger {
+  position: relative;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 60px;
+  min-height: 40px;
+  transition: gap 1s ease;
+
+  @include v.flex(center, center);
+
+  .open & {
+    gap: 0;
+    transition: gap 0s;
+    transition-delay: gap 1s;
+  }
+
+  &-border {
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+    transform-origin: center;
+    transition: all 0.5s ease;
+
+    .open & {
+      position: absolute;
+    }
+
+    .open &:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    .open &:nth-child(2) {
+      opacity: 0;
+    }
+
+    .open &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+}
