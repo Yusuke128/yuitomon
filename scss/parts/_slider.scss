@@ -1,0 +1,104 @@
+@use "../variables" as v;
+.pickup {
+  &-slider {
+    .slick {
+      &-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        width: 82.5px;
+        height: 165px;
+        aspect-ratio: 1;
+        font-family: "Material Symbols Rounded";
+        font-size: 5rem;
+        cursor: pointer;
+        background-color: var(--yellow);
+        border: none;
+        transform: translateY(-50%);
+        transition: all 0.25s ease;
+
+        &:hover {
+          transform: translateY(-50%) scale(1.2);
+
+          @include v.media(mobile) {
+            transform: translateY(-50%);
+          }
+        }
+      }
+
+      &-prev {
+        left: 25%;
+        border-radius: 100% 0 0 100% / 50%;
+
+        @include v.media(mobile) {
+          left: 1rem;
+        }
+      }
+
+      &-next {
+        right: 25%;
+        border-radius: 0 100% 100% 0 / 50%;
+
+        @include v.media(mobile) {
+          right: 1rem;
+        }
+      }
+      &-slider {
+        position: relative;
+        overflow: visible;
+        &-wrapper {
+          display: flex;
+          gap: 0;
+        }
+        &-slide {
+          max-width: 65vw;
+        }
+      }
+    }
+  }
+
+  &-swiper {
+    &-slide {
+      background-color: var(--white);
+      max-width: 60%;
+      margin: 0;
+      img {
+        margin: 0 auto;
+      }
+      @include v.media(mobile) {
+        max-width: 90%;
+      }
+    }
+    &-arrow {
+      position: static;
+      pointer-events: auto;
+      font-size: 5rem;
+      width: 82.5px;
+      height: 165px;
+      aspect-ratio: 1;
+      border: none;
+      background-color: var(--yellow);
+      color: var(--black);
+      transition: transform 0.2s ease-in-out;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  &-button {
+    &-prev {
+      border-radius: 100% 0 0 100% / 50%;
+    }
+    &-next {
+      border-radius: 0 100% 100% 0 / 50%;
+    }
+  }
+}
+// コンテンツ毎のボタン設定
+.swiper-button {
+  @extend %absolute-center;
+  width: 100%;
+  z-index: 9;
+  pointer-events: none;
+  @include v.flex;
+}

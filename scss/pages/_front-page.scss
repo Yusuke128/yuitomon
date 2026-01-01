@@ -30,9 +30,9 @@
     }
   }
   &-card {
-    max-width: 80%; // 検証
+    // max-width: 80%; // 検証
     // max-height: 407px; // 検証
-    margin: 0 3rem;
+    //margin: 0 3rem;
     background-color: #fff; // 検証
 
     @include v.media(mobile) {
@@ -50,104 +50,6 @@
     height: 100%;
 
     @extend %absolute-center;
-  }
-
-  &-slider {
-    position: relative;
-    .slick {
-      &-arrow {
-        position: absolute;
-        top: 50%;
-        z-index: 10;
-        width: 82.5px;
-        height: 165px;
-        aspect-ratio: 1;
-        font-family: "Material Symbols Rounded";
-        font-size: 5rem;
-        cursor: pointer;
-        background-color: var(--yellow);
-        border: none;
-        transform: translateY(-50%);
-        transition: all 0.25s ease;
-
-        &:hover {
-          transform: translateY(-50%) scale(1.2);
-
-          @include v.media(mobile) {
-            transform: translateY(-50%);
-          }
-        }
-      }
-
-      &-prev {
-        left: 25%;
-        border-radius: 100% 0 0 100% / 50%;
-
-        @include v.media(mobile) {
-          left: 1rem;
-        }
-      }
-
-      &-next {
-        right: 25%;
-        border-radius: 0 100% 100% 0 / 50%;
-
-        @include v.media(mobile) {
-          right: 1rem;
-        }
-      }
-      &-slider {
-        position: relative;
-        overflow: visible;
-        &-wrapper {
-          display: flex;
-          gap: 0;
-        }
-        &-slide {
-          max-width: 65vw;
-        }
-      }
-
-      // &-arrow {
-      //   color: var(--black);
-      //   position: absolute;
-      //   top: 50%;
-      //   width: 82.5px;
-      //   height: 165px;
-      //   aspect-ratio: 1;
-      //   font-family: "Material Symbols Rounded";
-      //   font-size: 5rem;
-      //   cursor: pointer;
-      //   background-color: var(--yellow);
-      //   border: none;
-      //   transform: translateY(-50%);
-      //   transition: all 0.25s ease;
-
-      //   &:hover {
-      //     transform: translateY(-50%) scale(1.2);
-
-      //     @include v.media(mobile) {
-      //       transform: translateY(-50%);
-      //     }
-      //   }
-      // }
-      // &-prev {
-      //   left: 25% !important;
-      //   border-radius: 100% 0 0 100% / 50%;
-
-      //   @include v.media(mobile) {
-      //     left: 1rem;
-      //   }
-      // }
-      // &-next {
-      //   right: 25% !important;
-      //   border-radius: 0 100% 100% 0 / 50%;
-
-      //   @include v.media(mobile) {
-      //     right: 1rem;
-      //   }
-      // }
-    }
   }
 }
 .tag {

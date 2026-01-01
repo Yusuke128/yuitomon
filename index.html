@@ -118,22 +118,43 @@
 
       <!-- 新着・お知らせ -->
       <section class="pickup-product has-seal">
-        <div class="card-list pickup-cards pickup-slider">
-          <!-- .prebiew end-->
-          <a href="" class="link card pickup-card bd-green radius">
-            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
-          </a>
-          <!-- .link bd-green end-->
-          <a href="" class="link card pickup-card bd-green radius">
-            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
-          </a>
-          <!-- .link bd-green end-->
-          <a href="" class="link card pickup-card bd-green radius">
-            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
-          </a>
-          <!-- .link bd-green end-->
+        <!-- swiper -->
+        <div class="pickup-swiper swiper">
+          <div class="swiper-wrapper">
+            <a href="" class="link pickup-swiper-slide swiper-slide bd-green radius">
+              slide1
+              <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd-green radius">
+              slide2
+              <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd-green radius">
+              slide3
+              <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd-green radius">
+              slide4
+              <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd-green radius">
+              slide5
+              <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
+            </a>
+          </div>
+          <div class="swiper-button container">
+            <button class="pickup-swiper-arrow swiper-button-prev pickup-button-prev">
+              <span class="material-symbols-outlined">keyboard_arrow_left</span>
+            </button>
+            <!-- .swiper-arrow swiper-prev end-->
+            <button class="pickup-swiper-arrow swiper-button-next pickup-button-next">
+              <span class="material-symbols-outlined">keyboard_arrow_right</span>
+            </button>
+            <!-- .swiper-arrow swiper-next end-->
+          </div>
+          <!-- .swiper-wrapper end-->
         </div>
-        <!-- .pickup-cards end-->
+        <!-- .swiper-button end-->
         <div class="seal-block">
           <img src="img/front-page/frasco.png" alt="" class="seal seal-slider-1" />
           <img src="img/front-page/protractor&triangle.png" alt="" class="seal seal-slider-2" />
@@ -152,7 +173,7 @@
         </div>
         <!-- .title-box end-->
 
-        <ul class="card-list problem-list" role="list">
+        <ul class="card-list problem-list">
           <li class="card problem-card">
             <div class="card-imgbox"><img src="" alt="" class="card-img" /></div>
             <!-- .card-imgbox end-->
