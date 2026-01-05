@@ -9,10 +9,29 @@
     width: 100%;
     height: auto;
   }
-
+  &-imgbox {
+    width: 100%;
+  }
   &-img {
     height: 100%; // サンプル用
     margin: 0 auto; // サンプル用
+  }
+  > .container {
+    @include v.flex;
+    gap: 3rem;
+  }
+  &-textarea {
+    max-width: 35%;
+    text-align: center;
+  }
+  &-content {
+    margin-bottom: 1.5rem;
+  }
+  &-title {
+    margin-bottom: 1rem;
+  }
+  &-link {
+    max-width: 45%;
   }
 }
 
@@ -24,20 +43,6 @@
       margin: 3rem 0;
     }
   }
-  &-card {
-    // max-width: 80%; // 検証
-    // max-height: 407px; // 検証
-    //margin: 0 3rem;
-    background-color: #fff; // 検証
-
-    @include v.media(mobile) {
-      margin: 0 1rem;
-    }
-
-    img {
-      margin: 0 auto;
-    }
-  }
 
   .seal-block {
     width: 100%;
@@ -45,5 +50,26 @@
     height: 100%;
 
     @extend %absolute-center;
+  }
+}
+
+.problem {
+  &-list {
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    max-width: 80%;
+    margin: 0 auto !important;
+  }
+  &-card {
+    padding: 2rem;
+    &-imgbox {
+      aspect-ratio: auto;
+    }
+    &-img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .card-content {
+    font-weight: 500;
   }
 }

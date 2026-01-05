@@ -11,40 +11,18 @@
   @include v.media(mobile) {
     max-width: 79px;
   }
-
-  &--kv {
-    bottom: -100px;
-    left: 73px;
-
-    @include v.media(mobile) {
-      left: 1rem;
-      z-index: 1;
-    }
+  &-block {
+    display: contents;
   }
-
-  &-slider-1 {
-    top: -4rem;
-    right: 20%;
-
-    @include v.media(sp) {
-      top: auto;
+  &-kv {
+    &-1 {
+      left: 0;
+      bottom: 0;
+    }
+    &-2 {
       right: 0;
-      bottom: -3rem;
+      bottom: 0;
     }
-  }
-
-  &-slider-2 {
-    bottom: -6rem;
-    left: 15%;
-
-    @include v.media(mobile) {
-      display: none;
-    }
-  }
-
-  &--prep {
-    bottom: 2rem;
-    left: -1rem;
   }
 
   &--site-nav {

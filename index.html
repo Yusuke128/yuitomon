@@ -43,7 +43,7 @@
           <ul class="header-nav header-nav-sp" role="list">
             <li class="header-nav-list">
               <a href="" class="link bg-navy">
-                <img src="img/sp-menu/mypage.png" alt="マイページアイコン" />
+                <img src="img/header/mypage.png" alt="マイページアイコン" />
                 マイページ
               </a>
               <!-- .link end-->
@@ -73,7 +73,7 @@
           <ul class="header-nav header-nav-pc" role="list">
             <li class="header-nav-list">
               <a href="" class="link">
-                <img src="" alt="" class="header-icon" />
+                <img src="img/header/test.png" alt="実力テスト" class="header-icon" />
                 実力テスト
               </a>
               <!-- .link end-->
@@ -81,15 +81,17 @@
             <!-- .header-nav-list end-->
             <li class="header-nav-list">
               <a href="" class="link">
-                <img src="" alt="" class="header-icon" />
+                <img src="img/header/prep.png" alt="単元別教材" class="header-icon" />
                 単元別教材
               </a>
               <!-- .link end-->
             </li>
             <!-- .header-nav-list end-->
-
             <li class="header-nav-list">
-              <a href="" class="link">マイページ</a>
+              <a href="" class="link">
+                <img src="img/header/mypage.png" alt="マイページ" class="header-icon" />
+                マイページ
+              </a>
               <!-- .link end-->
             </li>
             <!-- .header-nav-list end-->
@@ -100,32 +102,49 @@
       <!-- .container end-->
     </header>
     <main>
-      <section class="kv bd bd-navy bd-bottom has-seal bg-white">
-        <div class="container">
-          <img src="img/front-page/image_sample.png" alt="TOP画像" class="kv-img" />
-          <img src="img/front-page/ABC.png" alt="英語イメージ" class="seal seal--kv" />
+      <section class="kv bd bd-navy bd-bottom bg-white">
+        <div class="container has-seal">
+          <div class="kv-imgbox">
+            <img src="img/front-page/kv-sample.png" alt="TOP画像" class="kv-img" />
+          </div>
+          <!-- .kv-imgbox end-->
           <article class="kv-textarea">
-            <div class="kv-content">
-              <h1 class="kv-title">Terrace Lab</h1>
+            <div class="kv-content bd bd-navy radius bd-w5 section-padding">
+              <p class="kv-title">タイトルが入ります</p>
               <!-- .kv-title end-->
-              <p class="kv-text">Terrace Labでは小学受験対策に注力しています</p>
+              <p class="kv-text">表示コンテンツ:新商品?お知らせ？画像と一緒に動くスライダー？</p>
+              <p class="kv-text">
+                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+              </p>
               <!-- .kv-text end-->
             </div>
             <!-- .kv-content end-->
-            <a href="" class="link kv-link button"></a>
+            <a href="" class="link kv-link btn btn-yellow">CHECK</a>
             <!-- .link kv-link end-->
           </article>
           <!-- .kv-textarea end-->
+          <div class="seal-block">
+            <img src="img/seal/cizer.png" alt="ハサミ" class="seal seal-kv-1" />
+            <img src="img/seal/cherry.png" alt="さくら" class="seal seal-kv-2" />
+          </div>
+          <!-- .seal-block end-->
         </div>
         <!-- .container end-->
       </section>
       <!-- .kv end-->
 
       <!-- 新着・お知らせ -->
-      <section class="pickup-product has-seal">
+      <section class="pickup-product">
         <!-- 新着 swiper -->
         <div class="pickup-swiper swiper">
           <div class="swiper-wrapper">
+            <p
+              class="pickup-swiper-slide swiper-slide bd bd-navy radius"
+              style="height: 407px; display: grid; place-items: center">
+              条件で抽出した商品の表示にしましょうか？
+              <br />
+              それとも固定のコンテンツを表示しましましょうか？
+            </p>
             <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
               slide1
               <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
@@ -160,17 +179,12 @@
           </div>
           <!-- .swiper-button end-->
         </div>
-        <div class="seal-block">
-          <img src="img/front-page/frasco.png" alt="" class="seal seal-slider-1" />
-          <img src="img/front-page/protractor&triangle.png" alt="" class="seal seal-slider-2" />
-        </div>
-        <!-- .seal-block end-->
       </section>
       <!-- .pickup-product end-->
 
       <!-- 202521229追加要素 -->
       <!-- お悩み喚起 -->
-      <section class="problems section-padding section-margin bg-white">
+      <section class="problem section-padding section-margin bg-white">
         <div class="container">
           <div class="title-box">
             <h2 class="title-box-main">こんなお悩みありませんか？</h2>
@@ -178,51 +192,55 @@
           </div>
           <!-- .title-box end-->
 
-          <ul class="card-list problem-list">
-            <li class="card problem-card">
-              <div class="card-imgbox"><img src="" alt="" class="card-img" /></div>
+          <ul class="card-list problem-list" role="list">
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-school.png" alt="学校" class="card-img problem-card-img" />
+              </div>
               <!-- .card-imgbox end-->
-              <h3 class="card-title">受験を視野に入れて良いか迷ってる</h3>
+              <!-- <h3 class="card-title"></h3> -->
               <!-- .card-title end-->
               <div class="card-content">
-                <p>お子様の学力がわからず不安</p>
-                <p>受験させるべきか迷っている</p>
+                <p>お子様の学力がわからず、受験を視野に入れて良いのか迷っている</p>
               </div>
               <!-- .card-content end-->
             </li>
             <!-- .card problem-card end-->
-            <li class="card problem-card">
-              <div class="card-imgbox"><img src="" alt="" class="card-img" /></div>
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-pencil.png" alt="" class="card-img problem-card-img" />
+              </div>
               <!-- .card-imgbox end-->
-              <h3 class="card-title">成長している実感がない</h3>
+              <!-- <h3 class="card-title"></h3> -->
               <!-- .card-title end-->
               <div class="card-content">
-                <p>家庭教師、お教室に通わせているが</p>
-                <p>成長している実感がない</p>
+                <p>家庭学習やお教室で頑張っているが、成長している実感がない</p>
               </div>
               <!-- .card-content end-->
             </li>
             <!-- .card problem-card end-->
-            <li class="card problem-card">
-              <div class="card-imgbox"><img src="" alt="" class="card-img" /></div>
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-test.png" alt="" class="card-img problem-card-img" />
+              </div>
               <!-- .card-imgbox end-->
-              <h3 class="card-title">評価が合っているかわからない</h3>
+              <!-- <h3 class="card-title"></h3> -->
               <!-- .card-title end-->
               <div class="card-content">
-                <p>通っている教室・先生の判断で評価されるので</p>
-                <p>正しい評価なのか不安</p>
+                <p>評価が教室・先生次第で、本当に妥当か不安</p>
               </div>
               <!-- .card-content end-->
             </li>
             <!-- .card problem-card end-->
-            <li class="card problem-card">
-              <div class="card-imgbox"><img src="" alt="" class="card-img" /></div>
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-teach.png" alt="" class="card-img problem-card-img" />
+              </div>
               <!-- .card-imgbox end-->
-              <h3 class="card-title">模試が気軽に受けれない</h3>
+              <!-- <h3 class="card-title"></h3> -->
               <!-- .card-title end-->
               <div class="card-content">
-                <p>模試の時期が決まっている</p>
-                <p>結果が出るまで時間がかかる</p>
+                <p>模試が気軽に受けれない。また、結果が出るまで時間がかかる。</p>
               </div>
               <!-- .card-content end-->
             </li>
@@ -239,10 +257,8 @@
       <section class="features section-padding section-margin bg-white">
         <div class="container">
           <div class="title-box">
-            <h2 class="title-box-main">TERRACE&nbsp;LABの特徴</h2>
+            <h2 class="title-box-main">テラスラボでできること</h2>
             <!-- .title-box-main end-->
-            <p class="title-box-sub-title">テキストが入ります</p>
-            <!-- .title-box-sub-title end-->
           </div>
           <!-- .title-box end-->
           <ol class="feature-list">

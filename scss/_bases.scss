@@ -18,19 +18,20 @@
   --light-yellow: #{v.$lightyellow};
   --navy-bg: #{v.$main-bg-color};
 
-  --font-md: 1.2857rem; // 18px
-  --font-lg: 1.4286rem; // 20px,
+  --font-md: 18px; // 18px
+  --font-lg: 20px; // 20px,
   /**
   @include v.media("sp") {
     font-size: 10px;
     line-height: 1;
   } **/
 }
-
+html {
+  font-size: 14px;
+}
 body {
   font-family: v.$font-main;
-  font-size: 14px;
-  font-weight: 900;
+  font-weight: 900; //太め
   line-height: 1.5;
   color: var(--black);
 }
@@ -61,7 +62,7 @@ main {
   margin: 0 auto;
 
   @include v.media(mobile) {
-    width: 100%;
+    width: 98%;
     padding: 1rem 0;
   }
   // サイドバーありのレイアウト
@@ -84,7 +85,7 @@ main {
 }
 
 .title-box {
-  margin-bottom: 2.5rem;
+  margin-bottom: 5rem;
   font-weight: bolder;
   text-align: center;
 
