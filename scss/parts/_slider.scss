@@ -1,0 +1,62 @@
+@use '../variables' as v;
+
+.pickup {
+  &-swiper {
+    &-slide {
+      max-width: 60%;
+      margin: 0;
+      background-color: var(--white);
+
+      @include v.media(mobile) {
+        max-width: 90%;
+      }
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    &-arrow {
+      position: static;
+      width: 82.5px;
+      height: 165px;
+      aspect-ratio: 1;
+      font-size: 5rem;
+      color: var(--black);
+      pointer-events: auto;
+      background-color: var(--yellow);
+      border: none;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &-button {
+    &-prev {
+      border-radius: 100% 0 0 100% / 50%;
+    }
+
+    &-next {
+      border-radius: 0 100% 100% 0 / 50%;
+    }
+  }
+}
+
+// コンテンツ毎のボタン設定
+.swiper {
+  &-button {
+    z-index: 9;
+    width: 100%;
+    pointer-events: none;
+
+    @extend %absolute-center;
+    @include v.flex;
+  }
+
+  &-navigation-icon {
+    display: none;
+  }
+}

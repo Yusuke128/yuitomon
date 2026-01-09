@@ -1,5 +1,5 @@
-@forward "parts/header"; // style.scssでの読込軽減
-@forward "parts/footer";
-@forward "parts/humberger";
-@forward "parts/sidebar";
-@forward "parts/front-page";
+@forward 'parts/header'; // style.scssでの読込軽減
+@forward 'parts/footer';
+@forward 'parts/humberger';
+@forward 'parts/seal';
+@forward 'parts/slider';

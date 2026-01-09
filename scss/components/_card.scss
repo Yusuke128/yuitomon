@@ -1,54 +1,71 @@
-@use "../variables";
+@use '../variables';
 
 .card {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: auto 1fr;
   gap: 1rem;
-  align-items: center;
+  place-content: center stretch;
+  max-width: 550px;
+  color: inherit; // カードがaタグだった場合の処理
+
+  &-title {
+    font-size: 2rem;
+  }
+
+  &-text {
+    line-height: inherit;
+  }
 
   &-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
     align-items: stretch;
+    justify-content: space-between;
   }
 
   &-content {
     display: grid;
+    grid-template-rows: auto;
     gap: 0.5rem;
+    align-content: start;
+    align-self: start;
   }
 
   &-imgbox {
-    align-items: center;
-    width: 100%;
+    display: grid;
+    place-items: center;
     aspect-ratio: 1;
     overflow: hidden;
   }
 
   &-img {
-    display: block;
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: contain;
-
-    img {
-      width: auto;
-      height: 100%;
-    }
   }
 
   &-sublist {
     @extend %list-disc;
   }
 
-  // カードがリンクだった場合の設定
-  &-link,
-  a {
-    color: var(--dark-color);
+  &-link {
+    color: inherit;
 
-    :visited,
-    :active {
-      color: var(--dark-color);
+    &:visited,
+    &:active {
+      color: inherit;
+    }
+
+    &:hover .card-img {
+      transform: scale(1.2);
+    }
+  }
+
+  @at-root a#{&} {
+    &:visited,
+    &:active {
+      color: inherit; // カードがaタグだった場合の処理
     }
   }
 }

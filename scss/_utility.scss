@@ -1,4 +1,4 @@
-@use "variables" as v;
+@use 'variables' as v;
 
 // ハンバーガーオープン時のスクロール制御
 .no-scroll {
@@ -6,144 +6,71 @@
 }
 
 .bg {
-  &-green {
-    padding: 3rem 2rem;
-    background-color: var(--green);
+  &-navy {
+    background-color: var(--navy);
   }
 
   &-yellow {
-    padding: 3rem 5rem;
     background-color: var(--yellow);
+  }
 
-    @include v.media(mobile) {
-      padding: 1rem;
-    }
+  &-lightyellow {
+    background-color: var(--light-yellow);
   }
 
   &-white {
-    padding: 3rem 5rem;
     background-color: var(--white);
-
-    @include v.media(mobile) {
-      padding: 1rem;
-    }
   }
 
   &-gray {
-    padding: 3rem 5rem;
     background-color: var(--gray);
-
-    @include v.media(mobile) {
-      padding: 1rem;
-    }
   }
 }
 
 .bd {
-  &-green {
-    border-color: var(--green);
-
-    @extend %border-base;
-  }
+  @extend %border;
 
   &-yellow {
     border-color: var(--yellow);
+  }
 
-    @extend %border-base;
+  &-lightnavy {
+    border-color: var(--light-navy);
+  }
+
+  &-black {
+    border-color: var(--black);
+  }
+
+  &-w5 {
+    border-width: 5px;
+  }
+
+  &-bottom {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+  }
+
+  &-noside {
+    border-style: inherit;
+    border-right-width: inherit;
+    border-left-width: inherit;
+  }
+
+  &-dashed {
+    border-style: dashed;
   }
 }
 
-.has-seal {
-  position: relative;
-}
-
-.seal {
-  position: absolute;
-  transform-origin: 50% 10%;
-  animation: seal-bell 10s ease-in-out infinite;
+.section-padding {
+  padding: 3rem 2rem;
 
   @include v.media(mobile) {
-    max-width: 79px;
-  }
-
-  &--kv {
-    bottom: -100px;
-    left: 73px;
-
-    @include v.media(mobile) {
-      left: 1rem;
-      z-index: 1;
-    }
-  }
-
-  &-slider-1 {
-    top: -4rem;
-    right: 20%;
-
-    @include v.media(sp) {
-      top: auto;
-      right: 0;
-      bottom: -3rem;
-    }
-  }
-
-  &-slider-2 {
-    bottom: -6rem;
-    left: 15%;
-
-    @include v.media(mobile) {
-      display: none;
-    }
-  }
-
-  &--prep {
-    bottom: 2rem;
-    left: -1rem;
-  }
-
-  &--site-nav {
-    top: -30%;
-    right: -15%;
-
-    @include v.media(mobile) {
-      right: 0;
-    }
-  }
-
-  &--sns {
-    top: -8rem;
-    left: -2rem;
+    padding: 1rem;
   }
 }
 
-@keyframes seal-bell {
-  0% {
-    transform: rotate(var(--seal-rotate, 0deg));
-  }
-
-  10% {
-    transform: rotate(calc(var(--seal-rotate, 0deg) + 6deg));
-  }
-
-  25% {
-    transform: rotate(calc(var(--seal-rotate, 0deg) - 4deg));
-  }
-
-  45% {
-    transform: rotate(calc(var(--seal-rotate, 0deg) + 2deg));
-  }
-
-  65% {
-    transform: rotate(calc(var(--seal-rotate, 0deg) - 1deg));
-  }
-
-  100% {
-    transform: rotate(var(--seal-rotate, 0deg));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .seal {
-    animation: none;
-  }
+.section-margin {
+  margin: 5rem auto;
 }

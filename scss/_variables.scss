@@ -2,20 +2,22 @@
 // Variables 変数
 // ================================================
 
-$green: #54b565;
-$lightgreen: #c4e6ca;
 $yellow: #ffe34d;
+$lightyellow: #fff7ca;
+$navy: #146c94;
+$lightnavy: #6d98ac;
 $white: #fff;
 $black: #333;
 $gray: #9d9c9c;
 $red: #ed5454;
-$font-main: "VDL-V7MaruGothic", "Zen Maru Gothic", "M PLUS Rounded 1c", "Noto Sans JP", "Material Symbols Rounded",
+$main-bg-color: #80acc0;
+$font-main: 'VDL-V7MaruGothic', 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Noto Sans JP', 'Material Symbols Rounded',
   system-ui, sans-serif;
 $breakpoints: (
-  sp: "screen and (max-width: 767px)",
-  tab: "screen and (min-width : 768px) and (max-width: 1023px)",
-  pc: "screen and (min-width: 1024px)",
-  mobile: "screen and (max-width:1023px)"
+  sp: 'screen and (max-width: 767px)',
+  tab: 'screen and (min-width : 768px) and (max-width: 1023px)',
+  pc: 'screen and (min-width: 1024px)',
+  mobile: 'screen and (max-width:1023px)'
 );
 
 // ================================================
@@ -23,7 +25,7 @@ $breakpoints: (
 // ================================================
 
 // レスポンシブ対応
-@use "sass:map";
+@use 'sass:map';
 
 @mixin media($breakpoint) {
   @media #{map.get($breakpoints,$breakpoint)} {
@@ -46,9 +48,10 @@ $breakpoints: (
   left: 50%;
   transform: translate(-50%, -50%);
 }
-%border-base {
+%border {
+  border-color: var(--navy);
   border-style: solid;
-  border-width: 15px;
+  border-width: 10px;
 }
 %radius {
   border-radius: 30px;

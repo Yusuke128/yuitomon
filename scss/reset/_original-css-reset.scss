@@ -1,9 +1,6 @@
 /*
 ** original reset
 */
-body {
-  margin: 0;
-}
 
 body,
 h1,
@@ -59,8 +56,8 @@ img {
   border-style: none;
 }
 
-ul[role="list"],
-ol[role="list"] {
-  padding: 0;
-  margin: 0;
+ul[role='list'],
+ol[role='list'] {
+  padding-inline-start: 0;
+  margin-block: 0;
 }

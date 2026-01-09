@@ -1,0 +1,126 @@
+@use '../variables' as v;
+
+.has-seal {
+  position: relative;
+}
+
+.seal {
+  position: absolute;
+  z-index: 1;
+  transform-origin: 50% 10%;
+  animation: seal-bell 10s ease-in-out infinite;
+
+  @include v.media(mobile) {
+    max-width: 79px;
+  }
+
+  &-block {
+    display: contents;
+  }
+
+  &-kv {
+    &-1 {
+      bottom: 0;
+      left: 0;
+    }
+
+    &-2 {
+      right: 0;
+      bottom: 0;
+      animation-delay: 0.5s;
+    }
+  }
+
+  &-feature {
+    &-1 {
+      top: -4rem;
+      left: -4rem;
+      animation-delay: 1s;
+    }
+
+    &-2 {
+      top: -4rem;
+      left: 0;
+      animation-delay: 1.5s;
+    }
+
+    &-3 {
+      right: 0;
+      bottom: -5.5rem;
+      animation-delay: 2s;
+    }
+
+    &-4 {
+      right: 3rem;
+      bottom: -7.5rem;
+      animation-delay: 2.5s;
+    }
+  }
+
+  &-howto {
+    &-1 {
+      bottom: -5rem;
+      left: 10rem;
+      animation-delay: 3s;
+    }
+
+    &-2 {
+      bottom: -5rem;
+      left: 0;
+      animation-delay: 3.5s;
+    }
+  }
+
+  &-adminvoice {
+    &-1 {
+      top: 0;
+      right: 3rem;
+    }
+
+    &-2 {
+      top: 0;
+      right: 4rem;
+    }
+  }
+
+  &--site-nav {
+    top: -30%;
+    right: -15%;
+
+    @include v.media(mobile) {
+      right: 0;
+    }
+  }
+}
+
+@keyframes seal-bell {
+  0% {
+    transform: rotate(var(--seal-rotate, 0deg));
+  }
+
+  10% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) + 6deg));
+  }
+
+  25% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) - 4deg));
+  }
+
+  45% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) + 2deg));
+  }
+
+  65% {
+    transform: rotate(calc(var(--seal-rotate, 0deg) - 1deg));
+  }
+
+  100% {
+    transform: rotate(var(--seal-rotate, 0deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal {
+    animation: none;
+  }
+}

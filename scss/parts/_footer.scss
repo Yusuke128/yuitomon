@@ -1,43 +1,51 @@
 // ==================================================================
 // footer
 // ==================================================================
-@use "../variables" as v;
+@use '../variables' as v;
 
 footer {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
 .footer {
-  @include v.media(mobile) {
-    padding: 1rem;
+  &-nav-list {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 
-    &-logo {
-      grid-row-start: 2;
-      margin: 0 auto;
+  .nav {
+    &-title {
+      width: 80%;
+      line-height: 1.5;
+    }
+
+    &-container {
+      display: flex;
+      grid-column: 3;
+      gap: 3rem;
+      justify-content: space-evenly;
     }
   }
 
-  &-nav {
-    gap: 4.5rem;
+  nav {
+    display: grid;
+    gap: 1rem;
+    place-content: start;
 
-    @include v.flex(space-evenly, center);
+    &[data-role='footer-nav'] {
+      grid-column: 3;
+    }
 
-    @include v.media(mobile) {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-start;
+    &[data-role='sns'] {
+      grid-column: 1;
     }
   }
 
   .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-
-    @include v.media(mobile) {
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: auto 1fr auto;
   }
 
   .copyright {

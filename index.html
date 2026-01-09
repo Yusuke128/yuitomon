@@ -2,11 +2,11 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover" />
     <title>Yuitomon&nbsp;HTML&nbsp;Page</title>
 
     <!-- SEO -->
-    <meta name="title-box-sub-title" content="ページの概要を記述します" />
+    <meta name="description" content="ページの概要を記述します" />
     <link rel="canonical" href="https://example.com/page-url" />
 
     <!-- General -->
@@ -21,15 +21,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
 
   <body>
-    <header class="header front-page">
+    <header class="header front-page bd bd-navy bd-bottom">
       <div class="container">
         <div class="title-box">
           <h1 class="logo"><img src="img/logo.png" alt="ロゴ" class="logo" /></h1>
@@ -38,18 +40,18 @@
           <!-- .title-box-sub-title end-->
         </div>
         <!-- .title_box end-->
-        <nav class="nav-sp sp">
+        <nav class="nav-sp">
           <ul class="header-nav header-nav-sp" role="list">
             <li class="header-nav-list">
-              <a href="" class="link bg-green">
-                <img src="img/sp-menu/mypage.png" alt="マイページアイコン" />
+              <a href="" class="link bg-navy">
+                <img src="img/header/mypage.png" alt="マイページアイコン" />
                 マイページ
               </a>
               <!-- .link end-->
             </li>
             <!-- .header-nav-list end-->
             <li class="header-nav-list">
-              <button class="nav-toggle bg-green">
+              <button class="nav-toggle bg-navy">
                 <div class="humberger">
                   <span class="humberger-border"></span>
                   <!-- .humbeger-border end-->
@@ -71,22 +73,26 @@
         <nav class="nav-pc">
           <ul class="header-nav header-nav-pc" role="list">
             <li class="header-nav-list">
-              <a href="" class="link bg-yellow icon">パック教材</a>
+              <a href="" class="link">
+                <img src="img/header/test.png" alt="実力テスト" class="header-icon" />
+                実力テスト
+              </a>
               <!-- .link end-->
             </li>
             <!-- .header-nav-list end-->
             <li class="header-nav-list">
-              <a href="" class="link bg-yellow icon">単元別</a>
-              <!-- .link end-->
-            </li>
-            <!-- .header-nav-list end-->
-            <li class="header-nav-list disabled">
-              <a href="" class="link icon" aria-disabled="true">学校別</a>
+              <a href="" class="link">
+                <img src="img/header/prep.png" alt="単元別教材" class="header-icon" />
+                単元別教材
+              </a>
               <!-- .link end-->
             </li>
             <!-- .header-nav-list end-->
             <li class="header-nav-list">
-              <a href="" class="link">マイページ</a>
+              <a href="" class="link">
+                <img src="img/header/mypage.png" alt="マイページ" class="header-icon" />
+                マイページ
+              </a>
               <!-- .link end-->
             </li>
             <!-- .header-nav-list end-->
@@ -97,238 +103,445 @@
       <!-- .container end-->
     </header>
     <main>
-      <section class="kv bd-green has-seal">
-        <img src="img/front-page/image_sample.png" alt="TOP画像" class="kv-img" />
-        <img src="img/front-page/ABC.png" alt="英語イメージ" class="seal seal--kv" />
+      <section class="kv bd bd-navy bd-bottom bg-white">
+        <div class="container has-seal">
+          <div class="kv-imgbox">
+            <img src="img/front-page/kv-sample.png" alt="TOP画像" class="kv-img" />
+          </div>
+          <!-- .kv-imgbox end-->
+          <article class="kv-textarea">
+            <div class="kv-content bd bd-navy radius bd-w5 section-padding">
+              <!-- <h2 class="kv-title">タイトルが入ります</h2> -->
+              <!-- .kv-title end-->
+              <p class="kv-text">表示コンテンツ:新商品?お知らせ？画像と一緒に動くスライダー？</p>
+              <p class="kv-text">
+                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+              </p>
+              <!-- .kv-text end-->
+            </div>
+            <!-- .kv-content end-->
+            <a href="" class="link kv-link btn btn-yellow">CHECK</a>
+            <!-- .link kv-link end-->
+          </article>
+          <!-- .kv-textarea end-->
+        </div>
+        <!-- .container end-->
       </section>
       <!-- .kv end-->
-      <section class="pickup-product has-seal">
-        <div class="pickup-cards pickup-slider">
-          <!-- .prebiew end-->
-          <a href="" class="link card bd-green">
-            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
-          </a>
-          <!-- .link bd-green end-->
-          <a href="" class="link card bd-green">
-            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
-          </a>
-          <!-- .link bd-green end-->
-          <a href="" class="link card bd-green">
-            <img src="img/front-page/image_sample.png" alt="" class="pickup-img" />
-          </a>
-          <!-- .link bd-green end-->
+
+      <!-- 新着・お知らせ -->
+      <section class="pickup-product">
+        <!-- 新着 swiper -->
+        <div class="pickup-swiper swiper">
+          <div class="swiper-wrapper">
+            <p
+              class="pickup-swiper-slide swiper-slide bd bd-navy radius"
+              style="height: 407px; display: grid; place-items: center"
+            >
+              条件で抽出した商品の表示にしましょうか？
+              <br />
+              それとも固定のコンテンツを表示しましましょうか？
+            </p>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
+              slide1
+              <img src="img/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
+              slide2
+              <img src="img/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
+              slide3
+              <img src="img/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
+              slide4
+              <img src="img/image_sample.png" alt="" class="pickup-img" />
+            </a>
+            <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
+              slide5
+              <img src="img/image_sample.png" alt="" class="pickup-img" />
+            </a>
+          </div>
+          <!-- .swiper-wrapper end-->
+          <div class="swiper-button container">
+            <button class="pickup-swiper-arrow swiper-button-prev pickup-button-prev">
+              <span class="material-symbols-outlined">keyboard_arrow_left</span>
+            </button>
+            <!-- .swiper-arrow swiper-prev end-->
+            <button class="pickup-swiper-arrow swiper-button-next pickup-button-next">
+              <span class="material-symbols-outlined">keyboard_arrow_right</span>
+            </button>
+            <!-- .swiper-arrow swiper-next end-->
+          </div>
+          <!-- .swiper-button end-->
         </div>
-        <!-- .pickup-cards end-->
-        <div class="seal-block">
-          <img src="img/front-page/frasco.png" alt="" class="seal seal-slider-1" />
-          <img src="img/front-page/protractor&triangle.png" alt="" class="seal seal-slider-2" />
-        </div>
-        <!-- .seal-block end-->
       </section>
       <!-- .pickup-product end-->
 
-      <div class="container">
-        <section class="product-list radius">
-          <section class="school-prep bg-yellow radius has-seal">
-            <div class="title-box">
-              <h2 class="title-box-main">小学校受験対策教材</h2>
-            </div>
-            <!-- .title-box end-->
-            <ul class="material-tags" role="list">
-              <li class="tag-item">
-                <a href="" class="link icon">
-                  <p class="tag-name">パック教材</p>
-                  <!-- .tag-name end-->
-                  <p class="tag-content">学年別や目標別にまとめられたお得なパック教材です。</p>
-                  <!-- .tag-content end-->
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .tag-item end-->
-              <li class="tag-item">
-                <a href="" class="link icon">
-                  <p class="tag-name">単元別</p>
-                  <!-- .tag-name end-->
-                  <p class="tag-content">苦手な分野を克服したい方におすすめ、単元別教材です。</p>
-                  <!-- .tag-content end-->
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .tag-item end-->
-              <li class="tag-item disabled">
-                <a href="" class="link icon" aria-disabled="true">
-                  <p class="tag-name">学校別</p>
-                  <!-- .tag-name end-->
-                  <p class="tag-content">特定の小学校対策に特化した教材は近日公開予定です。</p>
-                  <!-- .tag-content end-->
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .tag-item end-->
-            </ul>
-            <!-- .material-tags end-->
-            <img src="img/front-page/school.png" alt="" class="seal seal--prep" />
-          </section>
-          <!-- .school-prep end-->
-          <section class="school-basic bg-yellow radius">
-            <div class="title-box">
-              <h2 class="title-box-main">小学校基礎学習教材</h2>
-            </div>
-            <!-- .title-box end-->
-            <ul class="material-tags" role="list">
-              <li class="tag-item disabled">
-                <a href="" class="link icon" aria-disabled="true">
-                  <p class="tag-name">単元別</p>
-                  <!-- .tag-name end-->
-                  <p class="tag-content">小学生向けの基礎学習教材は近日公開予定です。</p>
-                  <!-- .tag-content end-->
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .tag-item end-->
-            </ul>
-            <!-- .material-tags end-->
-          </section>
-          <!-- .school-basic end-->
-        </section>
-        <!-- .product-list end-->
-        <aside class="sidemenu">
-          <section class="site-navigation bg-green radius has-seal">
-            <div class="title-box">
-              <h2 class="section-title">ナビゲーション</h2>
-              <!-- .section-title end-->
-            </div>
-            <!-- .title-box end-->
-            <ul class="site-navigation-list" role="list">
-              <li class="list-item">
-                <a href="" class="link">ご利用ガイド</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item">
-                <a href="" class="link">教材特徴</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item">
-                <a href="" class="link">監修者/運営者紹介</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-            </ul>
-            <!-- .site-navigation-list end-->
-            <img src="img/front-page/pancil&erase.png" alt="" class="seal seal--site-nav" />
-          </section>
-          <!-- .site-navigation bg-green radius end-->
-          <section class="site-navigation bg-green radius">
-            <div class="title-box">
-              <h2 class="section-title">カテゴリ</h2>
-              <!-- .section-title end-->
-            </div>
-            <!-- .title-box end-->
-            <ul class="site-navigation-list" role="list">
-              <li class="list-item">
-                <a href="" class="link">年中向け</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item">
-                <a href="" class="link">年長向け</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item">
-                <a href="" class="link">図形</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item">
-                <a href="" class="link">数量</a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-            </ul>
-            <!-- .site-navigation-list end-->
-          </section>
-          <!-- .site-navigation bg-green radius end-->
-          <section class="site-navigation bg-green radius has-seal">
-            <div class="title-box">
-              <h2 class="section-title">SNS紹介</h2>
-              <!-- .section-title end-->
-            </div>
-            <!-- .title-box end-->
-            <ul class="site-navigation-list social-link" role="list">
-              <li class="list-item x">
-                <a href="" class="link">
-                  <div class="social-icon">
-                    <img src="img/social-icons/x.png" alt="" class="social-icon-img" />
-                  </div>
-                  TERRACE LAB.COM
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item facebook">
-                <a href="" class="link">
-                  <div class="social-icon">
-                    <img src="img/social-icons/facebook.png" alt="" class="social-icon-img" />
-                  </div>
-                  TERRACE LAB.COM
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-              <li class="list-item instagram">
-                <a href="" class="link">
-                  <div class="social-icon">
-                    <img src="img/social-icons/insta.png" alt="" class="social-icon-img" />
-                  </div>
-                  <!-- .social-icon end-->
-                  TERRACE LAB.COM
-                </a>
-                <!-- .link end-->
-              </li>
-              <!-- .list-item end-->
-            </ul>
-            <!-- .site-navigation-list end-->
+      <!-- お悩み喚起 -->
+      <section class="problem section-padding section-margin bg-white">
+        <div class="container">
+          <div class="title-box">
+            <h2 class="title-box-main">こんなお悩みありませんか？</h2>
+            <!-- .title-box-main end-->
+          </div>
+          <!-- .title-box end-->
 
-            <img src="img/front-page/pencil&note.png" alt="" class="seal seal--sns" />
+          <ul class="card-list problem-list" role="list">
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-school.png" alt="学校" class="card-img problem-card-img" />
+              </div>
+              <!-- .card-imgbox end-->
+              <!-- <h3 class="card-title"></h3> -->
+              <!-- .card-title end-->
+              <div class="card-content">
+                <p class="card-text">お子様の学力がわからず、受験を視野に入れて良いのか迷っている</p>
+              </div>
+              <!-- .card-content end-->
+            </li>
+            <!-- .card problem-card end-->
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-pencil.png" alt="" class="card-img problem-card-img" />
+              </div>
+              <!-- .card-imgbox end-->
+              <!-- <h3 class="card-title"></h3> -->
+              <!-- .card-title end-->
+              <div class="card-content">
+                <p class="card-text">家庭学習やお教室で頑張っているが、成長している実感がない</p>
+              </div>
+              <!-- .card-content end-->
+            </li>
+            <!-- .card problem-card end-->
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/problem-teach.png" alt="" class="card-img problem-card-img" />
+              </div>
+              <!-- .card-imgbox end-->
+              <!-- <h3 class="card-title"></h3> -->
+              <!-- .card-title end-->
+              <div class="card-content">
+                <p class="card-text">評価が教室・先生次第で、本当に妥当か不安</p>
+              </div>
+              <!-- .card-content end-->
+            </li>
+            <!-- .card problem-card end-->
+            <li class="card problem-card bd bd-w5 radius">
+              <div class="card-imgbox problem-card-imgbox">
+                <img src="img/front-page/note.png" alt="" class="card-img problem-card-img" />
+              </div>
+              <!-- .card-imgbox end-->
+              <!-- <h3 class="card-title"></h3> -->
+              <!-- .card-title end-->
+              <div class="card-content">
+                <p class="card-text">模試が気軽に受けれない。また、結果が出るまで時間がかかる。</p>
+              </div>
+              <!-- .card-content end-->
+            </li>
+            <!-- .card problem-card end-->
+          </ul>
+          <!-- .card-list.problem-list end-->
+        </div>
+        <!-- .container end-->
+      </section>
+      <!-- .problem end-->
 
-            <!-- .seal seal--sns end-->
-          </section>
-          <!-- .site-navigation bg-green radius end-->
-        </aside>
-        <!-- .sidemenu end-->
-      </div>
+      <!-- テラスラボでできること -->
+      <section class="feature section-padding section-margin bg-white">
+        <div class="container has-seal">
+          <div class="title-box">
+            <h2 class="title-box-main">テラスラボでできること</h2>
+            <!-- .title-box-main end-->
+          </div>
+          <!-- .title-box end-->
+          <div class="main-layout">
+            <ol class="feature-list" role="list">
+              <li class="feature-list-item list-item bd bd-navy bd-w5 bd-bottom">
+                <h3 class="feature-list-title">安価&and;即日結果確認可能な模試</h3>
+                <!-- .feature-list-title end-->
+                <p class="feature-list-content">一般的なお教室の模試より安く、結果も早く確認できる。</p>
+                <!-- .bd bd-navy bd-w5 bd-bottom end-->
+              </li>
+              <!-- .feature-list-item list-item end-->
+              <li class="feature-list-item list-item list-item bd bd-navy bd-w5 bd-bottom">
+                <h3 class="feature-list-title">得意のAI分析</h3>
+                <!-- .feature-list-title end-->
+                <p class="feature-list-content">AI分析で、今の実力を客観的に見える化</p>
+                <!-- .bd bd-navy bd-w5 bd-bottom end-->
+              </li>
+              <!-- .feature-list-item list-item end-->
+              <li class="feature-list-item list-item list-item bd bd-navy bd-w5 bd-bottom">
+                <h3 class="feature-list-title">的確なフィードバック</h3>
+                <!-- .feature-list-title end-->
+                <p class="feature-list-content">
+                  成長と課題を、納得できる形でフィードバック。体験者の視点を加え、わかりやすく説明。
+                </p>
+                <!-- .bd bd-navy bd-w5 bd-bottom end-->
+              </li>
+              <!-- .feature-list-item list-item end-->
+              <li class="feature-list-item list-item list-item bd bd-navy bd-w5 bd-bottom">
+                <h3 class="feature-list-title">やるべきこと提案</h3>
+                <!-- .feature-list-title end-->
+                <p class="feature-list-content">AIと体験者の知見をもとに、次にやるべきことを提案</p>
+                <!-- .bd bd-navy bd-w5 bd-bottom end-->
+              </li>
+              <!-- .feature-list-item list-item end-->
+            </ol>
+            <!-- .feature-list end-->
+            <div class="feature-imgbox">
+              <img src="img/front-page/Iphone.png" alt="" class="feture-img" />
+            </div>
+            <!-- .feature-imgbox end-->
+          </div>
+          <!-- .main-layout end-->
+
+          <div class="seal-block">
+            <img src="img/front-page/cherry_pink.png" alt="さくら" class="seal seal-feature-1" />
+            <img src="img/front-page/cherry_pink_thin.png" alt="さくら" class="seal seal-feature-2" />
+            <img src="img/front-page/cherry_pink.png" alt="さくら" class="seal seal-feature-3" />
+            <img src="img/front-page/cherry_pink_thin.png" alt="さくら" class="seal seal-feature-4" />
+          </div>
+          <!-- .seal-block end-->
+        </div>
+        <!-- .container end-->
+      </section>
+      <!-- .feature end-->
+
+      <!-- 使い方 -->
+      <section class="howto section-padding section-margin bg-white">
+        <div class="container has-seal">
+          <div class="title-box">
+            <h2 class="title-box-main">ご利用までの流れ</h2>
+            <!-- .title-box-main end-->
+          </div>
+          <!-- .title-box end-->
+          <ol class="howto-list" role="list">
+            <li class="howto-item">
+              <div class="howto-imgbox bd bd-navy bd-w5">
+                <img src="img/front-page/download.png" alt="" class="howto-img" />
+              </div>
+              <!-- .howto-imgbox end-->
+              <div class="howto-content">
+                <h3 class="howto-step-title btn btn-navy">STEP1</h3>
+                <!-- .howto-step-title btn btn-navy end-->
+                <div class="howto-text">
+                  <p>教材を購入・ダウンロード</p>
+                </div>
+              </div>
+              <!-- .howto-content end-->
+            </li>
+            <!-- .howto-item end-->
+            <li class="howto-item">
+              <div class="howto-imgbox bd bd-navy bd-w5">
+                <img src="img/front-page/note.png" alt="" class="howto-img" />
+              </div>
+              <!-- .howto-imgbox end-->
+              <div class="howto-content">
+                <h3 class="howto-step-title btn btn-navy">STEP2</h3>
+                <!-- .howto-step-title btn btn-navy end-->
+                <div class="howto-text">
+                  <p>テストを実施・結果を入力</p>
+                </div>
+              </div>
+              <!-- .howto-content end-->
+            </li>
+            <!-- .howto-item end-->
+            <li class="howto-item">
+              <div class="howto-imgbox bd bd-navy bd-w5">
+                <img src="img/front-page/feedback.png" alt="" class="howto-img" />
+              </div>
+              <!-- .howto-imgbox end-->
+              <div class="howto-content">
+                <h3 class="howto-step-title btn btn-navy">STEP3</h3>
+                <!-- .howto-step-title btn btn-navy end-->
+                <div class="howto-text">
+                  <p>結果と対策を確認</p>
+                  <p>※翌日〜1週間以内にフィードバック</p>
+                </div>
+                <!-- .howto-text end-->
+              </div>
+              <!-- .howto-content end-->
+            </li>
+            <!-- .howto-item end-->
+          </ol>
+          <!-- .howto-list end-->
+          <div class="seal-block">
+            <img src="img/front-page/eraser.png" alt="消しゴム" class="seal seal-howto-1" />
+            <img src="img/front-page/pencil.png" alt="鉛筆" class="seal seal-howto-2" />
+          </div>
+          <!-- .seal-block end-->
+        </div>
+        <!-- .container end-->
+      </section>
+      <!-- .howto container end-->
+
+      <!-- 教材紹介 -->
+      <section class="prep section-padding section-margin bg-white bd bd-navy bd-dashed bd-noside">
+        <div class="container">
+          <div class="title-box">
+            <h2 class="title-box-main">小学校受験対策教材</h2>
+          </div>
+          <!-- .title-box end-->
+          <ul class="prep-list card-list" role="list">
+            <li class="card prep-card" data-card="first-action">
+              <!-- .first-action end-->
+              <div class="card-content prep-card-content bd bd-yellow bg-lightyellow radius section-padding">
+                <p class="first-action">まずはここから!!</p>
+                <h3 class="prep-title">実力テスト</h3>
+                <!-- .prep-title end-->
+                <p class="prep-text">テキストテキストテキストテキストテキスト</p>
+                <!-- .prep-text end-->
+                <div class="card-imgbox prep-imgbox">
+                  <img src="img/front-page/test.png" alt="" class="prep-img" />
+                </div>
+                <!-- .prep-imgbox end-->
+              </div>
+              <!-- .bd bd-yellow bg-lightyellow end-->
+              <a href="" class="link btn btn-yellow bg-lightyellow">詳細を見る</a>
+              <!-- .link btn btn-yellow bg-lightyellow end-->
+            </li>
+            <!-- .card prep-card  end-->
+            <li class="card prep-card">
+              <div class="card-content prep-card-content bd bd-lightnavy bd-w5 radius section-padding">
+                <h3 class="prep-title">模試</h3>
+                <!-- .prep-title end-->
+                <p class="prep-text">テキストテキストテキストテキストテキスト</p>
+                <!-- .prep-text end-->
+                <div class="card-imgbox prep-imgbox">
+                  <img src="img/front-page/note.png" alt="" class="prep-img" />
+                </div>
+                <!-- .prep-imgbox end-->
+              </div>
+              <!-- .bd bd-navy end-->
+              <a href="" class="link btn btn-lightnavy">詳細を見る</a>
+              <!-- .link btn btn-navy end-->
+            </li>
+            <!-- .card prep-card  end-->
+            <li class="card prep-card">
+              <div class="card-content prep-card-content bd bd-lightnavy bd-w5 radius section-padding">
+                <h3 class="prep-title">単元別教材</h3>
+                <!-- .prep-title end-->
+                <p class="prep-text">テキストテキストテキストテキストテキスト</p>
+                <!-- .prep-text end-->
+                <div class="card-imgbox prep-imgbox">
+                  <img src="img/front-page/prep.png" alt="" class="prep-img" />
+                </div>
+                <!-- .prep-imgbox end-->
+              </div>
+              <!-- .bd bd-navy end-->
+              <a href="" class="link btn btn-lightnavy">詳細を見る</a>
+              <!-- .link btn btn-navy end-->
+            </li>
+            <!-- .card prep-card  end-->
+          </ul>
+          <!-- .prep-list card-list end-->
+        </div>
+        <!-- .container end-->
+      </section>
+      <!-- .prep end-->
+
+      <!-- 運営・監修者 -->
+      <article class="adminvoice container bg-white bd bd-navy bd-w5 radius section-padding">
+        <div class="title-box">
+          <h2 class="title-box-main">運営・監修者</h2>
+          <!-- .title-box-main end-->
+        </div>
+        <div class="main-layout-reverse">
+          <div class="adminvoice-left bd bd-navy bd-w5">
+            <img src="" alt="" class="adminvoice-img" />
+          </div>
+          <!-- .adminvoice-left end-->
+          <div class="adminvoice-right">
+            <!-- .title-box end-->
+            <div class="adminvoice-message">
+              <p>働きながら小学校受験を実際に経験し、</p>
+              <p>私立御三家にも合格をいただいたメンバーでテラスラボを運営しています。</p>
+              <p>
+                大手IT企業での事業開発で培った、
+                <br />
+                や分析の経験を活かし、小学校受験の実体験をもとに、
+                <br />
+                迷わず次の一歩を踏み出せるサポートを目指しています。
+              </p>
+            </div>
+            <!-- .adminvoice-messege end-->
+            <p class="adminvoice-name">
+              <span class="adminvoice-postname">〇〇株式会社&nbsp;代表取締役</span>
+              <!-- .adminvoice-postname end-->
+              山田&nbsp;太郎
+            </p>
+            <!-- .adminvoice-name end-->
+          </div>
+          <!-- .adminvoice-right end-->
+        </div>
+        <!-- .main-leyout-reverse end-->
+      </article>
+      <!-- .adminvoice conteiner end-->
     </main>
     <footer class="footer front-page">
       <div class="container">
         <img src="img/logo.png" alt="" class="footer-logo" />
-        <nav>
-          <ul class="footer-nav" role="list">
-            <li class="footer-nav-item">
-              <a href="" class="link">FAQ</a>
-              <!-- .link end-->
-            </li>
-            <!-- .footer-nav-item end-->
-            <li class="footer-nav-item">
-              <a href="" class="link">特商標表記</a>
-              <!-- .link end-->
-            </li>
-            <!-- .footer-nav-item end-->
-            <li class="footer-nav-item">
-              <a href="" class="link">プライバシーポリシー</a>
-              <!-- .link end-->
-            </li>
-            <!-- .footer-nav-item end-->
-            <li class="footer-nav-item">
-              <a href="" class="link">お問い合わせ</a>
-              <!-- .link end-->
-            </li>
-            <!-- .footer-nav-item end-->
-          </ul>
-          <!-- .footer-nav end-->
-        </nav>
+        <div class="nav-container">
+          <nav data-role="sns">
+            <h2 class="nav-title bd bd-w5 bd-bottom bd-black">SNS</h2>
+            <!-- .nav-title end-->
+            <ul class="footer-sns footer-nav-list" role="list">
+              <li class="list-item x">
+                <a href="" class="link">
+                  <div class="social-icon">
+                    <img src="img/social-icons/x_black.png" alt="X" class="social-icon-img" />
+                  </div>
+                  <!-- .social-icon end-->
+                  TERRACE&nbsp;LAB.COM
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item x end-->
+              <li class="list-item insta">
+                <a href="" class="link">
+                  <div class="social-icon">
+                    <img src="img/social-icons/insta_black.png" alt="instagram-icon" class="social-icon-img" />
+                  </div>
+                  <!-- .social-icon end-->
+                  TERRACE&nbsp;LAB.COM
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item insta end-->
+            </ul>
+            <!-- .footer-sns end-->
+          </nav>
+          <nav data-role="footer-nav">
+            <h2 class="nav-title bd bd-w5 bd-bottom bd-black">その他</h2>
+            <!-- .nav-title end-->
+            <ul class="footer-nav footer-nav-list" role="list">
+              <li class="footer-nav-item">
+                <a href="" class="link">FAQ</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+              <li class="footer-nav-item">
+                <a href="" class="link">特商標表記</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+              <li class="footer-nav-item">
+                <a href="" class="link">プライバシーポリシー</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+              <li class="footer-nav-item">
+                <a href="" class="link">お問い合わせ</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+            </ul>
+            <!-- .footer-nav end-->
+          </nav>
+        </div>
+        <!-- .nav-container end-->
       </div>
       <!-- .container end-->
       <small class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</small>
@@ -339,6 +552,8 @@
     <script src="https://kit.fontawesome.com/fc4b29f1b1.js" crossorigin="anonymous" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
     <script src="js/functions.js" defer></script>
   </body>
 </html>

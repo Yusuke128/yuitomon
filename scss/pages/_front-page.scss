@@ -1,0 +1,300 @@
+/** ==============================
+** フロントページ
+**================================ */
+@use '../variables' as v;
+
+.kv {
+  background-color: var(--white);
+
+  @include v.media(mobile) {
+    width: 100%;
+    height: auto;
+  }
+
+  &-imgbox {
+    width: 100%;
+  }
+
+  &-img {
+    height: 100%; // サンプル用
+    margin: 0 auto; // サンプル用
+  }
+
+  > .container {
+    gap: 3rem;
+
+    @include v.flex;
+  }
+
+  &-textarea {
+    max-width: 35%;
+    text-align: center;
+  }
+
+  &-content {
+    margin-bottom: 1.5rem;
+  }
+
+  &-title {
+    margin-bottom: 1rem;
+  }
+
+  &-link {
+    max-width: 45%;
+    font-weight: var(--font-weight-black);
+  }
+}
+
+.pickup {
+  &-product {
+    margin: 9rem 0;
+
+    @include v.media(mobile) {
+      margin: 3rem 0;
+    }
+  }
+
+  .seal-block {
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+
+    @extend %absolute-center;
+  }
+}
+
+.problem {
+  &-list {
+    max-width: 90%;
+    margin-inline: auto;
+
+    @include v.media(sp) {
+      max-width: none;
+    }
+  }
+
+  &-card {
+    padding: 2rem;
+
+    &-imgbox {
+      aspect-ratio: 16 / 9;
+
+      @include v.media(mobile) {
+        aspect-ratio: 0;
+      }
+    }
+
+    &-img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .card-content {
+    font-size: var(--font-md);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+.feature {
+  &-list {
+    display: grid;
+    gap: 3rem;
+    width: stretch;
+
+    &-item {
+      padding-bottom: 1rem;
+    }
+
+    &-title {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .main-layout {
+    place-items: center;
+  }
+}
+
+.howto {
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &-item {
+    position: relative;
+    display: inline-flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 50%;
+
+    @include v.media(sp) {
+      max-width: none;
+    }
+
+    &::after {
+      position: absolute;
+      top: 100%;
+      left: 55%;
+      width: 2px;
+      height: 7rem;
+      content: '';
+      border: dashed 2px var(--navy);
+      transform-origin: top;
+
+      @include v.media(mobile) {
+        top: 100%;
+        left: 22%;
+        height: 3rem;
+        transform: none;
+      }
+    }
+
+    &:first-child {
+      align-self: flex-start;
+
+      @include v.media(mobile) {
+        align-self: center;
+      }
+
+      &::after {
+        transform: rotate(-50deg) translateX(100%);
+
+        @include v.media(mobile) {
+          transform: none;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      align-self: center;
+
+      &::after {
+        transform: rotate(-50deg) translateX(50%);
+
+        @include v.media(mobile) {
+          transform: none;
+        }
+      }
+    }
+
+    &:last-child {
+      align-self: flex-end;
+
+      @include v.media(mobile) {
+        align-self: center;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &-imgbox {
+    position: relative;
+    place-items: center;
+    width: 250px;
+    aspect-ratio: 1;
+    padding: 3rem;
+    overflow: hidden;
+    border-radius: 100%;
+
+    @include v.media(sp) {
+      width: 45%;
+    }
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-content {
+    display: grid;
+    gap: 2rem;
+
+    @include v.media(sp) {
+      width: 50%;
+    }
+  }
+
+  &-text {
+    font-size: 1.14rem;
+    text-align: center;
+  }
+}
+
+.prep {
+  &-list {
+    position: relative;
+    max-width: 90%;
+    margin-inline: auto;
+
+    @include v.media(sp) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &-card {
+    grid-template-rows: 1fr auto;
+
+    &-content {
+      height: 100%;
+      text-align: center;
+    }
+
+    &[data-card='first-action'] {
+      grid-column: span 2;
+      max-width: 100%;
+    }
+  }
+
+  &-title {
+    grid-row: 2;
+  }
+
+  &-text {
+    grid-row: 3;
+  }
+
+  &-imgbox {
+    grid-row: 5;
+    aspect-ratio: auto;
+  }
+}
+
+.adminvoice {
+  &.container {
+    max-width: 70%;
+  }
+
+  .main-layout-reverse {
+    width: 80%;
+    margin: 0 auto;
+
+    @include v.media(mobile) {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &-left {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 100%;
+  }
+
+  &-message {
+    margin-bottom: 3rem;
+  }
+
+  &-name {
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+  }
+}
