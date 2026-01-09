@@ -33,6 +33,11 @@
   &-textarea {
     max-width: 35%;
     text-align: center;
+
+    @include v.media(sp) {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   &-content {
