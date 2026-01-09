@@ -24,6 +24,10 @@
     gap: 3rem;
 
     @include v.flex;
+
+    @include v.media(sp) {
+      flex-direction: column;
+    }
   }
 
   &-textarea {
@@ -197,26 +201,19 @@
 
   &-imgbox {
     position: relative;
+    display: grid;
+    place-content: center;
     place-items: center;
     width: 250px;
     aspect-ratio: 1;
-    padding: 3rem;
     overflow: hidden;
     border-radius: 100%;
-
-    @include v.media(sp) {
-      width: 45%;
-    }
   }
 
   &-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-
-    @include v.media(sp) {
-      max-width: 45%;
-    }
   }
 
   &-content {
