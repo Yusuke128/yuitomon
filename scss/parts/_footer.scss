@@ -50,13 +50,19 @@ footer {
 
   .link:has(.social-icon-img) {
     display: grid;
-    grid-template-columns: 24px 1fr;
+    grid-template-columns: 30px 1fr;
     gap: 1rem;
+    align-items: center;
   }
 
   .social-icon {
     display: grid;
+    place-content: center;
     place-items: center;
+    padding: 5px;
+    overflow: hidden;
+    border-width: 1px;
+    border-radius: 100%;
   }
 
   .copyright {

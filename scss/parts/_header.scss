@@ -126,13 +126,50 @@ header {
         aspect-ratio: 1;
         padding: 0.5rem;
         overflow: hidden;
+        font-weight: var(--font-weight-medium);
         color: var(--white);
         border-radius: 10px;
+
+        &:visited {
+          color: var(--white);
+        }
       }
 
       img {
         height: 80%;
         margin: 0 auto;
+      }
+
+      .user-icon {
+        gap: 0.8rem;
+        width: 100%;
+        max-width: 60px;
+        min-height: 40px;
+        margin-inline: auto;
+        overflow: hidden;
+
+        &::before,
+        &::after {
+          position: absolute;
+          height: 100%;
+          aspect-ratio: 1;
+          content: '';
+          background-color: var(--white);
+          border-radius: 50%;
+        }
+
+        &::before {
+          top: 0.15em;
+          width: 20px;
+          height: 20px;
+          aspect-ratio: 1;
+        }
+
+        &::after {
+          bottom: -0.9rem;
+          width: 70%;
+          height: 20px;
+        }
       }
     }
   }
