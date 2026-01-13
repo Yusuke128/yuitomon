@@ -15,6 +15,11 @@ footer {
     margin-top: 1rem;
   }
 
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+  }
+
   .nav {
     &-title {
       width: 80%;
@@ -43,9 +48,15 @@ footer {
     }
   }
 
-  .container {
+  .link:has(.social-icon-img) {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 24px 1fr;
+    gap: 1rem;
+  }
+
+  .social-icon {
+    display: grid;
+    place-items: center;
   }
 
   .copyright {
