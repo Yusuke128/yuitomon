@@ -141,6 +141,7 @@ header {
       }
 
       .user-icon {
+        position: relative;
         gap: 0.8rem;
         width: 100%;
         max-width: 60px;
@@ -151,18 +152,18 @@ header {
         &::before,
         &::after {
           position: absolute;
-          height: 100%;
-          aspect-ratio: 1;
+          left: 50%;
+          margin-inline: auto;
           content: '';
           background-color: var(--white);
           border-radius: 50%;
+          transform: translateX(-50%);
         }
 
         &::before {
           top: 0.15em;
           width: 20px;
           height: 20px;
-          aspect-ratio: 1;
         }
 
         &::after {
