@@ -108,16 +108,20 @@
       <section class="kv bd bd-navy bd-bottom bg-white">
         <div class="container has-seal">
           <div class="kv-imgbox">
-            <img src="img/front-page/kv-sample.png" alt="TOP画像" class="kv-img" />
+            <img src="img/front-page/kv.png" alt="TOP画像" class="kv-img" />
           </div>
           <!-- .kv-imgbox end-->
           <article class="kv-textarea">
             <div class="kv-content bd bd-navy radius bd-w5 section-padding">
               <!-- <h2 class="kv-title">タイトルが入ります</h2> -->
               <!-- .kv-title end-->
-              <p class="kv-text">表示コンテンツ:新商品?お知らせ？画像と一緒に動くスライダー？</p>
               <p class="kv-text">
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
+                <!-- 表示コンテンツ:文章のみ(WordPress管理画面で入力された内容)?特定の商品カテゴリ？
+                <br />
+                Checkの行き先は?
+                <br />
+                コメント、コメント、コメント、コメント、コメント、コメント -->
+                説明
               </p>
               <!-- .kv-text end-->
             </div>
@@ -140,9 +144,9 @@
               class="pickup-swiper-slide swiper-slide bd bd-navy radius"
               style="padding: 3rem; display: grid; place-items: center"
             >
-              条件で抽出した商品の表示にしましょうか？
+              画像のみで良いのか？
               <br />
-              それとも固定のコンテンツを表示しましましょうか？
+              リンクの場合対象となるリンク先はどこにするか
             </p>
             <a href="" class="link pickup-swiper-slide swiper-slide bd bd-navy radius">
               slide1
@@ -321,10 +325,13 @@
           <!-- .title-box end-->
           <ol class="howto-list" role="list">
             <li class="howto-item">
-              <div class="howto-imgbox bd bd-navy bd-w5">
-                <img src="img/front-page/download.png" alt="" class="howto-img" />
+              <div class="howto-imgwrapper">
+                <div class="howto-imgbox bd bd-navy bd-w5">
+                  <img src="img/front-page/download.png" alt="" class="howto-img" />
+                </div>
+                <!-- .howto-imgbox end-->
               </div>
-              <!-- .howto-imgbox end-->
+              <!-- .howto-img end-->
               <div class="howto-content">
                 <h3 class="howto-step-title btn btn-navy">STEP1</h3>
                 <!-- .howto-step-title btn btn-navy end-->
@@ -336,10 +343,13 @@
             </li>
             <!-- .howto-item end-->
             <li class="howto-item">
-              <div class="howto-imgbox bd bd-navy bd-w5">
-                <img src="img/front-page/note.png" alt="" class="howto-img" />
+              <div class="howto-imgwrapper">
+                <div class="howto-imgbox bd bd-navy bd-w5">
+                  <img src="img/front-page/note.png" alt="" class="howto-img" />
+                </div>
+                <!-- .howto-imgbox end-->
               </div>
-              <!-- .howto-imgbox end-->
+              <!-- .howto-img end-->
               <div class="howto-content">
                 <h3 class="howto-step-title btn btn-navy">STEP2</h3>
                 <!-- .howto-step-title btn btn-navy end-->
@@ -351,10 +361,13 @@
             </li>
             <!-- .howto-item end-->
             <li class="howto-item">
-              <div class="howto-imgbox bd bd-navy bd-w5">
-                <img src="img/front-page/feedback.png" alt="" class="howto-img" />
+              <div class="howto-imgwrapper">
+                <div class="howto-imgbox bd bd-navy bd-w5">
+                  <img src="img/front-page/feedback.png" alt="" class="howto-img" />
+                </div>
+                <!-- .howto-imgbox end-->
               </div>
-              <!-- .howto-imgbox end-->
+              <!-- .howto-img end-->
               <div class="howto-content">
                 <h3 class="howto-step-title btn btn-navy">STEP3</h3>
                 <!-- .howto-step-title btn btn-navy end-->
@@ -390,10 +403,9 @@
             <li class="card prep-card" data-card="first-action">
               <!-- .first-action end-->
               <div class="card-content prep-card-content bd bd-yellow bg-lightyellow radius section-padding">
-                <p class="first-action">まずはここから!!</p>
                 <h3 class="prep-title">実力テスト</h3>
                 <!-- .prep-title end-->
-                <p class="prep-text">テキストテキストテキストテキストテキスト</p>
+                <p class="prep-text">コメント、コメント、コメント、コメント、コメント、コメント</p>
                 <!-- .prep-text end-->
                 <div class="card-imgbox prep-imgbox">
                   <img src="img/front-page/test.png" alt="" class="prep-img" />
@@ -401,6 +413,7 @@
                 <!-- .prep-imgbox end-->
               </div>
               <!-- .bd bd-yellow bg-lightyellow end-->
+              <p class="first-action btn bg-yellow">まずはここから!!</p>
               <a href="" class="link btn btn-yellow bg-lightyellow">詳細を見る</a>
               <!-- .link btn btn-yellow bg-lightyellow end-->
             </li>
@@ -409,7 +422,7 @@
               <div class="card-content prep-card-content bd bd-lightnavy bd-w5 radius section-padding">
                 <h3 class="prep-title">模試</h3>
                 <!-- .prep-title end-->
-                <p class="prep-text">テキストテキストテキストテキストテキスト</p>
+                <p class="prep-text">コメント、コメント、コメント、コメント、コメント、コメント</p>
                 <!-- .prep-text end-->
                 <div class="card-imgbox prep-imgbox">
                   <img src="img/front-page/note.png" alt="" class="prep-img" />
@@ -425,7 +438,7 @@
               <div class="card-content prep-card-content bd bd-lightnavy bd-w5 radius section-padding">
                 <h3 class="prep-title">単元別教材</h3>
                 <!-- .prep-title end-->
-                <p class="prep-text">テキストテキストテキストテキストテキスト</p>
+                <p class="prep-text">コメント、コメント、コメント、コメント、コメント、コメント</p>
                 <!-- .prep-text end-->
                 <div class="card-imgbox prep-imgbox">
                   <img src="img/front-page/prep.png" alt="" class="prep-img" />
@@ -462,6 +475,8 @@
               <p>私立御三家にも合格をいただいたメンバーでテラスラボを運営しています。</p>
               <p>
                 大手IT企業での事業開発で培った、
+                <br />
+                AIや分析の経験を活かし、
                 <br />
                 や分析の経験を活かし、小学校受験の実体験をもとに、
                 <br />

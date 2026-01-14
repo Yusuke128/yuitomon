@@ -61,3 +61,11 @@ $breakpoints: (
   list-style: disc;
   list-style-position: inside;
 }
+%font-md-black {
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-black);
+}
+%font-lg-black {
+  font-size: var(--font-lg);
+  font-weight: var(--font-weight-black);
+}

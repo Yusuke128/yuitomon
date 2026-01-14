@@ -87,8 +87,8 @@ main {
   display: grid;
   grid-template-columns: 65% 30%;
   gap: 5%;
-  padding-right: 5rem;
-  padding-left: 5rem;
+  margin-block: auto;
+  margin-inline: auto;
 
   @include v.media(sp) {
     grid-template-columns: 100%;
@@ -101,6 +101,15 @@ main {
     grid-template-columns: 30% 65%;
     gap: 5%;
     align-items: center;
+
+    @include v.media(tab) {
+      grid-template-columns: 40% 55%;
+    }
+
+    @include v.media(sp) {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -110,11 +119,11 @@ main {
 
 .title-box {
   margin-bottom: 5rem;
-  font-weight: bolder;
   text-align: center;
 
   &-main {
     font-size: var(--font-lg);
+    font-weight: var(--font-weight-black);
   }
 
   &-sub-title {
