@@ -3,13 +3,13 @@ const pickup_slider = new Swiper('.pickup-swiper', {
   centeredSlides: true,
   spaceBetween: 28,
   slidesPerView: 'auto',
+  speed: 1000,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev'
   },
   autoplay: {
     delay: 4000,
-    speed: 600,
     disableOnInteraction: false,
     pauseOnMouseEnter: true
   }

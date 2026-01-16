@@ -10,10 +10,6 @@
   transform-origin: 50% 10%;
   animation: seal-bell 10s ease-in-out infinite;
 
-  @include v.media(mobile) {
-    max-width: 79px;
-  }
-
   &-block {
     display: contents;
   }
@@ -61,6 +57,7 @@
     &-1 {
       bottom: -5rem;
       left: 10rem;
+      max-width: 10vw;
       animation-delay: 3s;
     }
 
@@ -68,6 +65,10 @@
       bottom: -5rem;
       left: 0;
       animation-delay: 3.5s;
+
+      @include v.media(mobile) {
+        max-width: 79px;
+      }
     }
   }
 

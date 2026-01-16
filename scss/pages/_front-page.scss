@@ -24,7 +24,7 @@
   > .container {
     gap: 3rem;
 
-    @include v.flex;
+    @include v.flex(center, stretch);
 
     @include v.media(sp) {
       flex-direction: column;
@@ -33,14 +33,13 @@
 
   &-textarea {
     width: 100%;
-    max-width: 35%;
+    max-width: 45%;
     margin-block: auto;
     text-align: center;
 
     @extend %font-md-black;
 
     @include v.media(sp) {
-      width: 100%;
       max-width: none;
     }
   }
