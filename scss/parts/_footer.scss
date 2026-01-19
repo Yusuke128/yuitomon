@@ -8,6 +8,12 @@ footer {
 }
 
 .footer {
+  @include v.media(sp) {
+    &-logo {
+      grid-column: 1 /-1;
+    }
+  }
+
   &-nav-list {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -31,6 +37,11 @@ footer {
       grid-column: 3;
       gap: 3rem;
       justify-content: space-evenly;
+
+      @include v.media(sp) {
+        grid-row: 2;
+        grid-column: 1 / -1;
+      }
     }
   }
 

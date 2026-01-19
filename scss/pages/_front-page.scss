@@ -110,8 +110,20 @@
 }
 
 .feature {
+  &-inner {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include v.media(sp) {
+      flex-direction: column;
+    }
+  }
+
   &-list {
     display: grid;
+    flex: 0.8;
     gap: 3rem;
     width: stretch;
 
@@ -180,15 +192,11 @@
     display: grid;
     place-content: center;
     place-items: center;
-    width: 250px;
+    width: clamp(180px, 40vw, 250px);
+    max-width: 100%;
     aspect-ratio: 1;
     overflow: hidden;
     border-radius: 100%;
-
-    @include v.media(mobile) {
-      width: 100%;
-      max-width: 180px;
-    }
   }
 
   &-imgwrapper {
@@ -196,18 +204,18 @@
     width: 45%;
 
     @include v.media(sp) {
-      width: auto;
+      width: 30%;
     }
 
     &::after {
       position: absolute;
-      top: 140%;
-      right: -65%;
-      width: clamp(80px, 11vw, 200px);
+      top: 130%;
+      right: -30%;
+      width: clamp(80px, 10vw, 150px);
       height: 2px;
       content: '';
       border: dashed 2px var(--navy);
-      transform: rotate(35deg);
+      transform: rotate(45deg);
       transform-origin: right center;
 
       @include v.media(sp) {
@@ -215,7 +223,7 @@
         left: 50%;
         width: 2px;
         height: 30px;
-        transform: none;
+        transform: translateX(-50%);
       }
 
       @include v.media(tab) {
@@ -232,7 +240,8 @@
     object-fit: contain;
 
     @include v.media(mobile) {
-      width: 80%;
+      max-width: 90%;
+      max-height: 90%;
     }
   }
 
@@ -240,6 +249,7 @@
     display: grid;
     flex: 1;
     gap: 2rem;
+    white-space: nowrap;
 
     @include v.media(sp) {
       width: 50%;
@@ -308,13 +318,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 67px;
     border-radius: 30px 30px 30px 0;
 
     @extend %font-md-black;
 
-    @include v.media(mobile) {
-      height: auto;
+    @include v.media(tab) {
+      padding: 1rem;
+    }
+
+    @include v.media(sp) {
+      padding: 0.5rem;
     }
   }
 

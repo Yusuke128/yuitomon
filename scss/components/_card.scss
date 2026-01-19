@@ -56,10 +56,10 @@
     &:active {
       color: inherit;
     }
+  }
 
-    &:hover .card-img {
-      transform: scale(1.2);
-    }
+  &:hover .card-img {
+    transform: scale(1.2);
   }
 
   @at-root a#{&} {

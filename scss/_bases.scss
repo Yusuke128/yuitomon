@@ -60,13 +60,8 @@ main {
     z-index: -1;
     pointer-events: none;
     content: '';
-    background-image: repeating-linear-gradient(
-        to bottom,
-        var(--navy-bg) 0,
-        var(--navy-bg) 1px,
-        transparent 1px,
-        transparent 1rem
-      ),
+    background-image:
+      repeating-linear-gradient(to bottom, var(--navy-bg) 0, var(--navy-bg) 1px, transparent 1px, transparent 1rem),
       repeating-linear-gradient(to right, var(--navy-bg) 0, var(--navy-bg) 1px, transparent 1px, transparent 1rem);
     background-size: 1rem 1rem;
   }
@@ -74,12 +69,22 @@ main {
 
 .container {
   max-width: 1440px;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   margin: 0 auto;
 
   @include v.media(mobile) {
     width: 98%;
-    padding: 1rem 0;
+    padding: 1rem;
+  }
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  margin-inline: auto;
+
+  @include v.media(sp) {
+    width: 100%;
   }
 }
 
