@@ -133,18 +133,6 @@
     }
   }
 
-  &-imgbox {
-    display: grid;
-    place-content: center;
-    place-items: center;
-    width: clamp(180px, 40vw, 250px);
-    max-width: 100%;
-    aspect-ratio: 1;
-    padding: 0.15rem;
-    overflow: hidden;
-    border-radius: 100%;
-  }
-
   &-imgwrapper {
     position: relative;
     width: 45%;
@@ -180,6 +168,17 @@
     }
   }
 
+  &-imgbox {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    width: clamp(180px, 40vw, 250px);
+    max-width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 100%;
+  }
+
   &-img {
     width: 120%;
     height: 120%;
@@ -188,6 +187,7 @@
     @include v.media(mobile) {
       max-width: 90%;
       max-height: 90%;
+      padding: 0.25rem;
     }
   }
 
