@@ -127,13 +127,13 @@
         align-self: center;
       }
 
-      .howto-imgwrapper::after {
+      .howto-imgcontainer::after {
         display: none;
       }
     }
   }
 
-  &-imgwrapper {
+  &-imgcontainer {
     position: relative;
     width: clamp(180px, 40vw, 250px);
     border-radius: 50%;
@@ -180,9 +180,12 @@
   }
 
   &-img {
-    max-width: 80%;
-    max-height: 80%;
     object-fit: contain;
+
+    @include v.media(sp) {
+      max-width: 80%;
+      max-height: 80%;
+    }
   }
 
   &-content {

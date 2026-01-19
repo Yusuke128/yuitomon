@@ -10,7 +10,7 @@ footer {
 .footer {
   @include v.media(sp) {
     &-logo {
-      grid-column: 1 /-1;
+      grid-column: 2;
     }
   }
 
@@ -24,6 +24,7 @@ footer {
   .container {
     display: grid;
     grid-template-columns: auto 1fr auto;
+    gap: 3rem;
   }
 
   .nav {
