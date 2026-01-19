@@ -185,7 +185,7 @@
     object-fit: contain;
 
     @include v.media(mobile) {
-      max-width: 90%;
+      max-width: 80%;
       max-height: 90%;
       padding: 0.25rem;
     }
