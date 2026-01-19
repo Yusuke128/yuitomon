@@ -3,61 +3,6 @@
 **================================ */
 @use '../variables' as v;
 
-.kv {
-  background-color: var(--white);
-
-  @include v.media(mobile) {
-    width: 100%;
-    height: auto;
-  }
-
-  &-imgbox {
-    width: 100%;
-  }
-
-  &-img {
-    max-width: 100%;
-    height: auto;
-    margin-inline: auto;
-  }
-
-  > .container {
-    gap: 3rem;
-
-    @include v.flex(center, stretch);
-
-    @include v.media(sp) {
-      flex-direction: column;
-    }
-  }
-
-  &-textarea {
-    width: 100%;
-    max-width: 45%;
-    margin-block: auto;
-    text-align: center;
-
-    @extend %font-md-black;
-
-    @include v.media(sp) {
-      max-width: none;
-    }
-  }
-
-  &-content {
-    margin-bottom: 1.5rem;
-  }
-
-  &-title {
-    margin-bottom: 1rem;
-  }
-
-  &-link {
-    max-width: 45%;
-    font-weight: var(--font-weight-black);
-  }
-}
-
 .pickup {
   &-product {
     margin: 9rem 0;
