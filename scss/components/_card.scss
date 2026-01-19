@@ -16,6 +16,10 @@
     line-height: inherit;
   }
 
+  &:hover &-img {
+    transform: scale(1.2);
+  }
+
   &-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -43,6 +47,7 @@
     width: auto;
     height: 100%;
     object-fit: contain;
+    transition: transform 0.2s ease-in-out;
   }
 
   &-sublist {
@@ -58,8 +63,8 @@
     }
   }
 
-  &:hover .card-img {
-    transform: scale(1.2);
+  &[data-scale='false'] &-img {
+    transform: none;
   }
 
   @at-root a#{&} {
