@@ -40,26 +40,32 @@ document.querySelectorAll('.link').forEach((link) => {
   });
 });
 
-let scrollY = window.scrollY;
 let timer = null;
 let hidden = false;
+let lastScrollY = window.scrollY;
+let downDistance = 0;
+const HIDE_THRESHOLD = 150;
 
 window.addEventListener('scroll', () => {
   const currentY = window.scrollY;
-  // 下スクロールしたら隠す
-  if (currentY > scrollY && currentY > 150) {
-    if (!hidden && !header.classList.contains('open')) {
+  const diff = currentY - lastScrollY;
+
+  if (diff > 0) {
+    // 下スクロール中
+    downDistance += diff;
+
+    if (downDistance > HIDE_THRESHOLD && !header.classList.contains('open')) {
       header.classList.add('is-scroll');
       hidden = true;
     }
-  }
-
-  // 上スクロール時は表示
-  if (currentY < scrollY) {
+  } else {
+    // 上スクロール
+    downDistance = 0;
     header.classList.remove('is-scroll');
     hidden = false;
   }
-  scrollY = currentY;
+
+  lastScrollY = currentY;
 
   // スクロール停止
   clearTimeout(timer);
