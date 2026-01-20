@@ -16,23 +16,55 @@ const pickup_slider = new Swiper('.pickup-swiper', {
 });
 
 //ハンバーガーメニュー
-const hum = jQuery('.humberger');
-const header = jQuery('.header');
-const body = jQuery('body');
+const hum = document.querySelector('.humberger');
+const header = document.querySelector('.header');
+const body = document.body;
 
-hum.on('click', function () {
-  const isOpen = header.hasClass('open');
+hum.addEventListener('click', () => {
+  const isOpen = header.classList.contains('open');
 
-  header.toggleClass('open', !isOpen);
-  header.attr('data-state', isOpen ? 'closed' : 'open');
-  hum.attr('aria-expanded', String(!isOpen));
-  body.toggleClass('no-scroll', !isOpen);
+  header.classList.toggle('open', !isOpen);
+  header.setAttribute('data-state', isOpen ? 'closed' : 'open');
+  hum.setAttribute('aria-expanded', String(!isOpen));
+  body.classList.toggle('no-scroll', !isOpen);
+  header.classList.remove('is-scroll');
 });
 
 // SP版でナビリンククリック時にメニューを閉じる
-jQuery('.link').on('click', function () {
-  if (header.hasClass('open')) {
-    header.removeClass('open');
-    body.removeClass('no-scroll');
+document.querySelectorAll('.link').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (header.classList.contains('open')) {
+      header.classList.remove('open');
+      body.classList.remove('no-scroll');
+    }
+  });
+});
+
+let scrollY = window.scrollY;
+let timer = null;
+let hidden = false;
+
+window.addEventListener('scroll', () => {
+  const currentY = window.scrollY;
+  // 下スクロールしたら隠す
+  if (currentY > scrollY && currentY > 50) {
+    if (!hidden && !header.classList.contains('open')) {
+      header.classList.add('is-scroll');
+      hidden = true;
+    }
   }
+
+  // 上スクロール時は表示
+  if (currentY < scrollY) {
+    header.classList.remove('is-scroll');
+    hidden = false;
+  }
+  scrollY = currentY;
+
+  // スクロール停止
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    header.classList.remove('is-scroll');
+    hidden = false;
+  }, 150);
 });
