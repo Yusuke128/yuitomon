@@ -227,6 +227,7 @@
 
     &-content {
       height: 100%;
+      padding-top: 2rem;
       text-align: center;
     }
 
@@ -271,6 +272,7 @@
 
     @include v.media(sp) {
       padding: 0.5rem;
+      font-size: 1rem;
     }
   }
 
