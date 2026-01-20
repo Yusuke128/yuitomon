@@ -47,7 +47,7 @@ let hidden = false;
 window.addEventListener('scroll', () => {
   const currentY = window.scrollY;
   // 下スクロールしたら隠す
-  if (currentY > scrollY && currentY > 50) {
+  if (currentY > scrollY && currentY > 150) {
     if (!hidden && !header.classList.contains('open')) {
       header.classList.add('is-scroll');
       hidden = true;
