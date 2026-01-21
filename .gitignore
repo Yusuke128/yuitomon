@@ -1,5 +1,5 @@
-/.DS_Store
-/.vscode
-/wp-config.php
-/.json
-/node_modules
+.DS_Store
+.vscode
+wp-config.php
+.json
+node_modules
