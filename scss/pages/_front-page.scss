@@ -139,6 +139,7 @@
 
     @include v.media(sp) {
       width: 30%;
+      min-width: none;
     }
 
     &::after {
