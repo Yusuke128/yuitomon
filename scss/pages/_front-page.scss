@@ -35,11 +35,7 @@
     padding: 2rem;
 
     &-imgbox {
-      aspect-ratio: 16 / 9;
-
-      @include v.media(mobile) {
-        aspect-ratio: 0;
-      }
+      aspect-ratio: 0;
     }
 
     &-img {
@@ -136,7 +132,10 @@
   &-imgcontainer {
     position: relative;
     width: clamp(180px, 40vw, 250px);
+    min-width: 180px;
     border-radius: 50%;
+
+    --circle-size: 180px;
 
     @include v.media(sp) {
       width: 30%;
@@ -144,14 +143,14 @@
 
     &::after {
       position: absolute;
-      top: 130%;
-      right: -30%;
-      width: clamp(80px, 10vw, 150px);
+      top: calc(100% + 2rem);
+      left: 70%;
+      width: calc(var(--circle-size) * 0.5);
       height: 2px;
       content: '';
       border: dashed 2px var(--navy);
       transform: rotate(45deg);
-      transform-origin: right center;
+      transform-origin: center;
 
       @include v.media(sp) {
         top: 100%;
