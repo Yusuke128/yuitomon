@@ -139,7 +139,7 @@
 
     @include v.media(sp) {
       width: 30%;
-      min-width: none;
+      min-width: 0;
     }
 
     &::after {
@@ -157,7 +157,7 @@
         top: 100%;
         left: 50%;
         width: 2px;
-        height: 30px;
+        height: 80px;
         transform: translateX(-50%);
       }
 
