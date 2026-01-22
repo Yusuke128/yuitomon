@@ -132,7 +132,7 @@
   &-imgcontainer {
     position: relative;
     width: clamp(180px, 40vw, 250px);
-    min-width: 180px;
+    min-width: 100px;
     border-radius: 50%;
 
     --circle-size: 180px;
