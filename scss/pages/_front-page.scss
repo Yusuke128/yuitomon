@@ -144,9 +144,9 @@
 
     &::after {
       position: absolute;
-      top: calc(100% + 2rem);
+      top: calc(100% + 3rem);
       left: 70%;
-      width: calc(var(--circle-size) * 0.5);
+      width: clamp(80px, 11vw, 200px);
       height: 2px;
       content: '';
       border: dashed 2px var(--navy);
@@ -162,8 +162,6 @@
       }
 
       @include v.media(tab) {
-        top: 135%;
-        right: -17%;
         transform: rotate(55deg);
       }
     }
