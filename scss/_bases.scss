@@ -44,15 +44,10 @@ html {
 }
 
 body {
+  position: relative;
   font-family: v.$font-main;
   font-weight: var(--font-weight-regular);
-  line-height: 1.5;
   color: var(--black);
-}
-
-main {
-  position: relative;
-  padding-bottom: 9rem;
 
   &::before {
     position: absolute;
@@ -65,6 +60,11 @@ main {
       repeating-linear-gradient(to right, var(--navy-bg) 0, var(--navy-bg) 1px, transparent 1px, transparent 1rem);
     background-size: 1rem 1rem;
   }
+}
+
+main {
+  position: relative;
+  padding-bottom: 9rem;
 }
 
 .container {
@@ -118,21 +118,34 @@ main {
   }
 }
 
+.flex-box {
+  gap: 3rem;
+
+  @include v.flex(center, stretch);
+
+  @include v.media(sp) {
+    flex-direction: column;
+  }
+}
+
 .radius {
   @extend %radius;
 }
 
-.title-box {
-  margin-bottom: 5rem;
-  text-align: center;
-
-  &-main {
-    font-size: var(--font-lg);
-    font-weight: var(--font-weight-black);
+.title {
+  &-box {
+    margin-bottom: 5rem;
+    text-align: center;
   }
 
-  &-sub-title {
-    font-size: var(--font-md);
+  &-main {
+    display: inline-block;
+
+    @extend %font-lg-black;
+  }
+
+  &-subcontent {
+    @extend %font-md-black;
   }
 }
 

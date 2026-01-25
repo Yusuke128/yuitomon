@@ -1,8 +1,6 @@
 @use '../variables' as v;
 
 .diagnostic {
-  background-color: var(--white);
-
   @include v.media(mobile) {
     width: 100%;
     height: auto;
@@ -16,16 +14,6 @@
     max-width: 100%;
     height: auto;
     margin-inline: auto;
-  }
-
-  > .container {
-    gap: 3rem;
-
-    @include v.flex(center, stretch);
-
-    @include v.media(sp) {
-      flex-direction: column;
-    }
   }
 
   &-textarea {
@@ -53,5 +41,25 @@
   &-link {
     max-width: 45%;
     font-weight: var(--font-weight-black);
+  }
+
+  .title {
+    &-box {
+      color: var(--white);
+    }
+
+    &-main {
+      position: relative;
+      margin-bottom: 2rem;
+
+      &::after {
+        position: absolute;
+        top: 150%;
+        left: 0;
+        width: 100%;
+        content: '';
+        border-bottom: 5px solid var(--white);
+      }
+    }
   }
 }

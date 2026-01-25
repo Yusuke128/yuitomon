@@ -11,14 +11,6 @@
       margin: 3rem 0;
     }
   }
-
-  .seal-block {
-    width: 100%;
-    max-width: 1440px;
-    height: 100%;
-
-    @extend %absolute-center;
-  }
 }
 
 .problem {
@@ -93,7 +85,7 @@
   &-item {
     position: relative;
     display: inline-flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     width: 550px;
@@ -131,7 +123,7 @@
 
   &-imgcontainer {
     position: relative;
-    width: clamp(180px, 40vw, 250px);
+    width: clamp(180px, 30%, 250px);
     min-width: 180px;
     border-radius: 50%;
 
@@ -203,7 +195,7 @@
   }
 
   &-step-title {
-    width: 70%;
+    display: inline-block;
     margin-inline: auto;
   }
 }

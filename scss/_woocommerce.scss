@@ -1,0 +1,53 @@
+@use 'variables' as v;
+@use 'bases' as b;
+
+.woocommerce {
+  &-breadcrumb {
+    padding: 0.5rem !important;
+    color: var(--white) !important;
+    background-color: var(--navy);
+
+    a {
+      color: inherit !important;
+    }
+  }
+
+  &-breadcrumb .container {
+    padding: 0;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  .product-list {
+    margin-top: 2rem;
+  }
+
+  .page-title {
+    margin-bottom: 3rem;
+  }
+}
+
+ul {
+  &.products {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    text-align: center;
+    marker: none;
+
+    li.product {
+      padding: 1rem;
+      overflow: hidden;
+      background-color: var(--white);
+
+      @extend %border;
+      @extend %radius;
+
+      img {
+        margin-inline: auto;
+        border-radius: 15px;
+      }
+    }
+  }
+}

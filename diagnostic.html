@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover" />
+    <title>Yuitomon&nbsp;HTML&nbsp;Page</title>
+
+    <!-- SEO -->
+    <meta name="description" content="ページの概要を記述します" />
+    <link rel="canonical" href="https://example.com/page-url" />
+
+    <!-- General -->
+    <meta name="format-detection" content="telephone=no, email=no, address=no" />
+    <meta name="theme-color" content="#80acc0" />
+    <link rel="icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/favicon.ico" />
+
+    <!-- Fonts -->
+    <!-- Google Fonts 読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+
+  <body class="woocommerce">
+    <header class="header front-page bd bd-navy bd-bottom">
+      <div class="container">
+        <div class="title-box">
+          <h1 class="logo"><img src="img/logo.png" alt="ロゴ" class="logo" /></h1>
+          <!-- .logo end-->
+          <p class="title-box-sub-title">小学校受験対策教材</p>
+          <!-- .title-box-sub-title end-->
+        </div>
+        <!-- .title_box end-->
+        <nav class="nav-sp">
+          <ul class="header-nav header-nav-sp" role="list">
+            <li class="header-nav-list">
+              <a href="" class="link bg-navy">
+                <!-- <img src="img/header/mypage.png" alt="マイページアイコン" /> -->
+                <span class="user-icon"></span>
+                <!-- .user-icon end-->
+                マイページ
+              </a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+            <li class="header-nav-list">
+              <button class="nav-toggle bg-navy">
+                <div class="humberger">
+                  <span class="humberger-border"></span>
+                  <!-- .humbeger-border end-->
+                  <span class="humberger-border"></span>
+                  <!-- .humbeger-border end-->
+                  <span class="humberger-border"></span>
+                  <!-- .humbeger-border end-->
+                </div>
+                <!-- .humberger end-->
+                <span class="menu-close">MENU</span>
+                <span class="menu-open">閉じる</span>
+              </button>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+          </ul>
+          <!-- .header-nav sp end-->
+        </nav>
+        <nav class="nav-pc">
+          <ul class="header-nav header-nav-pc" role="list">
+            <li class="header-nav-list">
+              <a href="/diagnostic.html" class="link">
+                <img src="img/header/test.png" alt="実力テスト" class="header-icon" />
+                実力診断テスト
+              </a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+            <li class="header-nav-list">
+              <a href="/category-list.html" class="link">
+                <img src="img/header/prep.png" alt="単元別教材" class="header-icon" />
+                単元別教材
+              </a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+            <li class="header-nav-list">
+              <a href="/mypaeg.html" class="link">
+                <img src="img/header/mypage.png" alt="マイページ" class="header-icon" />
+                マイページ
+              </a>
+              <!-- .link end-->
+            </li>
+            <!-- .header-nav-list end-->
+          </ul>
+          <!-- .header-nav end-->
+        </nav>
+      </div>
+      <!-- .container end-->
+    </header>
+
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+        <!-- パンクズナビ -->
+        <nav class="woocommerce-breadcrumb" aria-label="Breadcrumb">
+          <div class="container">
+            <a href="">ホーム</a>
+            &nbsp;/&nbsp;単元別教材
+          </div>
+        </nav>
+        <!-- .container end-->
+        <section class="bd bd-dashed bd-noside bg-white section-padding product-list">
+          <div class="container">
+            <header class="woocommerce-products-header">
+              <h1 class="woocommerce-products-header__title page-title">単元別教材</h1>
+            </header>
+            <div class="woocommerce-notices-wrapper"></div>
+
+            <ul class="products columns-3 card-list">
+              <!-- card-listはHTML表記上の問題なのでWP化時に削除 -->
+              <li class="product-category product first">
+                <a aria-label="商品カテゴリー「uncategorized」にアクセス" href="">
+                  <img src="img/image_sample.png" alt="uncategorized" width="300" height="300" />
+                  <h2 class="woocommerce-loop-category__title">
+                    uncategorized
+                    <mark class="count">(8)</mark>
+                  </h2>
+                </a>
+              </li>
+              <li class="product-category product">
+                <a aria-label="商品カテゴリー「診断テスト」にアクセス" href="/product-category/diagnostic/">
+                  <img src="img/image_sample.png" alt="診断テスト" width="300" height="300" />
+                  <h2 class="woocommerce-loop-category__title">
+                    診断テスト
+                    <mark class="count">(1)</mark>
+                  </h2>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- .container end-->
+        </section>
+        <!-- .bd bd-dashed bd-noside bg-white section-padding end-->
+      </main>
+    </div>
+
+    <section class="diagnostic bg-lightnavy section-padding">
+      <div class="container">
+        <div class="flex-box">
+          <div class="diagnostic-imgbox">
+            <img src="img/front-page/diagnostic.png" alt="TOP画像" class="diagnostic-img" />
+          </div>
+          <!-- .diagnostic-imgbox end-->
+          <article class="diagnostic-textarea">
+            <div class="diagnostic-content bd bd-navy radius bg-white bd-w5 section-padding">
+              <p class="diagnostic-title">20xx年xx月</p>
+              <!-- .diagnostic-title end-->
+              <p class="diagnostic-text">学力診断テスト実施中</p>
+              <!-- .diagnostic-text end-->
+            </div>
+            <!-- .diagnostic-content end-->
+            <a href="" class="link diagnostic-link btn btn-yellow">CHECK</a>
+            <!-- .link diagnostic-link end-->
+          </article>
+          <!-- .diagnostic-textarea end-->
+        </div>
+        <!-- .flex-box end-->
+      </div>
+      <!-- .container end-->
+    </section>
+    <!-- .diagnostic end-->
+
+    <footer class="footer front-page">
+      <div class="container">
+        <img src="img/logo.png" alt="" class="footer-logo" />
+        <div class="nav-container">
+          <nav data-role="sns">
+            <h2 class="nav-title bd bd-w5 bd-bottom bd-black">SNS</h2>
+            <!-- .nav-title end-->
+            <ul class="footer-sns footer-nav-list" role="list">
+              <li class="list-item x">
+                <a href="" class="link">
+                  <div class="social-icon bd bd-black">
+                    <img src="img/social-icons/x-logo.png" alt="X" class="social-icon-img" />
+                  </div>
+                  <!-- .social-icon end-->
+                  TERRACE&nbsp;LAB.COM
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item x end-->
+              <li class="list-item insta">
+                <a href="" class="link">
+                  <div class="social-icon bd bd-black">
+                    <img src="img/social-icons/Instagram-Black.png" alt="instagram-icon" class="social-icon-img" />
+                  </div>
+                  <!-- .social-icon end-->
+                  TERRACE&nbsp;LAB.COM
+                </a>
+                <!-- .link end-->
+              </li>
+              <!-- .list-item insta end-->
+            </ul>
+            <!-- .footer-sns end-->
+          </nav>
+          <nav data-role="footer-nav">
+            <h2 class="nav-title bd bd-w5 bd-bottom bd-black">その他</h2>
+            <!-- .nav-title end-->
+            <ul class="footer-nav footer-nav-list" role="list">
+              <li class="footer-nav-item">
+                <a href="" class="link">FAQ</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+              <li class="footer-nav-item">
+                <a href="" class="link">特商標表記</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+              <li class="footer-nav-item">
+                <a href="" class="link">プライバシーポリシー</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+              <li class="footer-nav-item">
+                <a href="" class="link">お問い合わせ</a>
+                <!-- .link end-->
+              </li>
+              <!-- .footer-nav-item end-->
+            </ul>
+            <!-- .footer-nav end-->
+          </nav>
+        </div>
+        <!-- .nav-container end-->
+      </div>
+      <!-- .container end-->
+      <small class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</small>
+      <!-- .copyright end-->
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://kit.fontawesome.com/fc4b29f1b1.js" crossorigin="anonymous" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
+    <script src="js/functions.js" defer></script>
+  </body>
+</html>

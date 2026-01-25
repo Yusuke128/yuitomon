@@ -3,22 +3,25 @@
 // ================================================
 
 // 1.スタイルのリセット(A (more) Modern CSS Reset),およびオリジナルのcss
-@use "reset";
+@use 'reset';
 
 // 2.変数の読み込み
-@use "variables"; // 変数の定義(設定項目が増えてきた場合に利用)
+@use 'variables'; // 変数の定義(設定項目が増えてきた場合に利用)
 
 // 3. Mixin、ベーススタイル(≒全体で共通となる設定,色・フォント)
-@use "bases";
+@use 'bases';
 
 // 4.装飾関係を統一
-@use "utility";
+@use 'utility';
 
 // 4. サイト全体のレイアウト (ヘッダー, フッターなど) 必要に応じて分割
-@use "parts";
+@use 'parts';
 
 // 3. 再利用可能なコンポーネント (ボタン, カード,フォームなど)
-@use "components";
+@use 'components';
 
 // 6.それぞれのセクション(ページ)ごとのレイアウト(必要によっては部品ごとに分ける)
-@use "content";
+@use 'content';
+
+// 7.WooCommerceテンプレのコンテンツ上書き
+@use 'woocommerce';

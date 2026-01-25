@@ -24,6 +24,12 @@ header {
     }
   }
 
+  @include v.media(sp) {
+    &-icon {
+      max-width: 20%;
+    }
+  }
+
   &.is-scroll {
     transform: translateY(-100%);
     transition-duration: 0.2s;
@@ -85,6 +91,7 @@ header {
 
     @include v.media(mobile) {
       flex-direction: column;
+      gap: 1.5rem;
       transform: translateX(-100vw);
       transition: transform 0.5s ease;
 
@@ -212,6 +219,7 @@ header {
 
       .open & {
         height: 100%;
+        padding-top: 2rem;
       }
     }
   }
