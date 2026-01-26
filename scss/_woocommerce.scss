@@ -4,6 +4,7 @@
 .woocommerce {
   &-breadcrumb {
     padding: 0.5rem !important;
+    font-size: var(--font-md) !important;
     color: var(--white) !important;
     background-color: var(--navy);
 
