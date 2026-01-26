@@ -112,7 +112,7 @@ header {
     gap: 1rem;
     white-space: nowrap;
 
-    @include v.flex(center, center);
+    @include v.flex(flex-start, center);
 
     @include v.media(mobile) {
       border-radius: 10px;
