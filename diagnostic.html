@@ -29,13 +29,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <!-- サンプルWoocommerce読み込み -->
     <link rel="stylesheet" href="css/woocommerce.css" />
-    <link rel="stylesheet" href="css/woocommerce-smallscreen.css" />
     <link rel="stylesheet" href="css/woocommerce-layout.css" />
+    <link rel="stylesheet" href="css/woocommerce-smallscreen.css" media="screen and (max-width: 768px)" />
+
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
 
   <body class="woocommerce">
-    <header class="header front-page bd bd-navy bd-bottom">
+    <header class="header header-origin bd bd-navy bd-bottom">
       <div class="container">
         <div class="title-box">
           <h1 class="logo"><img src="img/logo.png" alt="ロゴ" class="logo" /></h1>
@@ -119,69 +120,297 @@
           </div>
         </nav>
         <!-- .container end-->
-        <section class="bd bd-dashed bd-noside bg-white section-padding product-list">
-          <div class="container">
+        <section class="diagnostic container bg-lightnavy section-padding product-list radius">
+          <div class="wrapper">
             <header class="woocommerce-products-header">
               <h1 class="woocommerce-products-header__title page-title">実力診断テスト</h1>
               <p class="woocommerce-products-header__content">実力診断テスト説明文が入ります(WordPress上で編集可能)</p>
               <!-- .products-content end-->
             </header>
             <div class="woocommerce-notices-wrapper"></div>
+            <div class="section-padding">
+              <ul class="products columns-3">
+                <li
+                  class="product type-product post-30 status-publish first instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <span class="onsale">セール</span>
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年12月</h2>
 
-            <ul class="products columns-3">
-              <li class="product-category product first">
-                <a aria-label="商品カテゴリー「uncategorized」にアクセス" href="">
-                  <img src="img/image_sample.png" alt="uncategorized" width="300" height="300" />
-                  <h2 class="woocommerce-loop-category__title">
-                    uncategorized
-                    <mark class="count">(8)</mark>
-                  </h2>
-                </a>
-              </li>
-              <li class="product-category product">
-                <a aria-label="商品カテゴリー「診断テスト」にアクセス" href="/product-category/diagnostic/">
-                  <img src="img/image_sample.png" alt="診断テスト" width="300" height="300" />
-                  <h2 class="woocommerce-loop-category__title">
-                    診断テスト
-                    <mark class="count">(1)</mark>
-                  </h2>
-                </a>
-              </li>
-            </ul>
+                    <span id="woocommerce_loop_add_to_cart_link_describedby_30" class="screen-reader-text"></span>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年11月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish last instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年10月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish first instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年9月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年08月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish last instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年07月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish first instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年06月</h2>
+
+                    <span id="woocommerce_loop_add_to_cart_link_describedby_30" class="screen-reader-text"></span>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年05月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish last instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年04月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish first instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年03月</h2>
+
+                    <span id="woocommerce_loop_add_to_cart_link_describedby_30" class="screen-reader-text"></span>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <h2 class="woocommerce-loop-product__title">2025年02月</h2>
+                  </a>
+                </li>
+                <li
+                  class="product type-product post-30 status-publish last instock product_cat-common has-post-thumbnail sale shipping-taxable purchasable product-type-simple"
+                >
+                  <a href="" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                    <img
+                      width="300"
+                      height="300"
+                      src="img/image_sample.png"
+                      class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="Shirt - Green"
+                      decoding="async"
+                      fetchpriority="high"
+                      sizes="(max-width: 300px) 100vw, 300px"
+                    />
+                    <h2 class="woocommerce-loop-product__title">2025年01月</h2>
+                  </a>
+                </li>
+              </ul>
+              <nav class="woocommerce-pagination" aria-label="商品ページネーション">
+                <ul class="page-numbers">
+                  <li><span aria-label="ページ 1" aria-current="page" class="page-numbers current">1</span></li>
+                  <li><a aria-label="ページ 2" class="page-numbers" href="">2</a></li>
+                  <li><a class="next page-numbers" href="">→</a></li>
+                </ul>
+              </nav>
+            </div>
+            <!-- .section-padding end-->
           </div>
-          <!-- .container end-->
         </section>
-        <!-- .bd bd-dashed bd-noside bg-white section-padding end-->
       </main>
     </div>
 
-    <section class="diagnostic bg-lightnavy section-padding">
+    <section class="category-ranking bd bd-dashed bd-noside bg-white section-padding">
       <div class="container">
-        <div class="flex-box">
-          <div class="diagnostic-imgbox">
-            <img src="img/front-page/diagnostic.png" alt="TOP画像" class="diagnostic-img" />
-          </div>
-          <!-- .diagnostic-imgbox end-->
-          <article class="diagnostic-textarea">
-            <div class="diagnostic-content bd bd-navy radius bg-white bd-w5 section-padding">
-              <p class="diagnostic-title">20xx年xx月</p>
-              <!-- .diagnostic-title end-->
-              <p class="diagnostic-text">学力診断テスト実施中</p>
-              <!-- .diagnostic-text end-->
-            </div>
-            <!-- .diagnostic-content end-->
-            <a href="" class="link diagnostic-link btn btn-yellow">CHECK</a>
-            <!-- .link diagnostic-link end-->
-          </article>
-          <!-- .diagnostic-textarea end-->
+        <div class="title-box">
+          <h2 class="title-main">人気の単元別教材</h2>
+          <!-- .title-main end-->
+          <p class="title-subcontent">苦手分野が見つかったら単元別で対策！</p>
+          <!-- .title-subcontent end-->
         </div>
-        <!-- .flex-box end-->
+        <!-- .title-box end-->
+
+        <ul class="card-list ranking-card-list" role="list">
+          <li>
+            <a href="" class="card ranking-card bd radius" data-scale="false">
+              <div class="card-imgbox ranking-card-imgbox">
+                <img src="img/image_sample.png" alt="" class="card-img ranking-card-img" />
+              </div>
+              <!-- .card-imgbox .ranking-card-imgbox end-->
+              <div class="card-content ranking-card-content">
+                <h3 class="card-title ranking-card-title">図形</h3>
+                <!-- .card-title .rankin-card-title end-->
+              </div>
+              <!-- .card-content ranking-card-content end-->
+            </a>
+            <!-- .card ranking-card end-->
+          </li>
+
+          <li>
+            <a href="" class="card ranking-card bd radius" data-scale="false">
+              <div class="card-imgbox rankin-card-imgbox">
+                <img src="img/image_sample.png" alt="" class="card-img ranking-card-img" />
+              </div>
+              <!-- .card-imgbox .ranking-card-imgbox end-->
+              <div class="card-content ranking-card-content">
+                <h3 class="card-title ranking-card-title">推理</h3>
+                <!-- .card-title .ranking-card-title end-->
+              </div>
+              <!-- .card-content ranking-card-content end-->
+            </a>
+            <!-- .card ranking-card end-->
+          </li>
+
+          <li>
+            <a href="" class="card ranking-card bd radius" data-scale="false">
+              <div class="card-imgbox ranking-card-imgbox">
+                <img src="img/image_sample.png" alt="" class="card-img ranking-card-img" />
+              </div>
+              <!-- .card-imgbox .ranking-card-imgbox end-->
+              <div class="card-content ranking-card-content">
+                <h3 class="card-title ranking-card-title">常識</h3>
+                <!-- .card-title .ranking-card-title end-->
+              </div>
+              <!-- .card-content ranking-card-content end-->
+            </a>
+            <!-- .card ranking-card end-->
+          </li>
+        </ul>
+        <!-- .card-list rankin-card-list end-->
+        <a href="" class="btn btn-yellow">もっと見る</a>
+        <!-- .btn btn-yellow end-->
       </div>
       <!-- .container end-->
     </section>
     <!-- .diagnostic end-->
 
-    <footer class="footer front-page">
+    <footer class="footer front-page bg-white">
       <div class="container">
         <img src="img/logo.png" alt="" class="footer-logo" />
         <div class="nav-container">

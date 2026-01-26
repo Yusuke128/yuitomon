@@ -49,16 +49,12 @@
     }
 
     &-main {
-      position: relative;
       margin-bottom: 2rem;
 
+      @extend %title-border;
+
       &::after {
-        position: absolute;
-        top: 150%;
-        left: 0;
-        width: 100%;
-        content: '';
-        border-bottom: 5px solid var(--white);
+        border-bottom-color: var(--white);
       }
     }
   }

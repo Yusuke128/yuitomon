@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <!-- サンプルWoocommerce読み込み -->
     <link rel="stylesheet" href="css/woocommerce.css" />
-    <link rel="stylesheet" href="css/woocommerce-smallscreen.css" />
     <link rel="stylesheet" href="css/woocommerce-layout.css" />
+    <link rel="stylesheet" href="css/woocommerce-smallscreen.css" media="screen and (max-width: 768px)" />
+
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
 
@@ -119,21 +120,96 @@
           </div>
         </nav>
         <!-- .container end-->
-        <section class="section-padding product-list">
-          <div class="container">
+        <section class="bd bd-dashed bd-noside bg-white section-padding product-list">
+          <section class="container">
             <header class="woocommerce-products-header">
-              <h1 class="woocommerce-products-header__title page-title">単元別教材</h1>
+              <h1 class="woocommerce-products-header__title page-title">主要単元教材一覧</h1>
+              <p class="woocommerce-products-header__content page-content">
+                ※単元別教材はAI分析やフィードバックのサービスはありません
+              </p>
+              <!-- .products-content end-->
             </header>
             <div class="woocommerce-notices-wrapper"></div>
-          </div>
+
+            <ul class="products columns-3">
+              <li class="product-category product first">
+                <a aria-label="商品カテゴリー「常識」にアクセス" href="http://dev-site.local/product-category/common/">
+                  <img
+                    src="http://dev-site.local/wp-content/uploads/woocommerce-placeholder-300x300.webp"
+                    alt="常識"
+                    width="300"
+                    height="300"
+                  />
+                  <h2 class="woocommerce-loop-category__title">
+                    常識
+                    <mark class="count">(1)</mark>
+                  </h2>
+                  <p class="woocommerce-loop-category__content">
+                    説明文が入ります説明文が入ります説明文が入ります説明文が入ります
+                  </p>
+                </a>
+              </li>
+              <li class="product-category product">
+                <a
+                  aria-label="商品カテゴリー「診断テスト」にアクセス"
+                  href="http://dev-site.local/product-category/diagnostic/"
+                >
+                  <img
+                    src="http://dev-site.local/wp-content/uploads/woocommerce-placeholder-300x300.webp"
+                    alt="診断テスト"
+                    width="300"
+                    height="300"
+                  />
+                  <h2 class="woocommerce-loop-category__title">
+                    診断テスト
+                    <mark class="count">(1)</mark>
+                  </h2>
+                  <p class="woocommerce-loop-category__content">
+                    説明文が入ります説明文が入ります説明文が入ります説明文が入ります
+                  </p>
+                  <!--  end-->
+                </a>
+              </li>
+              <li class="product-category product last">
+                <a
+                  aria-label="商品カテゴリー「診断テスト」にアクセス"
+                  href="http://dev-site.local/product-category/diagnostic/"
+                >
+                  <img
+                    src="http://dev-site.local/wp-content/uploads/woocommerce-placeholder-300x300.webp"
+                    alt="診断テスト"
+                    width="300"
+                    height="300"
+                  />
+                  <h2 class="woocommerce-loop-category__title">
+                    診断テスト
+                    <mark class="count">(1)</mark>
+                  </h2>
+                  <p class="woocommerce-loop-category__content">
+                    説明文が入ります説明文が入ります説明文が入ります説明文が入ります
+                  </p>
+                  <!--  end-->
+                </a>
+              </li>
+            </ul>
+          </section>
           <!-- .container end-->
         </section>
-        <!-- . section-padding end-->
+        <!-- .bd bd-dashed bd-noside bg-white section-padding end-->
       </main>
     </div>
 
-    <section class="diagnostic bg-lightnavy section-padding">
+    <section class="footer-section diagnostic bg-lightnavy section-padding">
       <div class="container">
+        <div class="title-box">
+          <h2 class="title-main">実力診断テスト</h2>
+          <!-- .title-main end-->
+          <p class="title-subcontent">得意・苦手分野が明らかにしよう！</p>
+          <!-- .title-subcontent end-->
+          <p class="title-subcontent">AI分析や体験者の視点を加えたフィードバック付き!</p>
+          <!-- .title-subcontent end-->
+        </div>
+        <!-- .title-box end-->
         <div class="flex-box">
           <div class="diagnostic-imgbox">
             <img src="img/front-page/diagnostic.png" alt="TOP画像" class="diagnostic-img" />
@@ -160,15 +236,6 @@
 
     <footer class="footer front-page bg-white">
       <div class="container">
-        <div class="title-box">
-          <h2 class="title-main">実力診断テスト</h2>
-          <!-- .title-main end-->
-          <p class="title-subcontent">得意・苦手分野が明らかにしよう！</p>
-          <!-- .title-subcontent end-->
-          <p class="title-subcontent">AI分析や体験者の視点を加えたフィードバック付き!</p>
-          <!-- .title-subcontent end-->
-        </div>
-        <!-- .title-box end-->
         <img src="img/logo.png" alt="" class="footer-logo" />
         <div class="nav-container">
           <nav data-role="sns">

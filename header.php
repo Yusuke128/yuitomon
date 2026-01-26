@@ -19,7 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <header class="header front-page bd bd-navy bd-bottom">
+  <header class="header header-origin bd bd-navy bd-bottom">
     <div class="container">
       <div class="title-box">
         <?php if (is_front_page()): ?>

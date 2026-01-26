@@ -17,6 +17,7 @@
   }
 
   header {
+    margin-bottom: 3rem;
     text-align: center;
   }
 
@@ -25,29 +26,103 @@
   }
 
   .page-title {
-    margin-bottom: 3rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: var(--font-lg);
+    font-weight: var(--font-weight-medium);
+
+    @extend %title-border-150;
+
+    &::after {
+      border-bottom-color: var(--black);
+    }
+  }
+
+  &-loop-category__title,
+  &-loop-product__title {
+    font-size: var(--font-lg) !important;
+  }
+
+  &-pagination {
+    ul {
+      border-color: transparent !important;
+
+      li {
+        margin: 0 1rem !important;
+        background-color: var(--yellow);
+
+        @extend %radius;
+      }
+
+      span,
+      a {
+        font-size: var(--font-md) !important;
+
+        &:hover {
+          color: var(--white) !important;
+          background-color: var(--navy) !important;
+        }
+
+        .current {
+          color: var(--white) !important;
+          background-color: var(--navy) !important;
+        }
+      }
+    }
   }
 }
 
 ul {
   &.products {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0;
     text-align: center;
-    marker: none;
 
     li.product {
-      padding: 1rem;
+      padding: 1rem !important;
       overflow: hidden;
       background-color: var(--white);
 
       @extend %border;
       @extend %radius;
 
+      .onsale {
+        top: 2rem !important;
+        right: 2rem !important;
+        display: grid;
+        align-content: center;
+        align-items: center;
+        min-width: 4rem;
+        aspect-ratio: 1;
+        color: var(--black);
+        background-color: var(--yellow);
+      }
+
       img {
         margin-inline: auto;
         border-radius: 15px;
       }
+    }
+  }
+}
+
+/**
+  *実力診断テスト商品一覧のみの適用
+**/
+.diagnostic {
+  .page-title {
+    color: var(--white);
+
+    &::after {
+      border-color: var(--white);
+    }
+  }
+
+  .woocommerce-products-header__content {
+    color: var(--white);
+  }
+
+  ul.products {
+    li.product {
+      border: none;
     }
   }
 }

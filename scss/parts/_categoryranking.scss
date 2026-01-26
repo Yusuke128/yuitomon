@@ -1,0 +1,22 @@
+@use '../variables' as v;
+
+.category-ranking {
+  margin-bottom: 4rem;
+  text-align: center;
+
+  .card {
+    padding-bottom: 2rem;
+
+    &-list {
+      margin-bottom: 3rem;
+
+      @include v.media(tab) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &-imgbox {
+      aspect-ratio: 0;
+    }
+  }
+}

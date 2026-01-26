@@ -27,8 +27,12 @@ header {
   @include v.media(mobile) {
     &-icon {
       min-width: 30px;
-      max-width: 20%;
+      max-width: 20% !important;
     }
+  }
+
+  &-origin {
+    margin-bottom: 0 !important;
   }
 
   &.is-scroll {

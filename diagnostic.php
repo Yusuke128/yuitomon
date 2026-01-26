@@ -4,7 +4,7 @@ echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-l
 ?>">
   <div class="container">
     <?php
-    if (is_product_category('diagnostic') || (is_product() && has_term('diagnostic', 'product_cat'))): ?>
+    if (!(is_front_page() || is_home())): ?>
       <div class="title-box">
         <h2 class="title-main">実力診断テスト</h2><!-- .title-main end-->
         <p class="title-subcontent">得意・苦手分野が明らかにしよう！</p><!-- .title-subcontent end-->

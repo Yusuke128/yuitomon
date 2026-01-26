@@ -145,7 +145,7 @@ main {
   }
 
   &-subcontent {
-    @extend %font-md-black;
+    font-size: var(--font-md);
   }
 }
 
@@ -174,8 +174,8 @@ ul {
   vertical-align: middle;
 }
 
-.logo,
-.footer-logo {
+img.logo,
+img.footer-logo {
   width: 100%;
   max-width: 200px;
   max-height: 72px;

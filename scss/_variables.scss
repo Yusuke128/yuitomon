@@ -70,3 +70,34 @@ $breakpoints: (
   font-size: var(--font-lg);
   font-weight: var(--font-weight-black);
 }
+%title-border {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    content: '';
+    border-bottom: 5px solid;
+  }
+}
+%title-border-150 {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 150%;
+    height: 5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    content: '';
+    border-bottom: 5px solid;
+    transform: translateX(-50%);
+  }
+}
