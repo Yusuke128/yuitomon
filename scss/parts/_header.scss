@@ -26,6 +26,7 @@ header {
 
   @include v.media(mobile) {
     &-icon {
+      min-width: 30px;
       max-width: 20%;
     }
   }
@@ -122,7 +123,7 @@ header {
   &-nav-sp {
     @include v.media(mobile) {
       display: grid;
-      grid-template-columns: repeat(2, minmax(75px, 1fr));
+      grid-template-columns: repeat(2, minmax(65px, 1fr));
       gap: 1rem;
       align-self: center;
       transform: scale(0.8);
