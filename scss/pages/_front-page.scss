@@ -24,15 +24,19 @@
   }
 
   &-card {
-    padding: 2rem;
+    padding: 1.75rem;
 
     &-imgbox {
-      aspect-ratio: 0;
+      aspect-ratio: 16/9;
+
+      @include v.flex(center, center);
     }
 
     &-img {
+      width: auto;
       max-width: 100%;
       height: auto;
+      max-height: 100%;
     }
   }
 
@@ -275,11 +279,6 @@
 }
 
 .adminvoice {
-  &.container {
-    width: 70%;
-    max-width: 843px;
-  }
-
   .main-layout-reverse {
     width: 95%;
     margin: 0 auto;
@@ -291,12 +290,20 @@
     border-radius: 100%;
   }
 
-  &-message {
-    margin-bottom: 3rem;
+  &-right {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 2.5rem;
   }
 
   &-name {
     font-size: 16px;
     font-weight: var(--font-weight-medium);
+  }
+
+  &-title {
+    margin-bottom: 1rem;
+    font-size: var(--font-md);
+    font-weight: var(--font-weight-bold);
   }
 }

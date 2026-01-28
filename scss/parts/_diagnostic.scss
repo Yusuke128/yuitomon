@@ -35,11 +35,15 @@
 
   &-title {
     margin-bottom: 1rem;
-    font-size: 2em;
+    font-size: 3rem;
+  }
+
+  &-text {
+    font-size: 2rem;
   }
 
   &-link {
-    max-width: 45%;
+    max-width: 75%;
     font-weight: var(--font-weight-black);
   }
 

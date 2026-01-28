@@ -1,3 +1,5 @@
+//トップページスライダー
+
 const pickup_slider = new Swiper('.pickup-swiper', {
   loop: true,
   centeredSlides: true,
@@ -14,6 +16,54 @@ const pickup_slider = new Swiper('.pickup-swiper', {
     pauseOnMouseEnter: true
   }
 });
+// 商品詳細スライダー
+const thumb_swiper = new Swiper('.single-thumb-swiper', {
+  slidesPerView: 7,
+  spaceBetween: 8,
+  watchSlidesProgress: true,
+  watchSlidesProgress: true,
+  allowTouchMove: false,
+  grid: {
+    rows: 4,
+    fill: 'row'
+  }
+});
+
+const single_swiper = new Swiper('.single-swiper', {
+  speed: 600,
+  observer: true,
+  observeParents: true,
+  thumbs: {
+    swiper: thumb_swiper
+  },
+  autoplay: {
+    delay: 4000
+  },
+  on: {
+    init() {
+      initZoom();
+    },
+    slideChangeTransitionEnd() {
+      initZoom();
+    }
+  }
+});
+
+function initZoom() {
+  if (!jQuery.fn.zoom) return;
+
+  jQuery('.single-swiper .swiper-slide-active img').each(function () {
+    const $img = jQuery(this);
+
+    if ($img.data('zoomAttached')) return;
+
+    $img.zoom({
+      url: $img.data('large_image')
+    });
+
+    $img.data('zoomAttached', true);
+  });
+}
 
 //ハンバーガーメニュー
 const hum = document.querySelector('.humberger');

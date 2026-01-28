@@ -105,6 +105,113 @@ ul {
   }
 }
 
+.single {
+  .product {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+
+    @include v.media(sp) {
+      grid-template-columns: 100%;
+    }
+
+    &-title {
+      margin-bottom: 3rem;
+
+      @extend %font-md-black;
+    }
+
+    &-description {
+      grid: 1/-1;
+      margin-top: 5rem;
+      text-align: center;
+
+      .title-main {
+        position: relative;
+        margin-bottom: 5rem;
+
+        &::after {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          width: 300%;
+          height: 5px;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          content: '';
+          border-bottom: 5px solid;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .image-gallery {
+    position: relative;
+  }
+
+  .woocommerce-product-gallery__trigger {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    z-index: 99;
+    box-sizing: content-box;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 2em;
+    text-indent: -9999px;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    border-radius: 100%;
+  }
+
+  .images {
+    float: none !important;
+  }
+
+  .entry-summary {
+    display: grid;
+    gap: 3rem;
+
+    > div {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      @include v.flex(space-between, flex-start);
+    }
+  }
+
+  .price {
+    font-size: var(--font-lg) !important;
+    color: inherit !important;
+
+    &down-info {
+      display: inline-block;
+      padding: 1rem 0.5rem;
+      font-weight: var(--font-weight-black);
+      color: var(--white);
+    }
+  }
+
+  .cart {
+    width: 100%;
+    margin-bottom: 0 !important;
+    text-align: center;
+  }
+
+  .quantity {
+    display: none;
+  }
+
+  &_add_to_cart_button {
+    width: 70%;
+    padding: 2rem;
+    font-size: var(--font-lg);
+  }
+}
+
 /**
   *実力診断テスト商品一覧のみの適用
 **/
