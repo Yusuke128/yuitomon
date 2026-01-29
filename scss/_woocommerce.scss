@@ -22,10 +22,6 @@
     text-align: center;
   }
 
-  .product-list {
-    margin-top: 2rem;
-  }
-
   .page-title {
     display: inline-block;
     margin-bottom: 2rem;
@@ -119,6 +115,10 @@ ul {
       margin-bottom: 3rem;
 
       @extend %font-md-black;
+
+      .tag {
+        display: block;
+      }
     }
 
     &-description {
@@ -144,6 +144,14 @@ ul {
         }
       }
     }
+
+    &-content a {
+      overflow-wrap: anywhere; /* ← 今はこれが最強 */
+    }
+
+    &-content ul {
+      display: inline-block;
+    }
   }
 
   .image-gallery {
@@ -167,31 +175,49 @@ ul {
     border-radius: 100%;
   }
 
-  .images {
-    float: none !important;
-  }
-
   .entry-summary {
     display: grid;
     gap: 3rem;
 
-    > div {
-      flex-direction: column;
-      gap: 1.5rem;
+    .sample-movie {
+      text-align: center;
 
-      @include v.flex(space-between, flex-start);
+      .title-main {
+        @extend %title-border-150;
+      }
+
+      iframe {
+        width: 70%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
     }
   }
 
+  &-info {
+    margin-bottom: 3rem;
+  }
+
   .price {
+    margin-bottom: 2rem;
     font-size: var(--font-lg) !important;
     color: inherit !important;
+
+    @extend %font-lg-black;
 
     &down-info {
       display: inline-block;
       padding: 1rem 0.5rem;
+      margin-bottom: 1rem;
       font-weight: var(--font-weight-black);
       color: var(--white);
+    }
+
+    .tax {
+      margin-left: 1rem;
+      font-size: 1rem;
+      font-weight: var(--font-weight-medium);
     }
   }
 
@@ -206,15 +232,61 @@ ul {
   }
 
   &_add_to_cart_button {
-    width: 70%;
-    padding: 2rem;
+    width: 85%;
+    padding: 1.5rem 2rem;
     font-size: var(--font-lg);
+    font-weight: var(--font-weight-black);
   }
 }
 
-/**
-  *実力診断テスト商品一覧のみの適用
-**/
+// 過去の実力テスト
+.older {
+  &-products {
+    margin-top: 5rem;
+    text-align: center;
+
+    .title {
+      &-box {
+        margin-bottom: 5rem;
+        color: var(--white);
+
+        @include v.media(sp) {
+          margin-top: 2rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      &-main {
+        @extend %title-border-150;
+      }
+    }
+
+    a.link {
+      display: inline-block;
+      width: 20%;
+      margin-top: 3rem;
+
+      @extend %font-md-black;
+
+      @include v.media(sp) {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &-card {
+    gap: 0;
+
+    &-title {
+      font-size: var(--font-lg);
+      font-weight: var(--font-weight-black);
+    }
+  }
+}
+
+// 実力診断テスト商品一覧のみの適用
+
 .diagnostic {
   .page-title {
     color: var(--white);

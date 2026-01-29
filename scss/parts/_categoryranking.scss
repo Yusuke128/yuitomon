@@ -1,8 +1,21 @@
 @use '../variables' as v;
 
 .category-ranking {
+  margin-top: 5rem;
   margin-bottom: 4rem;
   text-align: center;
+
+  .title {
+    &-box {
+      margin-bottom: 5rem;
+
+      @extend %font-lg-black;
+    }
+
+    &-main {
+      @extend %title-border-150;
+    }
+  }
 
   .card {
     padding-bottom: 2rem;
@@ -17,6 +30,19 @@
 
     &-imgbox {
       aspect-ratio: 0;
+    }
+  }
+
+  a.link {
+    display: inline-block;
+    width: 20%;
+    margin-top: 3rem;
+
+    @extend %font-md-black;
+
+    @include v.media(sp) {
+      width: 100%;
+      margin-bottom: 2rem;
     }
   }
 }

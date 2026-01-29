@@ -15,6 +15,10 @@ footer {
     }
   }
 
+  &-section {
+    margin-top: 9rem;
+  }
+
   &-nav-list {
     display: grid;
     grid-template-rows: auto 1fr;

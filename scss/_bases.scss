@@ -64,7 +64,6 @@ body {
 
 main {
   position: relative;
-  padding-bottom: 9rem;
 }
 
 .container {
@@ -134,12 +133,12 @@ main {
 
 .title {
   &-box {
-    margin-bottom: 5rem;
     text-align: center;
   }
 
   &-main {
     display: inline-block;
+    margin-bottom: 5rem;
 
     @extend %font-lg-black;
   }
