@@ -9,12 +9,12 @@ const pickup_slider = new Swiper('.pickup-swiper', {
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev'
-  },
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true
   }
+  // autoplay: {
+  //   delay: 4000,
+  //   disableOnInteraction: false,
+  //   pauseOnMouseEnter: true
+  // }
 });
 // 商品詳細スライダー
 const thumb_swiper = new Swiper('.single-thumb-swiper', {

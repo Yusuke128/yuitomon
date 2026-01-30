@@ -10,10 +10,6 @@
       @include v.media(mobile) {
         max-width: 90%;
       }
-
-      img {
-        margin: 0 auto;
-      }
     }
 
     &-arrow {
@@ -48,6 +44,10 @@
       border-radius: 0 100% 100% 0 / 50%;
     }
   }
+
+  &-img {
+    margin-inline: auto;
+  }
 }
 
 // コンテンツ毎のボタン設定
@@ -63,6 +63,25 @@
 
   &-navigation-icon {
     display: none;
+  }
+
+  &-product,
+  &-post {
+    display: grid;
+    align-content: center;
+    align-items: center;
+  }
+
+  &-product {
+    grid-template-columns: 1fr;
+  }
+
+  &-post {
+    grid-template-columns: 1fr 1fr;
+
+    @include v.media(sp) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
