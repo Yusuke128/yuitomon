@@ -5,6 +5,7 @@
     &-slide {
       max-width: 60%;
       margin: 0;
+      overflow: hidden;
       background-color: var(--white);
 
       @include v.media(mobile) {
