@@ -6,15 +6,21 @@ const pickup_slider = new Swiper('.pickup-swiper', {
   spaceBetween: 28,
   slidesPerView: 'auto',
   speed: 1000,
+  autoHeight: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev'
+  },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  },
+  breakpoints: {
+    768: {
+      autoHeight: false
+    }
   }
-  // autoplay: {
-  //   delay: 4000,
-  //   disableOnInteraction: false,
-  //   pauseOnMouseEnter: true
-  // }
 });
 // 商品詳細スライダー
 const thumb_swiper = new Swiper('.single-thumb-swiper', {
