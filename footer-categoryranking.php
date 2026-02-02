@@ -46,7 +46,7 @@
     </ul>
     <!-- .card-list rankin-card-list end-->
   <?php endif; ?>
-  <a href="<?php echo home_url('category-archive'); ?>" class="btn btn-yellow">もっと見る</a>
+  <a href="<?php echo home_url('shop'); ?>" class="btn btn-yellow">もっと見る</a>
   <!-- .btn btn-yellow end-->
   </div>
   <!-- .container end-->

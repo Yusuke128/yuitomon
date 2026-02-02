@@ -166,32 +166,30 @@ get_header(); ?>
       <div class="inner feature-inner">
         <ol class="feature-list" role="list">
           <li class="feature-list-item list-item bd bd-navy bd-w5 bd-bottom">
-            <h3 class="feature-list-title">安価&and;即日結果確認可能な模試</h3>
+            <h3 class="feature-list-title">手軽に、本格的な実力診断テスト</h3>
             <!-- .feature-list-title end-->
-            <p class="feature-list-content">一般的なお教室の模試より安く、結果も早く確認できる。</p>
+            <p class="feature-list-content">お教室の模試よりも少ない負担で、今の実力を確認できます。</p>
             <!-- .bd bd-navy bd-w5 bd-bottom end-->
           </li>
           <!-- .feature-list-item list-item end-->
           <li class="feature-list-item list-item list-item bd bd-navy bd-w5 bd-bottom">
-            <h3 class="feature-list-title">得意のAI分析</h3>
+            <h3 class="feature-list-title">AIによる実力の見える化</h3>
             <!-- .feature-list-title end-->
-            <p class="feature-list-content">AI分析で、今の実力を客観的に見える化</p>
+            <p class="feature-list-content">データで今の実力を客観的に確認できます。</p>
             <!-- .bd bd-navy bd-w5 bd-bottom end-->
           </li>
           <!-- .feature-list-item list-item end-->
           <li class="feature-list-item list-item list-item bd bd-navy bd-w5 bd-bottom">
-            <h3 class="feature-list-title">的確なフィードバック</h3>
+            <h3 class="feature-list-title">経験者の視点も加えたフィードバック</h3>
             <!-- .feature-list-title end-->
-            <p class="feature-list-content">
-              成長と課題を、納得できる形でフィードバック。体験者の視点を加え、わかりやすく説明。
-            </p>
+            <p class="feature-list-content">成長と課題を、わかりやすくお伝えします。</p>
             <!-- .bd bd-navy bd-w5 bd-bottom end-->
           </li>
           <!-- .feature-list-item list-item end-->
           <li class="feature-list-item list-item list-item bd bd-navy bd-w5 bd-bottom">
-            <h3 class="feature-list-title">やるべきこと提案</h3>
+            <h3 class="feature-list-title">次にやることがわかる</h3>
             <!-- .feature-list-title end-->
-            <p class="feature-list-content">AIと体験者の知見をもとに、次にやるべきことを提案</p>
+            <p class="feature-list-content">今の実力に合わせて、次の学習をご提案します。</p>
             <!-- .bd bd-navy bd-w5 bd-bottom end-->
           </li>
           <!-- .feature-list-item list-item end-->
@@ -324,7 +322,11 @@ get_header(); ?>
           <div class="card-content prep-card-content bd bd-yellow bg-lightyellow radius section-padding">
             <h3 class="prep-title">実力診断テスト</h3>
             <!-- .prep-title end-->
-            <p class="prep-text">コメント、コメント、コメント、コメント、コメント、コメント</p>
+            <p class="prep-text">
+              受験準備の第一歩にも！
+              <br />
+              今の実力をご家庭で確認できます
+            </p>
             <!-- .prep-text end-->
             <div class="card-imgbox prep-imgbox">
               <img src="<?php echo get_template_directory_uri(); ?>/img/front-page/test.png" alt="" class="prep-img" />
@@ -333,15 +335,19 @@ get_header(); ?>
           </div>
           <!-- .bd bd-yellow bg-lightyellow end-->
           <p class="first-action btn bg-yellow">まずはここから!!</p>
-          <a href="" class="link btn btn-yellow bg-lightyellow">詳細を見る</a>
+          <a href="<?php echo home_url('product-category/diagnostic') ?>" class="link btn btn-yellow bg-lightyellow">詳細を見る</a>
           <!-- .link btn btn-yellow bg-lightyellow end-->
         </li>
         <!-- .card prep-card  end-->
         <li class="card prep-card" data-scale="false">
           <div class="card-content prep-card-content bd bd-lightnavy bd-w5 radius section-padding">
-            <h3 class="prep-title">模試</h3>
+            <h3 class="prep-title">実力診断テスト</h3>
             <!-- .prep-title end-->
-            <p class="prep-text">コメント、コメント、コメント、コメント、コメント、コメント</p>
+            <p class="prep-text">
+              定期的に実施することで
+              <br />
+              成長の変化を確認できます
+            </p>
             <!-- .prep-text end-->
             <div class="card-imgbox prep-imgbox">
               <img src="<?php echo get_template_directory_uri(); ?>/img/front-page/note.png" alt="" class="prep-img" />
@@ -349,7 +355,7 @@ get_header(); ?>
             <!-- .prep-imgbox end-->
           </div>
           <!-- .bd bd-navy end-->
-          <a href="" class="link btn btn-lightnavy">詳細を見る</a>
+          <a href="<?php echo home_url('product-category/diagnostic') ?>" class="link btn btn-lightnavy">詳細を見る</a>
           <!-- .link btn btn-navy end-->
         </li>
         <!-- .card prep-card  end-->
@@ -357,7 +363,11 @@ get_header(); ?>
           <div class="card-content prep-card-content bd bd-lightnavy bd-w5 radius section-padding">
             <h3 class="prep-title">単元別教材</h3>
             <!-- .prep-title end-->
-            <p class="prep-text">コメント、コメント、コメント、コメント、コメント、コメント</p>
+            <p class="prep-text">
+              実力診断テストの結果をもとに
+              <br />
+              苦手をピンポイントで対策できます
+            </p>
             <!-- .prep-text end-->
             <div class="card-imgbox prep-imgbox">
               <img src="<?php echo get_template_directory_uri(); ?>/img/front-page/prep.png" alt="" class="prep-img" />
@@ -365,7 +375,7 @@ get_header(); ?>
             <!-- .prep-imgbox end-->
           </div>
           <!-- .bd bd-navy end-->
-          <a href="" class="link btn btn-lightnavy">詳細を見る</a>
+          <a href="<?php echo home_url('shop') ?>" class="link btn btn-lightnavy">詳細を見る</a>
           <!-- .link btn btn-navy end-->
         </li>
         <!-- .card prep-card  end-->
@@ -384,31 +394,71 @@ get_header(); ?>
     </div>
     <div class="main-layout-reverse">
       <div class="adminvoice-left bd bd-navy bd-w5">
-        <img src="<?php echo get_template_directory_uri() ?>" alt="" class="adminvoice-img" />
+        <img src="<?php echo get_template_directory_uri() ?>/img/front-page/adminvoice.png" alt="" class="adminvoice-img" />
       </div>
       <!-- .adminvoice-left end-->
       <div class="adminvoice-right">
-        <!-- .title-box end-->
         <div class="adminvoice-message">
-          <p>働きながら小学校受験を実際に経験し、</p>
-          <p>私立御三家にも合格をいただいたメンバーでテラスラボを運営しています。</p>
+          <p class="adminvoice-title">もっと、子どもらしく。</p>
+          <p>その笑顔を守るために、私たちにできること。</p>
+          <p>&nbsp;</p>
+          <p>数年前、私たち自身も一人の親として、小学校受験という選択の前に立っていました。</p>
+          <p>情報の少なさ、見えない正解、周囲との比較。</p>
           <p>
-            大手IT企業での事業開発で培った、
+            「良かれと思ってやったこと」が、
             <br />
-            AIや分析の経験を活かし、
-            <br />
-            や分析の経験を活かし、小学校受験の実体験をもとに、
-            <br />
-            迷わず次の一歩を踏み出せるサポートを目指しています。
+            かえって子どもの負担になっていないかと、悩みながら進む日々でした。
           </p>
+          <p>&nbsp;</p>
+          <p>無事に志望校とのご縁をいただいた今、振り返って感じていることがあります。</p>
+          <p>&nbsp;</p>
+          <p>
+            それは、判断の手がかりがあれば、
+            <br />
+            受験はもう少し穏やかなものになる、ということです。
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            テラスラボが大切にしているのは、多くを詰め込むことではありません。
+            <br />
+            学力に直結するポイントを整理し、学びを無理のない形に整えること。
+          </p>
+          <p>
+            ペーパー対策を通じて、ご家庭それぞれの考えに基づいて、
+            <br />
+            次の一歩を検討いただけるような環境づくりを心がけています。
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            限られた大切な時間を、
+            <br />
+            親子にとって大切な学びや経験に使ってほしい。
+          </p>
+          <p>その想いから、テラスラボは生まれました。</p>
         </div>
         <!-- .adminvoice-messege end-->
-        <p class="adminvoice-name">
-          <span class="adminvoice-postname">〇〇株式会社&nbsp;代表取締役</span>
-          <!-- .adminvoice-postname end-->
-          山田&nbsp;太郎
-        </p>
+        <div class="adminvoice-profile">
+          <h4 class="adminvoice-title">代表者プロフィール</h4>
+          <!-- .adminvoice-title end-->
+          <p>
+            大学院修了後、教育・IT・経営分野に携わり、
+            <br />
+            複雑な課題を整理・解決するプロジェクトに多数従事。
+          </p>
+          <p>物事を構造的に捉え、整理・設計する視点を強みとしています。</p>
+          <p>
+            自身の子どもの小学校受験を通じて得た実体験も、
+            <br />
+            同じ志を持つ運営メンバーと共にサービス設計に活かしていきます。
+          </p>
+        </div>
+        <!-- <div class="adminvoice-name">
+              <span class="adminvoice-postname">〇〇株式会社&nbsp;代表取締役</span> -->
+        <!-- .adminvoice-postname end-->
+        <!-- 山田&nbsp;太郎
+            </div> -->
         <!-- .adminvoice-name end-->
+        <!-- .adminvoice-profile end-->
       </div>
       <!-- .adminvoice-right end-->
     </div>

@@ -1,0 +1,67 @@
+@use '../variables' as v;
+
+// 過去の実力テスト
+.older {
+  &-products {
+    margin-top: 5rem;
+    text-align: center;
+
+    .title {
+      &-box {
+        margin-bottom: 5rem;
+        color: var(--white);
+
+        @include v.media(sp) {
+          margin-top: 2rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      &-main {
+        @extend %title-border-150;
+      }
+    }
+
+    a.link {
+      display: inline-block;
+      width: 20%;
+      margin-top: 3rem;
+
+      @extend %font-md-black;
+
+      @include v.media(sp) {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &-card {
+    &-title {
+      font-size: var(--font-lg);
+      font-weight: var(--font-weight-black);
+    }
+  }
+}
+
+// 実力診断テスト商品一覧のみの適用
+
+.diagnostic {
+  .page-title {
+    color: var(--white);
+
+    &::after {
+      border-color: var(--white);
+    }
+  }
+
+  .woocommerce-products-header__content {
+    color: var(--white);
+  }
+
+  ul.products {
+    li.product {
+      border: none;
+    }
+  }
+}

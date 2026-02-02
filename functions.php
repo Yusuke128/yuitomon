@@ -122,3 +122,21 @@ add_filter('woocommerce_breadcrumb_defaults', function ($defaults) {
   $defaults['wrap_after']  = '</section></nav>';
   return $defaults;
 });
+// 住所フィールドの削除
+add_filter('woocommerce_default_address_fields', function ($fields) {
+  unset($fields['address_1']);
+  unset($fields['address_2']);
+  unset($fields['city']);
+  unset($fields['postcode']);
+  return $fields;
+});
+
+/***
+ * 未装飾ページのとりあえずコンテナ追加
+ */
+add_filter('the_content', function ($content) {
+  if (is_cart() || is_checkout() || is_account_page()) {
+    return '<div class="container section-padding section-margin bg-white">' . $content . '</div>';
+  }
+  return $content;
+}, 9);

@@ -6,12 +6,18 @@ global $product;
 <main>
   <!-- パンクズナビ -->
   <?php echo woocommerce_breadcrumb(); ?>
-  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+  <?php if (have_posts()) : while (have_posts()) : the_post();
+      $tags = wc_get_product_tag_list(get_the_ID()); ?>
       <section class="product-list">
         <div class="container">
-          <div class="woocommerce-notices-wrapper"></div>
+          <div class="woocommerce-notices-wrapper">
+            <?php wc_print_notices(); ?>
+          </div>
 
-          <h1 class="product-title"><?php the_title(); ?></h1>
+          <h1 class="product-title">
+            <?php
+            echo $tags;
+            the_title(); ?></h1>
           <!-- .product_title end-->
 
           <div class="product type-product">
@@ -31,51 +37,39 @@ global $product;
               </a>
               <div class="swiper single-swiper">
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <?php
+                    echo (get_the_post_thumbnail(get_the_ID(), 'full'));
+                    ?>
+                  </div><!-- .swiler-slide end-->
                   <?php
-                  echo (get_the_post_thumbnail(
-                    get_the_ID(),
-                    'full',
-                    ['class' => 'swiper-slide']
-                  ));
+                  $image_gallery_ids = $product->get_gallery_image_ids();
+                  foreach ($image_gallery_ids as $image_id) : ?>
+                    <div class="swiper-slide">
+                      <?php echo wp_get_attachment_image($image_id, 'full'); ?>
+                    </div>
+                  <?php endforeach;
                   ?>
                 </div>
               </div>
               <div class="swiper single-thumb-swiper">
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <?php
+                    echo (get_the_post_thumbnail(
+                      get_the_ID(),
+                      'thumbnail',
+                    )); ?>
+                  </div><!-- .swiper-slide end-->
                   <?php
-                  echo (get_the_post_thumbnail(
-                    get_the_ID(),
-                    'thumbnail',
-                    ['class' => 'swiper-slide']
-                  ));
+                  $image_gallery_ids = $product->get_gallery_image_ids();
+                  foreach ($image_gallery_ids as $image_id) : ?>
+                    <div class="swiper-slide">
+                      <?php echo wp_get_attachment_image($image_id, 'thumbnail'); ?>
+                    </div>
+                  <?php endforeach;
                   ?>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/calligraphy.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/common.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/language.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/quantity.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/reasoning.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/shapes.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/talk.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/understand.png" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="img/category-img/vision.png" />
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -83,11 +77,12 @@ global $product;
             <div class="entry-summary">
               <div class="bg-white radius section-padding">
                 <h1 class="product-title entry-title">
-                  <span class="tag">【筑波大学付属小学校編】</span>
+                  <span class="tag"><?php echo $tags; ?></span>
                   <!-- .tag end-->
-                  お得な22科目:学校別ばっちりパック!全問音声付!
+                  <?php the_title(); ?>
                 </h1>
                 <div class="woocommerce-product-details__short-description">
+                  <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt); ?>
                   <p>AI分析＆経験者の視点も加えたフィードバック付き！</p>
                   <p>ペーパーテストで頻出する問題を100問にまとめ、現在の実力を客観的に確認できます。</p>
                 </div>
@@ -131,17 +126,18 @@ global $product;
 
 
                 <!-- .sample-movie end-->
-                <!-- <div class="product_meta">
-                    <span class="sku_wrapper">
-                      商品コード:
-                      <span class="sku">woo-fashion-shirt</span>
-                    </span>
+                <div class="product_meta">
 
-                    <span class="posted_in">
-                      カテゴリー:
-                      <a href="http://dev-site.local/product-category/common/" rel="tag">常識</a>
-                    </span>
-                  </div> -->
+                  <span class="sku_wrapper">
+                    商品コード:
+                    <span class="sku"> <?php echo wc_product_sku_enabled() ? $product->get_sku() : ''; ?></span>
+                  </span>
+
+                  <span class="posted_in">
+                    カテゴリー:
+                    <?php echo wc_get_product_category_list(get_the_ID()); ?>
+                  </span>
+                </div>
               </div>
 
               <!-- .bg-white end-->
@@ -151,21 +147,12 @@ global $product;
                   <!-- .title-main end-->
                 </div>
                 <!-- .title-box end-->
-                <iframe
-                  src="https://www.youtube.com/embed/UVkN3bbDvbU?si=FyLuQjhRjlXAL24S&amp;controls=0"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="
-                      accelerometer;
-                      autoplay;
-                      clipboard-write;
-                      encrypted-media;
-                      gyroscope;
-                      picture-in-picture;
-                      web-share;
-                    "
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen></iframe>
+                <?php
+                if (get_field('youtube_url')) {
+                  echo wp_oembed_get(get_field('youtube_url'));
+                } else {
+                  echo '<p>動画準備中</p>';
+                } ?>
               </section>
             </div>
           </div>
@@ -174,88 +161,6 @@ global $product;
             <h2 class="title-main">教材説明</h2>
             <div class="product-content">
               <?php the_content(); ?>
-              <p>
-                音声付き・すぐ始められる】【筑波大学附属小学校編】お得な22科目：学校別ばっちりパック！全問音声付き！
-              </p>
-              <p>
-                こちらの商品は、頻出35科目セットの中から、過去の出題傾向を参考に「筑波大学附属小学校」に関連したプリントをセットにしたパッケージ商品です。
-              </p>
-              <p>筑波大学附属小学校専用に各プリントの中から構成した読み上げ音声付き10問模試付きです。</p>
-              <p>目的：年長〜直前期の理解度チェックと弱点補強に最適</p>
-              <p>サンプル音声：YouTube再生リストで確認できます</p>
-              <p>今すぐはじめられる（ダウンロード商品）</p>
-
-              <p>※購入後すぐに ZIPをDL → 解凍 → PDF印刷 → QRで音声再生</p>
-
-              <p></p>
-              <p>■このセットで身につくこと</p>
-              <ul>
-                <li>頻出科目を広く・ムラなくカバー</li>
-                <li>音声読み上げで保護者の負担を最小化／お子さまは自走学習しやすい</li>
-                <li>日々の小テスト感覚で理解度の差が見える</li>
-              </ul>
-              <p></p>
-              <p></p>
-              <p>パッケージに含まれるのは、以下の科目のプリントです：</p>
-              <p>筑波大学附属小学校専用10問模試（問題10ページ）</p>
-              <p></p>
-              <p>【図形系】</p>
-              <p>サイコロの展開（問題20ページ）</p>
-              <p>鏡問題・鏡図形（問題20ページ）</p>
-              <p>四方観察・見え方の推理（問題20ページ）</p>
-              <p>回転図形（問題20ページ）</p>
-              <p>重ね図形（問題20ページ）</p>
-              <p>マス目模写（問題20ページ）</p>
-              <p>同図形発見（問題20ページ）</p>
-              <p>置き換え（問題20ページ）</p>
-              <p>折り紙の展開図（問題20ページ）</p>
-              <p>三角パズル（問題20ページ）</p>
-              <p>線対称（問題20ページ）</p>
-              <p>点図形（問題20ページ）</p>
-              <p>積み木・立体図形（問題20ページ）</p>
-              <p>図形の構成・分割（問題20ページ）</p>
-              <p>長さ比べ（問題10ページ）</p>
-              <p>ひとふで書き（問題10ページ）</p>
-              <p>【数量系】問題20ページ）</p>
-              <p>数の比較・釣り合い（問題20ページ）</p>
-              <p>数の構成（問題20ページ）</p>
-              <p></p>
-              <p>【条件推理系】</p>
-              <p>系列・法則性（問題20ページ）</p>
-              <p>マジックボックス・魔法の箱（問題20ページ）</p>
-              <p>変化の法則（問題20ページ）</p>
-              <p></p>
-              <p>【言語系】</p>
-              <p>お話の記憶（問題10ページ）</p>
-              <p></p>
-              <p>
-                【全問問題読み上げ音声付き】表紙にあるQRコードを読み込むと、問題を読み上げている動画が再生できます。動画は「女性ナレーター」と「男性ナレーター」があります
-              </p>
-              <p></p>
-              <p>実際の読み上げ音声はこちら（女性版）：</p>
-              <p>https://youtu.be/sWkSvvtMQpo</p>
-              <p>
-                すべてのプリントの表紙にQRコードがついていますので、ご自身で音声を探していただく必要がありません。
-              </p>
-              <p>
-                基本的には、お教室などに通われているご家庭の「理解度確認」に使っていただくために、初級から入試レベルの問題となっています。
-              </p>
-              <p>
-                ひとりでとっくん（こぐま会）やばっちりくんドリル（理英会）など市販の問題集の理解度確認としてご利用いただければと思います。
-              </p>
-              <p>
-                小学校受験に頻出の35科目をまとめたお得なセットもございますので、よろしければそちらもご覧ください。
-              </p>
-              <p>
-                <a herf="https://ojukenprint.stores.jp/items/65bf1650a0789104ee622e64">
-                  https://ojukenprint.stores.jp/items/65bf1650a0789104ee622e64
-                </a>
-              </p>
-              <p></p>
-              <p>【内容について】</p>
-              <p>
-                こちらのプリントは、ダウンロード形式のデジタルコンテンツですので、何度でも印刷してご利用いただけます。
-              </p>
             </div>
             <!-- .product-content end-->
           </article>
@@ -269,39 +174,44 @@ global $product;
             </div>
             <!-- .ttl-box end-->
             <ul class="card-list older-card-list" role="list">
-              <li>
-                <a href="" class="card older-card bg-white radius section-padding">
-                  <div class="card-content older-card-content">
-                    <h4 class="card-title older-card-title">2025年12月</h4>
-                    <!-- .card-title .older-card-title end-->
-                  </div>
-                  <!-- .card-content older-card-content end-->
-                </a>
-                <!-- .card older-card end-->
-              </li>
-              <li>
-                <a href="" class="card older-card bg-white radius section-padding">
-                  <div class="card-content older-card-content">
-                    <h4 class="card-title older-card-title">2025年11月</h4>
-                    <!-- .card-title .older-card-title end-->
-                  </div>
-                  <!-- .card-content older-card-content end-->
-                </a>
-                <!-- .card older-card end-->
-              </li>
-              <li>
-                <a href="" class="card older-card bg-white radius section-padding">
-                  <div class="card-content older-card-content">
-                    <h4 class="card-title older-card-title">2025年10月</h4>
-                    <!-- .card-title .older-card-title end-->
-                  </div>
-                  <!-- .card-content older-card-content end-->
-                </a>
-                <!-- .card older-card end-->
-              </li>
+              <?php
+              $older_args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 3,
+                'order' => "DESC",
+                "orderby" => "date",
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'slug',
+                    'terms'    => 'diagnostic',
+                  ),
+                ),
+              );
+              $older_posts = new WP_Query($older_args);;
+              if ($older_posts->have_posts()):
+                while ($older_posts->have_posts()): $older_posts->the_post();
+              ?>
+                  <li>
+                    <a href="<?php echo get_permalink(); ?>" class="card older-card bg-white radius section-padding" data-scale="false">
+                      <div class="card-imgbox">
+                        <?php echo get_the_post_thumbnail(get_the_ID(), 'thumbnail', ['class' => 'card-img older-img']); ?>
+                      </div><!-- .card-imgbox end-->
+                      <div class="card-content older-card-content">
+                        <h4 class="card-title older-card-title"><?php echo get_the_date('Y年m月'); ?></h4>
+                        <!-- .card-title .older-card-title end-->
+                      </div>
+                      <!-- .card-content older-card-content end-->
+                    </a>
+                    <!-- .card older-card end-->
+                  </li>
+              <?php
+                endwhile;
+              endif;
+              ?>
             </ul>
             <!-- .card-list older-card-list end-->
-            <a href="" class="link btn btn-yellow">もっと見る</a>
+            <a href="<?php echo home_url('/product-category/diagnostic') ?>" class="link btn btn-yellow">もっと見る</a>
           </section>
         </div>
       </section>

@@ -1,0 +1,33 @@
+@use '../variables' as v;
+
+ul {
+  &.products {
+    text-align: center;
+
+    li.product {
+      padding: 1rem !important;
+      overflow: hidden;
+      background-color: var(--white);
+
+      @extend %border;
+      @extend %radius;
+
+      .onsale {
+        top: 2rem !important;
+        right: 2rem !important;
+        display: grid;
+        align-content: center;
+        align-items: center;
+        min-width: 4rem;
+        aspect-ratio: 1;
+        color: var(--black);
+        background-color: var(--yellow);
+      }
+
+      img {
+        margin-inline: auto;
+        border-radius: 15px;
+      }
+    }
+  }
+}

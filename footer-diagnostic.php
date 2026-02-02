@@ -37,7 +37,10 @@ echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-l
           ?>
               <p class="diagnostic-title"><?php echo get_the_date('Y年m月'); ?></p>
               <!-- .diagnostic-title end-->
-              <p class="diagnostic-text">学力診断テスト実施中</p>
+              <div class="diagnostic-text">
+                <p>学力診断テスト実施中</p>
+                <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt); ?>
+              </div>
               <!-- .diagnostic-text end-->
             <?php
             endwhile;
@@ -52,7 +55,7 @@ echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-l
           ?>
         </div>
         <!-- .diagnostic-content end-->
-        <a href="<?php echo $wp_query->have_posts() ? get_permalink() : ''; ?>" class="link diagnostic-link btn btn-yellow">CHECK</a>
+        <a href="<?php echo $wp_query->have_posts() ? get_permalink() : ''; ?>" class="link diagnostic-link btn btn-yellow">実力診断テストの詳細を見る</a>
         <!-- .link diagnostic-link end-->
         <?php
         wp_reset_postdata();
