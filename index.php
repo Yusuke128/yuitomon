@@ -6,7 +6,7 @@
 get_header(); ?>
 <main>
 
-  <?php include('diagnostic.php'); ?>
+  <?php include('footer-diagnostic.php'); ?>
 
 
   <!-- 新着・お知らせ -->

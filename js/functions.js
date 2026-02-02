@@ -6,7 +6,6 @@ const pickup_slider = new Swiper('.pickup-swiper', {
   spaceBetween: 28,
   slidesPerView: 'auto',
   speed: 1000,
-  autoHeight: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev'
@@ -16,12 +15,31 @@ const pickup_slider = new Swiper('.pickup-swiper', {
     disableOnInteraction: false,
     pauseOnMouseEnter: true
   },
-  breakpoints: {
-    768: {
-      autoHeight: false
+  on: {
+    init() {
+      pickupSlideHeight(this);
+    },
+    imageReady() {
+      pickupSlideHeight(this);
+    },
+    resize() {
+      pickupSlideHeight(this);
     }
   }
 });
+
+//pickupスライダーの高さ固定
+function pickupSlideHeight(swiper) {
+  let max = 0;
+  swiper.slides.forEach((slide) => {
+    slide.style.height = 'auto';
+    max = Math.max(max, slide.offsetHeight);
+  });
+  swiper.slides.forEach((slide) => {
+    slide.style.height = '${max}px';
+  });
+}
+
 // 商品詳細スライダー
 const thumb_swiper = new Swiper('.single-thumb-swiper', {
   slidesPerView: 7,

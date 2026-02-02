@@ -112,7 +112,7 @@ ul {
     }
 
     &-title {
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
 
       @extend %font-md-black;
 
@@ -146,7 +146,7 @@ ul {
     }
 
     &-content a {
-      overflow-wrap: anywhere; /* ← 今はこれが最強 */
+      overflow-wrap: anywhere;
     }
 
     &-content ul {
@@ -158,21 +158,27 @@ ul {
     position: relative;
   }
 
-  .woocommerce-product-gallery__trigger {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    z-index: 99;
-    box-sizing: content-box;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    font-size: 2em;
-    text-indent: -9999px;
-    cursor: pointer;
-    background: #fff;
-    border: none;
-    border-radius: 100%;
+  .woocommerce {
+    &-product-gallery__trigger {
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      z-index: 99;
+      box-sizing: content-box;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      font-size: 2em;
+      text-indent: -9999px;
+      cursor: pointer;
+      background: #fff;
+      border: none;
+      border-radius: 100%;
+    }
+
+    &-product-details__short-description {
+      margin-bottom: 3rem;
+    }
   }
 
   .entry-summary {
@@ -197,6 +203,18 @@ ul {
 
   &-info {
     margin-bottom: 3rem;
+
+    > p {
+      padding-left: 1rem;
+
+      &::before {
+        display: inline;
+        margin-left: -1rem;
+        font-size: 1.25rem;
+        vertical-align: middle;
+        content: '*';
+      }
+    }
   }
 
   .price {
@@ -205,14 +223,6 @@ ul {
     color: inherit !important;
 
     @extend %font-lg-black;
-
-    &down-info {
-      display: inline-block;
-      padding: 1rem 0.5rem;
-      margin-bottom: 1rem;
-      font-weight: var(--font-weight-black);
-      color: var(--white);
-    }
 
     .tax {
       margin-left: 1rem;

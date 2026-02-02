@@ -9,11 +9,10 @@
 if (
   !(is_product_category('diagnostic') || (is_product() && has_term('diagnostic', 'product_cat')))
 ) {
-  require get_template_directory() . '/diagnostic.php';
+  require get_template_directory() . '/footer-diagnostic.php';
   return;
 }
 if (is_product() || is_product_category()) {
-  // 単元別TOP3の表示
-  echo '単元別TOP3の表示';
+  require get_template_directory() . '/footer-categoryranking.php';
   return;
 }
