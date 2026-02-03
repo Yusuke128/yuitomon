@@ -30,6 +30,10 @@
       aspect-ratio: 16/9;
 
       @include v.flex(center, center);
+
+      @include v.media(sp) {
+        aspect-ratio: 0;
+      }
     }
 
     &-img {
