@@ -172,4 +172,8 @@
     font-size: var(--font-lg);
     font-weight: var(--font-weight-black);
   }
+
+  span[aria-hidden='true'] {
+    visibility: hidden;
+  }
 }

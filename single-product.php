@@ -22,19 +22,7 @@ global $product;
 
           <div class="product type-product">
             <div class="image-gallery">
-              <a
-                href="#"
-                class="woocommerce-product-gallery__trigger"
-                aria-label="フルスクリーン画像ギャラリーを表示">
-                <span aria-hidden="true">
-                  <img
-                    draggable="false"
-                    role="img"
-                    class="emoji"
-                    alt="🔍"
-                    src="https://s.w.org/images/core/emoji/17.0.2/svg/1f50d.svg" />
-                </span>
-              </a>
+
               <div class="swiper single-swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">

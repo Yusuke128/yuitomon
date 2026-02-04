@@ -19,7 +19,7 @@ echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-l
       <article class="diagnostic-textarea">
         <div class="diagnostic-content bd bd-navy radius bd-w5 bg-white section-padding">
           <?php
-          $wp_query = new WP_Query(array(
+          $diagnostic_query = new WP_Query(array(
             'post_type' => 'product',
             'posts_per_page' => 1,
             'order' => "DESC",
@@ -32,14 +32,14 @@ echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-l
               ),
             ),
           ));
-          if ($wp_query->have_posts()):
-            while ($wp_query->have_posts()): $wp_query->the_post();
+          if ($diagnostic_query->have_posts()):
+            while ($diagnostic_query->have_posts()): $diagnostic_query->the_post();
           ?>
               <p class="diagnostic-title"><?php echo get_the_date('Y年m月'); ?></p>
               <!-- .diagnostic-title end-->
               <div class="diagnostic-text">
                 <p>学力診断テスト実施中</p>
-                <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt); ?>
+                <?php echo apply_filters('woocommerce_short_description', $diagnostic_query->get_the_description()); ?>
               </div>
               <!-- .diagnostic-text end-->
             <?php
@@ -55,7 +55,7 @@ echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-l
           ?>
         </div>
         <!-- .diagnostic-content end-->
-        <a href="<?php echo $wp_query->have_posts() ? get_permalink() : ''; ?>" class="link diagnostic-link btn btn-yellow">実力診断テストの詳細を見る</a>
+        <a href="<?php echo $diagnostic_query->have_posts() ? get_permalink() : ''; ?>" class="link diagnostic-link btn btn-yellow">実力診断テストの詳細を見る</a>
         <!-- .link diagnostic-link end-->
         <?php
         wp_reset_postdata();
