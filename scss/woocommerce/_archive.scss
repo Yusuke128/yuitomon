@@ -1,5 +1,6 @@
 @use '../variables' as v;
 
+// 商品リストの標準設定
 ul {
   &.products {
     text-align: center;
@@ -29,5 +30,13 @@ ul {
         border-radius: 15px;
       }
     }
+  }
+}
+
+ul.category-archive {
+  li.product {
+    padding: 0;
+    border: none;
+    border-radius: 0;
   }
 }

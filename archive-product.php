@@ -13,7 +13,7 @@ echo woocommerce_breadcrumb();
     </header>
     <div class="woocommerce-notices-wrapper"></div>
     <section class="woocommerce columns-3">
-      <ul class="products columns-3">
+      <ul class="products columns-3 category-archive">
         <?php
         $exclude_slug = array('uncategorized', 'diagnostic');
         $exclude_ids = array();
@@ -45,7 +45,7 @@ echo woocommerce_breadcrumb();
               $image = wp_get_attachment_url($thumbnail_id);
               ?>
               <img src="<?php echo $image ?>" alt="">
-              <h2><?php echo $cat->name; ?></h2>
+              <!-- <h2><?php echo $cat->name; ?></h2> -->
             </a>
           </li><!-- .product-category end-->
         <?php endforeach; ?>

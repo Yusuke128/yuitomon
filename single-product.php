@@ -7,7 +7,13 @@ global $product;
   <!-- パンクズナビ -->
   <?php echo woocommerce_breadcrumb(); ?>
   <?php if (have_posts()) : while (have_posts()) : the_post();
-      $tags = wc_get_product_tag_list(get_the_ID()); ?>
+      $tags = get_the_terms(get_the_ID(), 'product_tag');
+      if ($tags && !is_wp_error($tags)) {
+        foreach ($tags as $term) {
+          $taglist = esc_html($term->name);
+        }
+      };
+  ?>
       <section class="product-list">
         <div class="container">
           <div class="woocommerce-notices-wrapper">
@@ -16,25 +22,24 @@ global $product;
 
           <h1 class="product-title">
             <?php
-            echo $tags;
+            echo $taglist;
             the_title(); ?></h1>
           <!-- .product_title end-->
 
           <div class="product type-product">
             <div class="image-gallery">
-
               <div class="swiper single-swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <?php
-                    echo (get_the_post_thumbnail(get_the_ID(), 'full'));
+                    echo (get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'swiper-img')));
                     ?>
                   </div><!-- .swiler-slide end-->
                   <?php
                   $image_gallery_ids = $product->get_gallery_image_ids();
                   foreach ($image_gallery_ids as $image_id) : ?>
                     <div class="swiper-slide">
-                      <?php echo wp_get_attachment_image($image_id, 'full'); ?>
+                      <?php echo wp_get_attachment_image($image_id, 'full', array('class' => 'swiper-img')); ?>
                     </div>
                   <?php endforeach;
                   ?>
@@ -46,26 +51,37 @@ global $product;
                     <?php
                     echo (get_the_post_thumbnail(
                       get_the_ID(),
-                      'thumbnail',
+                      'medium',
+                      array('class' => 'swiper-img')
                     )); ?>
                   </div><!-- .swiper-slide end-->
                   <?php
                   $image_gallery_ids = $product->get_gallery_image_ids();
                   foreach ($image_gallery_ids as $image_id) : ?>
                     <div class="swiper-slide">
-                      <?php echo wp_get_attachment_image($image_id, 'thumbnail'); ?>
+                      <?php echo wp_get_attachment_image($image_id, 'full', false, array('class' => 'swiper-img')); ?>
                     </div>
                   <?php endforeach;
                   ?>
-
                 </div>
+                <div class="swiper-button">
+                  <button class="single-swiper-arrow swiper-button-prev swiper-arrow single-thumb-prev">
+                    <span class="material-symbols-outlined">keyboard_arrow_left</span>
+                  </button>
+                  <!-- .swiper-arrow swiper-prev end-->
+                  <button class="single-swiper-arrow swiper-button-next swiper-arrow single-thumb-next">
+                    <span class="material-symbols-outlined">keyboard_arrow_right</span>
+                  </button>
+                  <!-- .swiper-arrow swiper-next end-->
+                </div>
+                <!-- .swiper-button end-->
               </div>
             </div>
             <!-- .swiper single-swiper end-->
             <div class="entry-summary">
               <div class="bg-white radius section-padding">
                 <h1 class="product-title entry-title">
-                  <span class="tag"><?php echo $tags; ?></span>
+                  <span class="tag"><?php echo $taglist; ?></span>
                   <!-- .tag end-->
                   <?php the_title(); ?>
                 </h1>
@@ -115,7 +131,6 @@ global $product;
 
                 <!-- .sample-movie end-->
                 <div class="product_meta">
-
                   <span class="sku_wrapper">
                     商品コード:
                     <span class="sku"> <?php echo wc_product_sku_enabled() ? $product->get_sku() : ''; ?></span>

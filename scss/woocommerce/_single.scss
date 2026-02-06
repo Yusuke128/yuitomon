@@ -8,10 +8,12 @@
 
     @include v.media(sp) {
       grid-template-columns: 100%;
+      gap: 0;
     }
 
     &-title {
       margin-bottom: 1rem;
+      white-space: pre-line;
 
       @extend %font-md-black;
 
@@ -44,12 +46,19 @@
       }
     }
 
-    &-content a {
-      overflow-wrap: anywhere;
-    }
+    &-content {
+      a {
+        overflow-wrap: anywhere;
+      }
 
-    &-content ul {
-      display: inline-block;
+      ul {
+        display: inline-block;
+      }
+
+      iframe {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 

@@ -7,8 +7,8 @@ const pickup_slider = new Swiper('.pickup-swiper', {
   slidesPerView: 'auto',
   speed: 1000,
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
+    nextEl: '.pickup-button-next',
+    prevEl: '.pickup-button-prev'
   },
   autoplay: {
     delay: 4000,
@@ -36,58 +36,36 @@ function pickupSlideHeight(swiper) {
     max = Math.max(max, slide.offsetHeight);
   });
   swiper.slides.forEach((slide) => {
-    slide.style.height = '${max}px';
+    slide.style.height = `${max}px`;
   });
 }
 
 // 商品詳細スライダー
 const thumb_swiper = new Swiper('.single-thumb-swiper', {
-  slidesPerView: 7,
-  spaceBetween: 8,
-  watchSlidesProgress: true,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  centeredSlides: true,
   watchSlidesProgress: true,
   allowTouchMove: false,
-  grid: {
-    rows: 4,
-    fill: 'row'
+  loop: true,
+  navigation: {
+    nextEl: '.single-thumb-next',
+    prevEl: '.single-thumb-prev'
+  },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
   }
 });
 
 const single_swiper = new Swiper('.single-swiper', {
-  speed: 600,
   observer: true,
   observeParents: true,
   thumbs: {
     swiper: thumb_swiper
-  },
-  autoplay: {
-    delay: 4000
-  },
-  on: {
-    init() {
-      initZoom();
-    },
-    slideChangeTransitionEnd() {
-      initZoom();
-    }
   }
 });
-
-function initZoom() {
-  if (!jQuery.fn.zoom) return;
-
-  jQuery('.single-swiper .swiper-slide-active img').each(function () {
-    const $img = jQuery(this);
-
-    if ($img.data('zoomAttached')) return;
-
-    $img.zoom({
-      url: $img.data('large_image')
-    });
-
-    $img.data('zoomAttached', true);
-  });
-}
 
 //ハンバーガーメニュー
 const hum = document.querySelector('.humberger');

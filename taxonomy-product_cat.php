@@ -20,7 +20,6 @@ echo woocommerce_breadcrumb();
       <!-- .products-content end-->
     </header>
     <div class="woocommerce-notices-wrapper"></div>
-
     <?php
     $term = get_queried_object();
     echo do_shortcode('[products columns="3"  category="' . $term->slug . '" paginate="true"]');
