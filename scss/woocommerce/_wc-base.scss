@@ -67,3 +67,19 @@
     }
   }
 }
+
+.price {
+  del .amount {
+    font-size: var(--font-md);
+    color: var(--black);
+  }
+
+  ins {
+    text-decoration: none;
+
+    .amount {
+      font-size: var(--font-lg);
+      color: var(--navy);
+    }
+  }
+}

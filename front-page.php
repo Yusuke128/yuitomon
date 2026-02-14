@@ -62,11 +62,11 @@ get_header(); ?>
       </div>
       <!-- .swiper-wrapper end-->
       <div class="swiper-button container">
-        <button class="pickup-swiper-arrow swiper-button-prev pickup-button-prev">
+        <button class="pickup-swiper-arrow swiper-arrow swiper-button-prev pickup-button-prev">
           <span class="material-symbols-outlined">keyboard_arrow_left</span>
         </button>
         <!-- .swiper-arrow swiper-prev end-->
-        <button class="pickup-swiper-arrow swiper-button-next pickup-button-next">
+        <button class="pickup-swiper-arrow swiper-arrow swiper-button-next pickup-button-next">
           <span class="material-symbols-outlined">keyboard_arrow_right</span>
         </button>
         <!-- .swiper-arrow swiper-next end-->

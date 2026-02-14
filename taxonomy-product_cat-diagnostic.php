@@ -24,7 +24,53 @@ echo woocommerce_breadcrumb();
     <div class="section-padding">
       <?php
       $term = get_queried_object();
-      echo do_shortcode('[products columns="3"  category="' . $term->slug . '" paginate="true"]');
+      add_filter('woocommerce_get_price_html', '__return_empty_string', 10, 2);
+
+      $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+
+      $category_products_args = array(
+        'post_type' => 'product',
+        'posts_per_page' => 12,
+        'paged' => $paged,
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'product_cat',
+            'field'    => 'slug',
+            'terms'    => $term->slug,
+          ),
+        ),
+      );
+      $loop = new WP_Query($category_products_args);
+
+      if ($loop->have_posts()):
+      ?>
+        <ul class="card-list diagnostic-card-list" role="list">
+          <?php while ($loop->have_posts()): $loop->the_post(); ?>
+            <li class="bg-white radius">
+              <a href="<?php echo get_permalink(); ?>" class="card  diagnostic-card section-padding" data-scale="false">
+                <div class="card-content diagnostic-card-content">
+                  <h2 class="card-title diagnostic-card-title"><?php echo get_the_date('Y年m月'); ?></h2><!-- .card-title  end-->
+                  <!-- <p class="card-text diagnostic-card-text"><?php woocommerce_template_loop_price(); ?></p>.card-text  end -->
+                </div><!-- .card-content  end-->
+              </a>
+            </li><!-- .card  end-->
+          <?php
+          endwhile;
+          wp_reset_postdata();
+          ?>
+        </ul><!-- .card-list end-->
+      <?php
+      endif;
+      // echo do_shortcode('[products columns="3"  category="' . $term->slug . '" paginate="true"]');
+      ?>
+      <div class="pagination">
+        <?php
+        echo paginate_links([
+          'total' => $loop->max_num_pages,
+          'current' => $paged,
+        ]);
+        ?>
+      </div><!-- .pagination end-->
       ?>
     </div><!-- .section-padding end-->
   </div><!-- .section-padding end-->

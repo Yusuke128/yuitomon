@@ -21,9 +21,13 @@ global $product;
           </div>
 
           <h1 class="product-title">
-            <?php
-            echo $taglist;
-            the_title(); ?></h1>
+            <?php if (!empty($taglist)) : ?>
+              <span class="tag">
+                <?php echo $taglist; ?>
+              </span><!-- .tag end-->
+            <?php endif;
+            the_title(); ?>
+          </h1>
           <!-- .product_title end-->
 
           <div class="product type-product">
@@ -81,8 +85,11 @@ global $product;
             <div class="entry-summary">
               <div class="bg-white radius section-padding">
                 <h1 class="product-title entry-title">
-                  <span class="tag"><?php echo $taglist; ?></span>
-                  <!-- .tag end-->
+                  <?php if (!empty($taglist)) : ?>
+                    <span class="tag">
+                      <?php echo $taglist; ?>
+                    </span><!-- .tag end-->
+                  <?php endif; ?>
                   <?php the_title(); ?>
                 </h1>
                 <div class="woocommerce-product-details__short-description">
@@ -92,16 +99,8 @@ global $product;
                 </div>
 
                 <p class="price">
-                  <span class="woocommerce-Price-amount amount">
-
-                    <bdi>
-                      <span class="">¥</span>
-                      <?php
-                      echo $product->get_price();
-                      ?>
-                    </bdi>
-                    <span class="tax">税込</span>
-                  </span>
+                  <?php echo $product->get_price_html(); ?>
+                  <span class="tax">税込</span><!-- .tax end-->
                 </p>
 
                 <div class="single-info">
@@ -127,9 +126,6 @@ global $product;
                     購入する
                   </button>
                 </form>
-
-
-                <!-- .sample-movie end-->
                 <div class="product_meta">
                   <span class="sku_wrapper">
                     商品コード:
@@ -141,9 +137,8 @@ global $product;
                     <?php echo wc_get_product_category_list(get_the_ID()); ?>
                   </span>
                 </div>
-              </div>
+              </div> <!-- .bg-white end-->
 
-              <!-- .bg-white end-->
               <section class="sample-movie bg-white radius section-padding">
                 <div class="title-box">
                   <h3 class="title-main">問題音声(サンプル)</h3>
@@ -156,7 +151,7 @@ global $product;
                 } else {
                   echo '<p>動画準備中</p>';
                 } ?>
-              </section>
+              </section> <!-- .sample-movie end-->
             </div>
           </div>
 
@@ -197,9 +192,11 @@ global $product;
               ?>
                   <li>
                     <a href="<?php echo get_permalink(); ?>" class="card older-card bg-white radius section-padding" data-scale="false">
-                      <div class="card-imgbox">
-                        <?php echo get_the_post_thumbnail(get_the_ID(), 'thumbnail', ['class' => 'card-img older-img']); ?>
-                      </div><!-- .card-imgbox end-->
+                      <!-- <div class="card-imgbox"> -->
+                      <?php //echo get_the_post_thumbnail(get_the_ID(), 'thumbnail', ['class' => 'card-img older-img']); 
+                      ?>
+                      <!-- </div> -->
+                      <!-- .card-imgbox end-->
                       <div class="card-content older-card-content">
                         <h4 class="card-title older-card-title"><?php echo get_the_date('Y年m月'); ?></h4>
                         <!-- .card-title .older-card-title end-->

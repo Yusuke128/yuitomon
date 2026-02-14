@@ -1,6 +1,7 @@
-@forward 'woocommerce/base';
-@forward 'woocommerce/parts';
-@forward 'woocommerce/archive';
-@forward 'woocommerce/single';
-@forward 'woocommerce/cart';
-@forward 'woocommerce/mypage';
+@forward 'woocommerce/wc-base';
+@forward 'woocommerce/wc-parts';
+@forward 'woocommerce/wc-archive';
+@forward 'woocommerce/wc-single';
+@forward 'woocommerce/wc-cart';
+@forward 'woocommerce/wc-mypage';
+@forward 'woocommerce/wc-forms';

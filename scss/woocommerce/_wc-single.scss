@@ -13,13 +13,11 @@
 
     &-title {
       margin-bottom: 1rem;
-      white-space: pre-line;
+      line-break: auto;
+      word-break: normal;
+      overflow-wrap: break-word;
 
       @extend %font-md-black;
-
-      .tag {
-        display: block;
-      }
     }
 
     &-description {
@@ -162,6 +160,7 @@
       margin-left: 1rem;
       font-size: 1rem;
       font-weight: var(--font-weight-medium);
+      color: var(--navy);
     }
   }
 
@@ -180,9 +179,5 @@
     padding: 1.5rem 2rem;
     font-size: var(--font-lg);
     font-weight: var(--font-weight-black);
-  }
-
-  span[aria-hidden='true'] {
-    visibility: hidden;
   }
 }

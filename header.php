@@ -26,7 +26,7 @@
           <h1 class="logo"><img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="ロゴ" class="logo" /></h1>
         <?php else: ?>
           <a href="<?php echo home_url() ?>" class="logo"><img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="ロゴ" class="logo" /></a>
-        <? endif; ?>
+        <?php endif; ?>
         <!-- .logo end-->
         <p class="title-box-sub-title">小学校受験対策教材</p>
         <!-- .title-box-sub-title end-->

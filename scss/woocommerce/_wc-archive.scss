@@ -40,3 +40,25 @@ ul.category-archive {
     border-radius: 0;
   }
 }
+
+.product-card {
+  padding: 1rem;
+  text-align: center;
+
+  &-list {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+
+  &-imgbox {
+    aspect-ratio: 0;
+  }
+}
+
+.diagnostic-card {
+  gap: 0;
+  text-align: center;
+
+  &-title {
+    font-size: var(--font-lg);
+  }
+}
