@@ -174,84 +174,23 @@ add_action(
   2
 );
 
-add_action(
-  'forminator_form_entry_saved',
-  function ($entry_id, $form_id, $entry_model) {
-
-    error_log('ENTRY SAVED HOOK OK');
-
-    if ($form_id != 203) return;
-
-    $user_id = get_current_user_id();
-
-    $post_id = wp_insert_post([
-      'post_type'   => 'diagnostic_result',
-      'post_status' => 'publish',
-      'post_title'  => 'テスト結果 - ' . current_time('Y-m-d H:i'),
-      'post_author' => $user_id,
-    ]);
-
-    error_log('POST CREATED=' . $post_id);
-  },
-  10,
-  3
-);
-
-
-// add_action('forminator_form_entry_saved', 'forminator_to_custompost', 10, 2);
-// function forminator_to_custompost($entry_id, $form_id)
-// {
-//   $target_form_id = 203;
-//   if ($form_id != $target_form_id) return;
-
-//   $entry = new Forminator_Form_Entry_Model($entry_id);
-//   $fields = $entry->meta_data;
-//   $user_id = get_current_user_id();
-//   $test_id = ''; // テストID取得
-
-//   $post_id = wp_insert_post([
-//     'post_type'   => 'diagnostic_result',
-//     'post_status' => 'publish',
-//     'post_title'  => 'テスト結果 - ' . current_time('Y-m-d H:i'),
-//     'post_author' => $user_id,
-//   ]);
-
-//   // フォームのフィールドからtest_idを取得
-//   foreach ($fields as $field) {
-//     if ($field['name'] === 'test_id') {
-//       $test_id = $field['value'];
-//       break;
-//     }
-//   }
-
-//   // Forminator回答を問No付きで整形
-//   $answers_data = [];
-//   foreach ($fields as $i => $field) {
-//     if (!empty($field['name'])) {
-//       $answers_data[] = [
-//         'question_no'    => $i + 1,
-//         'user_answer'    => $field['value'],
-//         'corrent_answer' => '',    // 後で自動採点するならここで計算
-//         'subject'        => '',    // 後で科目マッピング
-//         'score'          => 0,     // 後で採点
-//       ];
-//     }
-//   }
-//   // テストIDをメタから取得する場合
-//   $product_id = $test_id;
-//   $product = wc_get_product($product_id);
-//   $test_name = $product ? $product->get_name() : '';
-
-
-//   update_field('test_name', $test_name, $post_id);
-//   // 繰り返しフィールドに保存  
-//   update_field('diagnostic_answers', $answers_data, $post_id);
-//   // 管理用メタ
-//   update_post_meta($post_id, 'user_id', $user_id);
-//   update_post_meta($post_id, 'test_id', $test_id);
-//   update_post_meta($post_id, 'form_entry_id', $entry_id);
-// }
 /** ===============================
  * 機能カスタマイズ
- * 
+ * セール商品文言の編集を管理画面から可能にする
  * =============================== */
+function mytheme_register_sale_setting()
+{
+  register_setting('general', 'global_sale_text');
+
+  add_settings_field(
+    'global_sale_text',
+    'セール時表示テキスト',
+    function () {
+      $value = get_option('global_sale_text', '');
+      echo '<input type="text" name="global_sale_text" value="' . esc_attr($value) . '" class="regular-text">';
+      echo '<p class="description">セール価格設定時に表示されるテキストです。空欄で非表示になります。</p>';
+    },
+    'general'
+  );
+}
+add_action('admin_init', 'mytheme_register_sale_setting');
