@@ -92,23 +92,21 @@ global $product;
                   <?php endif; ?>
                   <?php the_title(); ?>
                 </h1>
-                <div class="woocommerce-product-details__short-description">
-                  <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt); ?>
-                  <p>AI分析＆経験者の視点も加えたフィードバック付き！</p>
-                  <p>ペーパーテストで頻出する問題を100問にまとめ、現在の実力を客観的に確認できます。</p>
-                </div>
-
+                <?php if ($post->post_excerpt): ?>
+                  <div class="woocommerce-product-details__short-description">
+                    <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt); ?>
+                  </div>
+                <?php endif; ?>
                 <p class="price">
                   <?php echo $product->get_price_html(); ?>
                   <span class="tax">税込</span><!-- .tax end-->
                 </p>
                 <?php
-                $sale_text = get_option('sale_text');
+                $sale_text = get_option('global_sale_text');
                 if ($product->is_on_sale() && !empty($sale_text)): ?>
-                  <p class="sale">
-                    <?php echo esc_html($sale_text); ?>
-                  </p><!-- .sale end-->
+                  <span class="sale bg-red"> <?php echo esc_html($sale_text); ?></span><!-- .sale end-->
                 <?php endif; ?>
+
                 <div class="single-info">
                   <?php if (has_term('diagnostic', 'product_cat', $product->get_id())) :
                   ?>

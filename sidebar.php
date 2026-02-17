@@ -16,3 +16,9 @@ if (is_product() || is_product_category()) {
   require get_template_directory() . '/footer-categoryranking.php';
   return;
 }
+if (is_account_page()) {
+  require get_template_directory() . '/footer-diagnostic.php';
+  require get_template_directory() . '/footer-categoryranking.php';
+  require get_template_directory() . '/older-diagnostic.php';
+  return;
+}

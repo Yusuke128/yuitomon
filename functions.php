@@ -186,7 +186,7 @@ function mytheme_register_sale_setting()
     'global_sale_text',
     'セール時表示テキスト',
     function () {
-      $value = get_option('global_sale_text', '');
+      $value = get_option('global_sale_text', '今ならお得');
       echo '<input type="text" name="global_sale_text" value="' . esc_attr($value) . '" class="regular-text">';
       echo '<p class="description">セール価格設定時に表示されるテキストです。空欄で非表示になります。</p>';
     },

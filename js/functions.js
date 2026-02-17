@@ -42,7 +42,7 @@ function pickupSlideHeight(swiper) {
 
 // 商品詳細スライダー
 const thumb_swiper = new Swiper('.single-thumb-swiper', {
-  slidesPerView: 1,
+  slidesPerView: 1.5,
   spaceBetween: 20,
   centeredSlides: true,
   watchSlidesProgress: true,
