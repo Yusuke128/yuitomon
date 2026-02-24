@@ -71,7 +71,6 @@ echo woocommerce_breadcrumb();
         ]);
         ?>
       </div><!-- .pagination end-->
-      ?>
     </div><!-- .section-padding end-->
   </div><!-- .section-padding end-->
 </section><!-- .diagnostic container bg-lightnavy product-list radius section-padding end-->

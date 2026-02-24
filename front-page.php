@@ -11,14 +11,13 @@ get_header(); ?>
     <!-- 新着 swiper -->
     <div class="pickup-swiper swiper">
       <div class="swiper-wrapper">
-
         <?php //最新2件の商品を取得
         $product_args = array(
           'numberposts' => 2, // 取得する投稿数
           'post_type'   => 'product', // 投稿タイプ
           'orderby'     => 'date', // 日付でソート
           'order'       => 'DESC', // 降順
-          "post_status" => 'publish',
+          'post_status' => 'publish',
         );
         $products = get_posts($product_args);
         foreach ($products as $product_post) :
@@ -26,7 +25,7 @@ get_header(); ?>
         ?>
           <a href="<?php the_permalink(); ?>" class="link swiper-product pickup-swiper-slide swiper-slide bd bd-navy radius">
             <?php if (has_post_thumbnail()) :
-              the_post_thumbnail('woocommerce_thumbnail', ['class' => 'pickup-img']);
+              the_post_thumbnail('medium', ['class' => 'pickup-img']);
             else : ?>
               <img src="<?php echo wc_placeholder_img_src(); ?>" alt="No image" class="pickup-img">
             <?php endif; ?>
@@ -47,14 +46,14 @@ get_header(); ?>
           setup_postdata($post);
         ?>
           <a href="<?php echo get_permalink() ?>" class="link swiper-post pickup-swiper-slide swiper-slide bd bd-navy radius">
-            <?php if (has_post_parent()): ?>
+            <?php if (has_post_thumbnail()) : ?>
               <?php the_post_thumbnail('medium', array('class' => 'pickup-img')) ?>
             <?php else: ?>
               <img src="<?php echo wc_placeholder_img_src(); ?>" alt="No image" class="pickup-img">
             <?php endif; ?>
             <section class="ttl-box">
               <p class="title-main"><?php the_title(); ?></p><!-- .title-main end-->
-              <p class="title-sub-title"><?php the_field('summary') ?></p><!-- .title-sub-title end-->
+              <p class="title-sub-title"><?php the_excerpt(); ?></p><!-- .title-sub-title end-->
             </section><!-- .ttl-box end-->
           </a><!-- .link sipwer-post pickup-swiper-slide swiper-slide bd bd-navy radius end-->
         <?php endforeach;

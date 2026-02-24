@@ -166,7 +166,7 @@ global $product;
           </article>
           <!-- .product-description bg-white bd radius section-padding end-->
           <?php
-          get_template_part('sidebar', 'older-diagnostic');
+          get_template_part('template-parts/sidebar/older-diagnostic');
           ?>
         </div>
       </section>
