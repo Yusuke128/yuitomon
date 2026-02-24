@@ -1,17 +1,56 @@
+@use '../variables' as v;
+
 .woocommerce {
-  &-MyAccount-navigation {
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 0;
-      list-style: none;
+  &-MyAccount {
+    &-navigation {
+      width: 20% !important;
+      background-color: var(--white);
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      &-link {
+        padding: 0.5rem;
+
+        @extend %font-lg-black;
+
+        &.is-active {
+          background-color: var(--navy-bg);
+        }
+      }
+    }
+
+    form {
+      background-color: transparent !important;
+
+      .form-row {
+        float: none;
+      }
     }
   }
+}
 
-  form {
-    .form-row {
-      float: none;
+.woocommerce-PaymentBox,
+.woocommerce-Payment {
+  background-color: transparent !important;
+}
+
+.dashboard-content {
+  .title-main {
+    @extend %title-border-150;
+  }
+}
+
+.diagnostic-result {
+  &-comment {
+    .title-box {
+      color: var(--white);
     }
   }
 }

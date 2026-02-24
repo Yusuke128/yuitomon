@@ -1,10 +1,7 @@
-<footer class="footer bg-white <?php if (is_front_page()) {
-                                  echo 'front-page';
-                                } ?>">
-
-
+<footer class="footer bg-white<?php if (is_front_page()) {
+                                echo ' front-page';
+                              } ?>">
   <div class="container">
-
     <img src="<?php echo get_template_directory_uri() ?>/img/logo.png" alt="" class="footer-logo" />
     <div class="nav-container">
       <nav data-role="sns">
@@ -70,7 +67,6 @@
   <small class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</small>
   <!-- .copyright end-->
 </footer>
-
 <?php wp_footer(); ?>
 </body>
 

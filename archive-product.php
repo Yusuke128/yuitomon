@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * shopページテンプレート
+ * カテゴリ商品の一覧を表示
+ * 実力診断テスト,uncategorizedは除外
+ */
 get_header();
 
 echo woocommerce_breadcrumb();
@@ -27,7 +33,7 @@ echo woocommerce_breadcrumb();
           array(
             'taxonomy' => 'product_cat',
             'parent' => 0,
-            'hide_empty' => true,
+            'hide_empty' => false,
             'exclude' => $exclude_ids
           )
         );

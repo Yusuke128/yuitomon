@@ -5,8 +5,9 @@ global $product;
 
 <main>
   <!-- パンクズナビ -->
-  <?php echo woocommerce_breadcrumb(); ?>
-  <?php if (have_posts()) : while (have_posts()) : the_post();
+  <?php echo woocommerce_breadcrumb();
+
+  if (have_posts()) : while (have_posts()) : the_post();
       $tags = get_the_terms(get_the_ID(), 'product_tag');
       if ($tags && !is_wp_error($tags)) {
         foreach ($tags as $term) {
@@ -19,26 +20,24 @@ global $product;
           <div class="woocommerce-notices-wrapper">
             <?php wc_print_notices(); ?>
           </div>
-
           <h1 class="product-title">
             <?php if (!empty($taglist)) : ?>
               <span class="tag">
                 <?php echo $taglist; ?>
               </span><!-- .tag end-->
             <?php endif;
-            the_title(); ?>
+            the_title();
+            ?>
           </h1>
           <!-- .product_title end-->
-
           <div class="product type-product">
             <div class="image-gallery">
               <div class="swiper single-swiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <?php
-                    echo (get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'swiper-img')));
-                    ?>
-                  </div><!-- .swiler-slide end-->
+                    <?php echo (get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'swiper-img'))); ?>
+                  </div>
+                  <!-- .swiler-slide end-->
                   <?php
                   $image_gallery_ids = $product->get_gallery_image_ids();
                   foreach ($image_gallery_ids as $image_id) : ?>
@@ -58,7 +57,8 @@ global $product;
                       'medium',
                       array('class' => 'swiper-img')
                     )); ?>
-                  </div><!-- .swiper-slide end-->
+                  </div>
+                  <!-- .swiper-slide end-->
                   <?php
                   $image_gallery_ids = $product->get_gallery_image_ids();
                   foreach ($image_gallery_ids as $image_id) : ?>
@@ -106,7 +106,6 @@ global $product;
                 if ($product->is_on_sale() && !empty($sale_text)): ?>
                   <span class="sale bg-red"> <?php echo esc_html($sale_text); ?></span><!-- .sale end-->
                 <?php endif; ?>
-
                 <div class="single-info">
                   <?php if (has_term('diagnostic', 'product_cat', $product->get_id())) :
                   ?>
@@ -121,7 +120,6 @@ global $product;
                 </div>
                 <form class="cart" method="post">
                   <input type="hidden" name="quantity" value="1">
-
                   <button
                     type="submit"
                     name="add-to-cart"
@@ -135,14 +133,13 @@ global $product;
                     商品コード:
                     <span class="sku"> <?php echo wc_product_sku_enabled() ? $product->get_sku() : ''; ?></span>
                   </span>
-
                   <span class="posted_in">
                     カテゴリー:
                     <?php echo wc_get_product_category_list(get_the_ID()); ?>
                   </span>
                 </div>
-              </div> <!-- .bg-white end-->
-
+              </div>
+              <!-- .bg-white end-->
               <section class="sample-movie bg-white radius section-padding">
                 <div class="title-box">
                   <h3 class="title-main">問題音声(サンプル)</h3>
@@ -154,11 +151,12 @@ global $product;
                   echo wp_oembed_get(get_field('youtube_url'));
                 } else {
                   echo '<p>動画準備中</p>';
-                } ?>
-              </section> <!-- .sample-movie end-->
+                }
+                ?>
+              </section>
+              <!-- .sample-movie end-->
             </div>
           </div>
-
           <article class="product-description container bg-white bd radius section-padding">
             <h2 class="title-main">教材説明</h2>
             <div class="product-content">
@@ -167,8 +165,9 @@ global $product;
             <!-- .product-content end-->
           </article>
           <!-- .product-description bg-white bd radius section-padding end-->
-          <?php include('older-diagnostic.php'); ?>
-
+          <?php
+          get_template_part('sidebar', 'older-diagnostic');
+          ?>
         </div>
       </section>
 </main>

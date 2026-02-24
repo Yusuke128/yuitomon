@@ -1,6 +1,4 @@
-/** ==============================
-** フロントページ
-**================================ */
+// フロントページ
 @use '../variables' as v;
 
 .pickup {
@@ -133,8 +131,6 @@
     width: clamp(180px, 30%, 250px);
     min-width: 180px;
     border-radius: 50%;
-
-    --circle-size: 180px;
 
     @include v.media(sp) {
       width: 30%;

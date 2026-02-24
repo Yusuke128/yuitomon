@@ -122,6 +122,10 @@ header {
     @include v.media(mobile) {
       border-radius: 10px;
     }
+
+    &-mypage {
+      padding: 1rem 2rem;
+    }
   }
 
   &-nav-sp {
