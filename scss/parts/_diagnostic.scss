@@ -48,18 +48,10 @@
   }
 
   .title {
-    &-box {
-      color: var(--white);
-    }
-
     &-main {
       margin-bottom: 2rem;
 
       @extend %title-border;
-
-      &::after {
-        border-bottom-color: var(--white);
-      }
     }
   }
 }

@@ -9,7 +9,7 @@
         <!-- .nav-title end-->
         <ul class="footer-sns footer-nav-list" role="list">
           <li class="list-item x">
-            <a href="" class="link" target="_blank">
+            <a href="https://x.com/TERRACE_LAB" class="link" target="_blank">
               <div class="social-icon bd bd-black">
                 <img src="<?php echo get_template_directory_uri() ?>/img/social-icons/x-logo.png" alt="X" class="social-icon-img" />
               </div>
@@ -20,7 +20,7 @@
           </li>
           <!-- .list-item x end-->
           <li class="list-item insta">
-            <a href="" class="link" target="_blank">
+            <a href="https://www.instagram.com/terrace_lab_ig/" class="link" target="_blank">
               <div class="social-icon bd bd-black">
                 <img src="<?php echo get_template_directory_uri() ?>/img/social-icons/Instagram-Black.png" alt="instagram-icon" class="social-icon-img" />
               </div>
@@ -38,7 +38,7 @@
         <!-- .nav-title end-->
         <ul class="footer-nav footer-nav-list" role="list">
           <li class="footer-nav-item">
-            <a href="" class="link">FAQ</a>
+            <a href="<?php echo home_url('/faq'); ?>" class="link">FAQ</a>
             <!-- .link end-->
           </li>
           <!-- .footer-nav-item end-->
@@ -48,12 +48,12 @@
           </li>
           <!-- .footer-nav-item end-->
           <li class="footer-nav-item">
-            <a href="" class="link">プライバシーポリシー</a>
+            <a href="<?php echo home_url('/privacy-policy') ?>" class="link">プライバシーポリシー</a>
             <!-- .link end-->
           </li>
           <!-- .footer-nav-item end-->
           <li class="footer-nav-item">
-            <a href="" class="link">お問い合わせ</a>
+            <a href="<?php echo home_url('/contact') ?>" class="link">お問い合わせ</a>
             <!-- .link end-->
           </li>
           <!-- .footer-nav-item end-->

@@ -124,7 +124,7 @@ header {
     }
 
     &-mypage {
-      padding: 1rem 2rem;
+      padding: 0.25rem 0.5rem;
     }
   }
 
@@ -215,6 +215,10 @@ header {
       display: none;
     }
   }
+
+  .my-page {
+    grid-column: 1 / 3;
+  }
 }
 
 .nav {
@@ -234,11 +238,6 @@ header {
   }
 
   &-sp {
-    display: none;
     grid-column: 3;
-
-    @include v.media(mobile) {
-      display: block;
-    }
   }
 }

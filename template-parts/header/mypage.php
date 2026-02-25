@@ -1,6 +1,6 @@
 <nav class="nav-pc nav-mypage">
   <ul class="header-nav header-nav-pc" role="list">
-    <li class="header-nav-list">
+    <li class="header-nav-list pc">
       <a href="<?php echo esc_url(wc_get_page_permalink('myaccount')); ?>" class="link link-mypage bd bd-w5 bd-lightnavy radius">
         <img src="<?php echo get_template_directory_uri() ?>/img/header/mypage.png" class="header-icon" />
         <?php
@@ -13,6 +13,13 @@
         ?>
       </a>
     </li>
-    <li class="header-nav-list sp"><a href="" class="link end-point">エンドポイント一覧</a><!-- .link end-point end--></li><!-- .header-nav-list end-->
+    <?php $menu_items = wc_get_account_menu_items();
+    foreach ($menu_items as $endpoint => $label): ?>
+      <li class="header-nav-list sp nav-sp">
+        <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>" class="link link-mypage">
+          <?php echo esc_html($label); ?>
+        </a>
+      </li>
+    <?php endforeach; ?>
   </ul>
 </nav>

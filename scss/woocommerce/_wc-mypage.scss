@@ -42,15 +42,33 @@
 }
 
 .dashboard-content {
-  .title-main {
-    @extend %title-border-150;
+  text-align: center;
+
+  section:nth-child(2n) {
+    margin: 3rem 0;
+  }
+
+  .title {
+    &-box {
+      @extend %font-md-black;
+    }
+
+    &-main {
+      @extend %title-border-150;
+    }
+  }
+
+  .link {
+    width: 30%;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+
+    @extend %font-md-black;
   }
 }
 
 .diagnostic-result {
   &-comment {
-    .title-box {
-      color: var(--white);
-    }
+    color: var(--white);
   }
 }

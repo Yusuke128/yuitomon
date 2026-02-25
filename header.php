@@ -32,7 +32,7 @@
         <!-- .title-box-sub-title end-->
       </div>
       <!-- .title_box end-->
-      <nav class="nav-sp">
+      <nav class="sp nav-sp">
         <ul class="header-nav header-nav-sp" role="list">
           <li class="header-nav-list">
             <a href="<?php echo home_url('my-account'); ?>" class="link bg-navy">

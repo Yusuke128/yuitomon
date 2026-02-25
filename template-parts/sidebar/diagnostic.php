@@ -1,6 +1,6 @@
-<section class="diagnostic 
+<section class="diagnostic bg-white
 <?php
-echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom bg-white' : 'bg-lightnavy section-padding';
+echo (is_front_page() || is_home()) ? 'kv bd bd-navy bd-bottom' : 'section-margin';
 ?>">
   <div class="container">
     <?php

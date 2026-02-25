@@ -1,0 +1,11 @@
+@use '../variables' as v;
+
+.question {
+  margin-bottom: 1rem;
+
+  @extend %font-md-black;
+
+  summary::marker {
+    color: var(--lightnavy);
+  }
+}

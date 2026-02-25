@@ -1,4 +1,21 @@
-<section class="older-products bg-lightnavy radius section-padding">
+<?php
+$older_args = array(
+  'post_type' => 'product',
+  'posts_per_page' => 3,
+  'offset' => 1, // 最新の2件を除外
+  'order' => "DESC",
+  "orderby" => "date",
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => 'diagnostic',
+    ),
+  ),
+);
+$older_posts = new WP_Query($older_args);
+?>
+<section class="older-products bg-lightnavy radius section-padding<?php echo (is_account_page()) ? ' container' : ''; ?>">
   <div class="title-box">
     <h2 class="title-main">過去の実力診断テスト</h2>
     <!-- .title-main end-->
@@ -8,20 +25,6 @@
   <!-- .ttl-box end-->
   <ul class="card-list older-card-list" role="list">
     <?php
-    $older_args = array(
-      'post_type' => 'product',
-      'posts_per_page' => 3,
-      'order' => "DESC",
-      "orderby" => "date",
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'product_cat',
-          'field'    => 'slug',
-          'terms'    => 'diagnostic',
-        ),
-      ),
-    );
-    $older_posts = new WP_Query($older_args);;
     if ($older_posts->have_posts()):
       while ($older_posts->have_posts()): $older_posts->the_post();
     ?>
@@ -40,9 +43,14 @@
           </a>
           <!-- .card older-card end-->
         </li>
-    <?php
+      <?php
       endwhile;
+    else:
+      ?>
+      <li>過去の実力診断テストはありません。</li>
+    <?php
     endif;
+    wp_reset_postdata();
     ?>
   </ul>
   <!-- .card-list older-card-list end-->
