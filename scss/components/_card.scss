@@ -26,6 +26,10 @@
     gap: 2rem;
     align-items: stretch;
     justify-content: space-between;
+
+    li {
+      max-width: 30%;
+    }
   }
 
   &-content {

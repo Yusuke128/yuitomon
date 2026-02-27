@@ -5,10 +5,7 @@
  */
 get_header(); ?>
 <main>
-
-  <?php include('footer-diagnostic.php'); ?>
-
-
+  <?php get_template_part('template-parts/sidebar/diagnostic'); ?>
   <!-- 新着・お知らせ -->
   <section class="pickup-product">
     <!-- 新着 swiper -->
@@ -173,7 +170,7 @@ get_header(); ?>
         </ol>
         <!-- .feature-list end-->
         <div class="feature-imgbox">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/front-page/Iphone.png" alt="" class="feture-img" />
+          <img src="<?php echo get_template_directory_uri(); ?>/img/front-page/iphone.png" alt="" class="feture-img" />
         </div>
         <!-- .feature-imgbox end-->
       </div>

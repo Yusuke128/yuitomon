@@ -13,16 +13,18 @@
         padding: 0;
         margin: 0;
         list-style: none;
+
+        @extend %font-lg-black;
+
+        &::before {
+          padding: 0.5rem;
+          content: 'メニュー';
+          background-color: var(--navy-bg);
+        }
       }
 
       &-link {
         padding: 0.5rem;
-
-        @extend %font-lg-black;
-
-        &.is-active {
-          background-color: var(--navy-bg);
-        }
       }
     }
 
@@ -70,5 +72,7 @@
 .diagnostic-result {
   &-comment {
     color: var(--white);
+
+    @extend %font-md-black;
   }
 }

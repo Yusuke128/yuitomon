@@ -19,7 +19,7 @@ function terracelab_enqueue_assets()
   wp_enqueue_script('original_function', get_template_directory_uri() . '/js/functions.js', array('swiper', 'jquery'), null, true);
   if (is_account_page()) {
     wp_enqueue_script('chart-js', 'https://cdn.jsdelivr.net/npm/chart.js', array(), null, true);
-    // wp_enqueue_script('diagnostic_result_chart', get_template_directory_uri() . '/js/diagnostic_result_chart.js', array('chart-js'), null, true);
+    wp_enqueue_script('diagnostic_result_chart', get_template_directory_uri() . '/js/diagnostic_result_chart.js', array('chart-js'), null, true);
   }
 }
 add_action('wp_enqueue_scripts', 'terracelab_enqueue_assets');
@@ -188,3 +188,22 @@ function custom_dashboard()
 {
   get_template_part('tenplate-parts/mypage/dashboard');
 }
+
+/** ===============================
+ * ナビゲーションメニューのカスタマイズ
+ *  =============================== */
+add_filter('woocommerce_account_menu_items', function ($items) {
+
+  $new_items = array();
+
+  $new_items['dashboard'] = 'ホーム';
+  $new_items['diagnostic-history'] = '過去の実力診断テスト結果';
+  $new_items['orders'] = '購入履歴';
+  $new_items['school-setting'] = '志望校設定';
+  $new_items['payment-methods'] = '決済設定';
+  $new_items['edit-account'] = 'アカウント設定';
+  $new_items['customer-logout'] = 'ログアウト';
+  $new_items[''] = 'Menu-END';
+
+  return $new_items;
+});
