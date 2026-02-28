@@ -37,7 +37,17 @@ if ($latest_product): ?>
     </section><!-- .title-box end-->
     <section class="input-links result-input-links">
       <h3>(必須)結果を入力してください</h3>
-      <a href="<?php echo home_url('/my-account/result-input?product_id=' . $latest_product->ID); ?>" class="link btn btn-yellow radius">結果入力</a>
+      <?php
+      if (get_user_meta(get_current_user_id(), 'has_input_result_' . $latest_product->ID, true)) :
+      ?>
+        <p class="link btn btn-glay radius">結果入力済</p>
+      <?php
+      else :
+      ?>
+        <a href="<?php echo home_url('/my-account/result-input?product_id=' . $latest_product->ID); ?>" class="link btn btn-yellow radius">結果入力</a>
+      <?
+      endif;
+      ?>
       <p class="input-links-note">※運営者に結果が届き次第、一週間以内でフィードバックをお送りします。</p>
     </section><!-- .input-links .result-input-links end-->
 
