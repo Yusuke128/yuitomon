@@ -84,7 +84,7 @@ if ($latest_product): ?>
 
       // ===== 基本データ取得 =====
       $evaluation  = get_field('evaluation');
-      $comment     = get_field('feedback');
+      $comment     = get_field('Feedback');
       $pdf_file    = get_field('feedback_img');
 
       // ===== 科目別得点（repeater） =====
