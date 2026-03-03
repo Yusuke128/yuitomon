@@ -35,6 +35,7 @@ if ($latest_product): ?>
       <h2 class="title-main">最新の実力診断結果入力</h2><!-- .title-main end-->
       <p class="title-sub-title"><?php echo get_the_date('Y年m月', $latest_product->ID); ?>&nbsp;実力診断テスト</p><!-- .title-sub-title end-->
     </section><!-- .title-box end-->
+
     <section class="input-links result-input-links">
       <h3>(必須)結果を入力してください</h3>
       <?php

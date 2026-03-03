@@ -44,7 +44,7 @@
 }
 
 .dashboard-content {
-  text-align: center;
+  overflow: hidden;
 
   section:nth-child(2n) {
     margin: 3rem 0;
@@ -69,10 +69,50 @@
   }
 }
 
-.diagnostic-result {
-  &-comment {
-    color: var(--white);
+.my-diagnostic {
+  text-align: center;
+}
 
-    @extend %font-md-black;
+.diagnostic {
+  &-result {
+    &-info {
+      text-align: center;
+    }
+
+    &-comment {
+      color: var(--white);
+      text-align: center;
+
+      @extend %font-md-black;
+    }
+
+    &-evaluation {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+
+      h4 {
+        position: relative;
+        z-index: 0;
+        display: inline-block;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          width: 100%;
+          height: 50%;
+          content: '';
+          background-color: var(--light-yellow);
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &-chart {
+    width: 80% !important;
+    height: auto !important;
+    margin-inline: auto;
   }
 }

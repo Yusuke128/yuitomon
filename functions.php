@@ -177,6 +177,38 @@ function mytheme_register_sale_setting()
   );
 }
 add_action('admin_init', 'mytheme_register_sale_setting');
+/** ===============================
+ * 機能カスタマイズ
+ * パンクズリストでオリジナルエンドポイントも出力する
+ * =============================== */
+add_filter('woocommerce_get_breadcrumb', function ($crumbs) {
+
+  if (!is_account_page()) return $crumbs;
+
+  global $wp;
+  $config = get_myaccount_menu_config();
+
+  foreach ($config as $slug => $data) {
+
+    if (isset($wp->query_vars[$slug])) {
+
+      // WooCommerce標準endpointかどうか判定
+      $wc_endpoints = array_keys(WC()->query->get_query_vars());
+
+      if (in_array($slug, $wc_endpoints)) {
+        // 標準 → 上書き
+        $crumbs[count($crumbs) - 1][0] = $data['label'];
+      } else {
+        // カスタム → 追加
+        $crumbs[] = [$data['label'], ''];
+      }
+
+      break;
+    }
+  }
+
+  return $crumbs;
+});
 
 /** ===============================
  * マイページカスタマイズ
@@ -186,24 +218,57 @@ remove_action('woocommerce_account_dashboard', 'woocommerce_account_dashboard');
 add_action('woocommerce_account_dashboard', 'custom_dashboard');
 function custom_dashboard()
 {
-  get_template_part('tenplate-parts/mypage/dashboard');
+  get_template_part('template-parts/mypage/dashboard');
+}
+/**　===============================
+ * マイページカスタマイズ
+ * カスタムエンドポイント管理
+ * =============================== */
+function get_myaccount_menu_config()
+{
+  return [
+    'dashboard'          => ['label' => 'ホーム',                 'template' => null],
+    'diagnostic-history' => ['label' => '過去の実力診断テスト結果', 'template' => 'diagnostic-history'],
+    'orders'             => ['label' => '購入履歴',               'template' => null],
+    'result-input'       => ['label' => '結果入力',               'template' => 'result-input'],
+    'school-setting'     => ['label' => '志望校設定',             'template' => 'school-setting'],
+    'questionnaire'      => ['label' => 'アンケート',             'template' => 'questionnaire'],
+    'payment-methods'    => ['label' => '決済設定',               'template' => null],
+    'edit-account'       => ['label' => 'アカウント設定',         'template' => null],
+    'customer-logout'    => ['label' => 'ログアウト',             'template' => null],
+  ];
 }
 
 /** ===============================
+ * マイページカスタマイズ
  * ナビゲーションメニューのカスタマイズ
  *  =============================== */
 add_filter('woocommerce_account_menu_items', function ($items) {
 
-  $new_items = array();
+  $config = get_myaccount_menu_config();
+  $new_items = [];
 
-  $new_items['dashboard'] = 'ホーム';
-  $new_items['diagnostic-history'] = '過去の実力診断テスト結果';
-  $new_items['orders'] = '購入履歴';
-  $new_items['school-setting'] = '志望校設定';
-  $new_items['payment-methods'] = '決済設定';
-  $new_items['edit-account'] = 'アカウント設定';
-  $new_items['customer-logout'] = 'ログアウト';
-  $new_items[''] = 'Menu-END';
+  foreach ($config as $slug => $data) {
+    $new_items[$slug] = $data['label'];
+  }
 
   return $new_items;
+});
+/** ===============================
+ * マイページカスタマイズ
+ * カスタムエンドポイント管理,テンプレートの割り当て
+ * =============================== */
+add_action('init', function () {
+
+  foreach (get_myaccount_menu_config() as $slug => $data) {
+
+    if (!empty($data['template'])) {
+
+      add_rewrite_endpoint($slug, EP_ROOT | EP_PAGES);
+
+      add_action("woocommerce_account_{$slug}_endpoint", function () use ($data) {
+        wc_get_template("myaccount/{$data['template']}.php");
+      });
+    }
+  }
 });
