@@ -13,50 +13,63 @@ get_header(); ?>
       <div class="swiper-wrapper">
         <?php //最新2件の商品を取得
         $product_args = array(
-          'numberposts' => 2, // 取得する投稿数
+          'posts_per_page' => 2, // 取得する投稿数
           'post_type'   => 'product', // 投稿タイプ
           'orderby'     => 'date', // 日付でソート
           'order'       => 'DESC', // 降順
           'post_status' => 'publish',
+          'meta_query'     => WC()->query->get_meta_query(),
+          // 'tax_query' => array(
+          //   array(
+          //     'taxonomy' => 'product_cat',
+          //     'field'    => 'slug',
+          //     'terms'    => array('diagnostic'),
+          //     'operator' => 'NOT IN', // ← これが除外
+          //   ),
+          // ),
         );
-        $products = get_posts($product_args);
-        foreach ($products as $product_post) :
-          setup_postdata($product_post);
+        $products = new WP_Query($product_args);
+        if ($products->have_posts()) :
+          while ($products->have_posts()) :
+            $products->the_post();
         ?>
-          <a href="<?php the_permalink(); ?>" class="link swiper-product pickup-swiper-slide swiper-slide bd bd-navy radius">
-            <?php if (has_post_thumbnail()) :
-              the_post_thumbnail('medium', ['class' => 'pickup-img']);
-            else : ?>
-              <img src="<?php echo wc_placeholder_img_src(); ?>" alt="No image" class="pickup-img">
-            <?php endif; ?>
-          </a><!-- .link swiper-product pickup-swiper-slide swiper-slide bd bd-navy radius end-->
-        <?php endforeach;
+            <a href="<?php the_permalink(); ?>" class="link swiper-product pickup-swiper-slide swiper-slide bd bd-navy radius">
+              <?php if (has_post_thumbnail()) :
+                the_post_thumbnail('medium', ['class' => 'pickup-img']);
+              else : ?>
+                <img src="<?php echo wc_placeholder_img_src(); ?>" alt="No image" class="pickup-img">
+              <?php endif; ?>
+            </a><!-- .link swiper-product pickup-swiper-slide swiper-slide bd bd-navy radius end-->
+        <?php endwhile;
+        endif;
         wp_reset_postdata(); ?>
 
         <?php
         //投稿の直近２件を表示
         $post_args = array(
-          'numberposts' => 2, // 取得する投稿数
+          'posts_per_page' => 2, // 取得する投稿数
           'post_type'   => 'post', // 投稿タイプ
           'orderby'     => 'date', // 日付でソート
           'order'       => 'DESC' // 降順
         );
-        $posts = get_posts($post_args);
-        foreach ($posts as $post) :
-          setup_postdata($post);
+        $post_query = new WP_Query($post_args);
+        if ($post_query->have_posts()) :
+          while ($post_query->have_posts()) :
+            $post_query->the_post();
         ?>
-          <a href="<?php echo get_permalink() ?>" class="link swiper-post pickup-swiper-slide swiper-slide bd bd-navy radius">
-            <?php if (has_post_thumbnail()) : ?>
-              <?php the_post_thumbnail('medium', array('class' => 'pickup-img')) ?>
-            <?php else: ?>
-              <img src="<?php echo wc_placeholder_img_src(); ?>" alt="No image" class="pickup-img">
-            <?php endif; ?>
-            <section class="ttl-box">
-              <p class="title-main"><?php the_title(); ?></p><!-- .title-main end-->
-              <p class="title-sub-title"><?php the_excerpt(); ?></p><!-- .title-sub-title end-->
-            </section><!-- .ttl-box end-->
-          </a><!-- .link sipwer-post pickup-swiper-slide swiper-slide bd bd-navy radius end-->
-        <?php endforeach;
+            <a href="<?php the_permalink() ?>" class="link swiper-post pickup-swiper-slide swiper-slide bd bd-navy radius">
+              <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('medium', array('class' => 'pickup-img')) ?>
+              <?php else: ?>
+                <img src="<?php echo wc_placeholder_img_src(); ?>" alt="No image" class="pickup-img">
+              <?php endif; ?>
+              <section class="ttl-box">
+                <p class="title-main"><?php the_title(); ?></p><!-- .title-main end-->
+                <p class="title-sub-title"><?php the_excerpt(); ?></p><!-- .title-sub-title end-->
+              </section><!-- .ttl-box end-->
+            </a><!-- .link sipwer-post pickup-swiper-slide swiper-slide bd bd-navy radius end-->
+        <?php endwhile;
+        endif;
         wp_reset_postdata(); ?>
       </div>
       <!-- .swiper-wrapper end-->
@@ -196,6 +209,7 @@ get_header(); ?>
         <!-- .feature-list end-->
         <div class="feature-imgbox">
           <img src="<?php echo get_template_directory_uri(); ?>/img/front-page/iphone.png" alt="" class="feature-img" />
+          <p class="">画像はフィードバックのイメージです</p>
         </div>
         <!-- .feature-imgbox end-->
       </div>

@@ -2,7 +2,7 @@
 $is_account = function_exists('is_account_page') && is_account_page();
 ?>
 <?php woocommerce_breadcrumb(); ?>
-<main class="<?php echo get_post_field('post_name', get_post()); ?>-page <?php echo $is_account ? '' : 'container section-margin section-padding bg-white'; ?>">
+<main class="<?php echo get_post_field('post_name', get_post()); ?>-page<?php echo $is_account ? '' : ' container section-margin section-padding bg-white'; ?>">
 
   <?php if (!$is_account) : ?>
     <section class="title-box">

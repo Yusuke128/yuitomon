@@ -4,6 +4,7 @@
  * shopページテンプレート
  * カテゴリ商品の一覧を表示
  * 実力診断テスト,uncategorizedは除外
+ * Version 8.6.0
  */
 get_header();
 

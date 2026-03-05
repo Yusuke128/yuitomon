@@ -5,7 +5,8 @@
  */
 get_header(); ?>
 <main>
-  <?php get_template_part('template-parts/sidebar/diagnostic'); ?>
+  <?php echo 'index';
+  get_template_part('template-parts/sidebar/diagnostic'); ?>
   <!-- 新着・お知らせ -->
   <section class="pickup-product">
     <!-- 新着 swiper -->

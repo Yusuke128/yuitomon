@@ -1,10 +1,33 @@
 @use '../variables' as v;
 
+.u-column {
+  &1 {
+    padding: 1rem;
+    background-color: var(--white);
+  }
+
+  &2 {
+    padding: 1rem;
+    background-color: var(--white);
+  }
+}
+
 .woocommerce {
   &-MyAccount {
+    &-wrapper {
+      gap: 3rem;
+
+      @include v.flex(space-evenly, self-start);
+    }
+
     &-navigation {
-      width: 20% !important;
+      float: none !important;
+      width: auto !important;
       background-color: var(--white);
+
+      @include v.media(sp) {
+        display: none;
+      }
 
       ul {
         display: flex;
@@ -24,7 +47,7 @@
       }
 
       &-link {
-        padding: 0.5rem;
+        padding: 0.5rem 0.75rem;
       }
     }
 
@@ -46,10 +69,6 @@
 .dashboard-content {
   overflow: hidden;
 
-  section:nth-child(2n) {
-    margin: 3rem 0;
-  }
-
   .title {
     &-box {
       @extend %font-md-black;
@@ -61,7 +80,7 @@
   }
 
   .link {
-    width: 30%;
+    max-width: 40%;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
 

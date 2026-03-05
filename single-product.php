@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * Single Product Page
+ * 商品詳細ページのテンプレート
+ * Version 1.0.0
+ */
+get_header(); ?>
 <?php
 global $product;
 ?>

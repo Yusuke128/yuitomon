@@ -177,10 +177,10 @@ function mytheme_register_sale_setting()
   );
 }
 add_action('admin_init', 'mytheme_register_sale_setting');
-/** ===============================
- * 機能カスタマイズ
- * パンクズリストでオリジナルエンドポイントも出力する
- * =============================== */
+// /** ===============================
+//  * 機能カスタマイズ
+//  * パンクズリストでオリジナルエンドポイントも出力する
+//  * =============================== */
 add_filter('woocommerce_get_breadcrumb', function ($crumbs) {
 
   if (!is_account_page()) return $crumbs;
@@ -188,18 +188,24 @@ add_filter('woocommerce_get_breadcrumb', function ($crumbs) {
   global $wp;
   $config = get_myaccount_menu_config();
 
+  $default_wc_endpoints = [
+    'orders',
+    'downloads',
+    'edit-address',
+    'payment-methods',
+    'edit-account',
+    'customer-logout',
+  ];
+
   foreach ($config as $slug => $data) {
 
     if (isset($wp->query_vars[$slug])) {
 
-      // WooCommerce標準endpointかどうか判定
-      $wc_endpoints = array_keys(WC()->query->get_query_vars());
-
-      if (in_array($slug, $wc_endpoints)) {
-        // 標準 → 上書き
+      if (in_array($slug, $default_wc_endpoints)) {
+        // Woo標準 → 表示名だけ変更
         $crumbs[count($crumbs) - 1][0] = $data['label'];
       } else {
-        // カスタム → 追加
+        // カスタム → マイアカウント配下として追加
         $crumbs[] = [$data['label'], ''];
       }
 
@@ -227,15 +233,15 @@ function custom_dashboard()
 function get_myaccount_menu_config()
 {
   return [
-    'dashboard'          => ['label' => 'ホーム',                 'template' => null],
-    'diagnostic-history' => ['label' => '過去の実力診断テスト結果', 'template' => 'diagnostic-history'],
-    'orders'             => ['label' => '購入履歴',               'template' => null],
-    'result-input'       => ['label' => '結果入力',               'template' => 'result-input'],
-    'school-setting'     => ['label' => '志望校設定',             'template' => 'school-setting'],
-    'questionnaire'      => ['label' => 'アンケート',             'template' => 'questionnaire'],
-    'payment-methods'    => ['label' => '決済設定',               'template' => null],
-    'edit-account'       => ['label' => 'アカウント設定',         'template' => null],
-    'customer-logout'    => ['label' => 'ログアウト',             'template' => null],
+    'dashboard'          => ['label' => 'ホーム',                 'template' => null, 'show_in_menu' => true],
+    'diagnostic-history' => ['label' => '過去の実力診断テスト結果', 'template' => 'diagnostic-history', 'show_in_menu' => true],
+    'orders'             => ['label' => '購入履歴',               'template' => null, 'show_in_menu' => true],
+    'result-input'       => ['label' => '結果入力',               'template' => 'result-input', 'show_in_menu' => false],
+    'school-setting'     => ['label' => '志望校設定',             'template' => 'school-setting', 'show_in_menu' => true],
+    'questionnaire'      => ['label' => 'アンケート',             'template' => 'questionnaire', 'show_in_menu' => false],
+    'payment-methods'    => ['label' => '決済設定',               'template' => null, 'show_in_menu' => true],
+    'edit-account'       => ['label' => 'アカウント設定',         'template' => null, 'show_in_menu' => true],
+    'customer-logout'    => ['label' => 'ログアウト',             'template' => null, 'show_in_menu' => true],
   ];
 }
 
@@ -249,7 +255,9 @@ add_filter('woocommerce_account_menu_items', function ($items) {
   $new_items = [];
 
   foreach ($config as $slug => $data) {
-    $new_items[$slug] = $data['label'];
+    if (!empty($data['show_in_menu'])) {
+      $new_items[$slug] = $data['label'];
+    }
   }
 
   return $new_items;
@@ -263,8 +271,7 @@ add_action('init', function () {
   foreach (get_myaccount_menu_config() as $slug => $data) {
 
     if (!empty($data['template'])) {
-
-      add_rewrite_endpoint($slug, EP_ROOT | EP_PAGES);
+      add_rewrite_endpoint($slug, EP_PAGES);
 
       add_action("woocommerce_account_{$slug}_endpoint", function () use ($data) {
         wc_get_template("myaccount/{$data['template']}.php");
@@ -272,3 +279,65 @@ add_action('init', function () {
     }
   }
 });
+add_filter('woocommerce_get_query_vars', function ($vars) {
+
+  foreach (get_myaccount_menu_config() as $slug => $data) {
+    if (!empty($data['template'])) {
+      $vars[$slug] = $slug;
+    }
+  }
+
+  return $vars;
+});
+/**　===============================
+ * マイページカスタマイズ
+ * Forminatorで入力済かどうか判断
+ * =============================== */
+function has_submitted_result($diagnostic_form_id, $product_id, $user_id)
+{
+  global $wpdb;
+
+  $table_entries = $wpdb->prefix . 'frmt_form_entry';
+  $table_meta    = $wpdb->prefix . 'frmt_form_entry_meta';
+
+  $entry_id = $wpdb->get_var($wpdb->prepare("
+    SELECT e.entry_id
+    FROM {$table_entries} e
+    INNER JOIN {$table_meta} m1
+      ON e.entry_id = m1.entry_id
+    INNER JOIN {$table_meta} m2
+      ON e.entry_id = m2.entry_id
+    WHERE e.form_id = %d
+      AND m1.meta_key = 'hidden-1'
+      AND m1.meta_value = %d
+      AND m2.meta_key = 'hidden-2'
+      AND m2.meta_value = %d
+    LIMIT 1
+  ", $diagnostic_form_id, $product_id, $user_id));
+
+  return empty($entry_id);
+}
+/**　===============================
+ * マイページカスタマイズ
+ * Forminatorで入力済かどうか判断（アンケート用）
+ * =============================== */
+function has_questionnaire_result($form_id, $user_id)
+{
+  global $wpdb;
+
+  $table_entries = $wpdb->prefix . 'frmt_form_entry';
+  $table_meta    = $wpdb->prefix . 'frmt_form_entry_meta';
+
+  $entry_id = $wpdb->get_var($wpdb->prepare("
+    SELECT e.entry_id
+    FROM {$table_entries} e
+    INNER JOIN {$table_meta} m1
+      ON e.entry_id = m1.entry_id
+    WHERE e.form_id = %d
+      AND m1.meta_key = 'hidden-1'
+      AND m1.meta_value = %d
+    LIMIT 1
+  ", $form_id, $user_id));
+
+  return empty($entry_id);
+}

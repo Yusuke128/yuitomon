@@ -13,7 +13,10 @@
 
   &.link {
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
   }
 
   &-navy {
@@ -46,6 +49,16 @@
       color: currentcolor;
       background-color: var(--white);
       border-color: var(--yellow);
+    }
+  }
+
+  &-gray {
+    color: var(--black);
+    cursor: no-drop;
+    background-color: var(--gray);
+
+    &.link {
+      cursor: no-drop;
     }
   }
 }

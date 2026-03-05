@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * My Account Dashboard
+ * オリジナルダッシュボード
+ * Version 1.0.0
+ */
 $diagnostic_query = new WP_Query(array(
   'post_type'      => 'product',
   'posts_per_page' => 2,
@@ -39,22 +45,39 @@ if ($latest_product): ?>
     <section class="input-links result-input-links">
       <h3>(必須)結果を入力してください</h3>
       <?php
-      if (get_user_meta(get_current_user_id(), 'has_input_result_' . $latest_product->ID, true)) :
+      $diagnostic_form_id    = 156; // ← 実際のフォームID
+      $product_id = $latest_product->ID;
+      $user_id    = get_current_user_id();
+
+      $has_submitted = has_submitted_result($diagnostic_form_id, $product_id, $user_id);
       ?>
-        <p class="link btn btn-glay radius">結果入力済</p>
-      <?php
-      else :
-      ?>
-        <a href="<?php echo home_url('/my-account/result-input?product_id=' . $latest_product->ID); ?>" class="link btn btn-yellow radius">結果入力</a>
-      <?
-      endif;
-      ?>
+      <?php if ($has_submitted) : ?>
+        <a href="<?php echo home_url('/my-account/result-input?product_id=' . $product_id); ?>"
+          class="link btn btn-yellow radius">
+          結果入力
+        </a>
+      <?php else : ?>
+        <span class="link btn btn-gray radius is-disabled">
+          結果入力済
+        </span>
+      <?php endif; ?>
       <p class="input-links-note">※運営者に結果が届き次第、一週間以内でフィードバックをお送りします。</p>
     </section><!-- .input-links .result-input-links end-->
 
     <section class="input-links questionnaire-input-links">
       <h3>(任意)サービス改善やフィードバックの精度を高めるためアンケートにご協力ください</h3>
-      <a href="<?php echo  home_url('/my-account/questionnaire') ?>" class="link btn btn-yellow radius">アンケート入力</a>
+      <?php
+      $questionnaire_form_id    = 159; // ← 実際のフォームID
+
+      $has_questionnaire = has_questionnaire_result($questionnaire_form_id, $user_id);
+      if ($has_questionnaire): ?>
+        <a href="<?php echo  home_url('/my-account/questionnaire') ?>" class="link btn btn-yellow radius">アンケート入力</a>
+      <?php else: ?>
+        <span class="link btn btn-gray radius is-disabled">
+          アンケート入力済
+        </span>
+      <?php endif; ?>
+
     </section><!-- .input-links questionnaire-input-links end-->
   </article><!-- .my-diagnostic end-->
 <?php endif; ?>
@@ -127,7 +150,7 @@ if ($latest_product): ?>
 
     <?php if ($pdf_file): ?>
       <div class="feedback-pdf">
-        <a href="<?php echo esc_url($pdf_file['url']); ?>" target="_blank" class="link btn btn-yellow radius">フィードバックPDFを見る</a>
+        <a href="<?php echo esc_url($pdf_file['url']); ?>" target="_blank" class="link btn btn-yellow radius">結果PDFを見る</a>
       </div>
     <?php endif; ?>
     <section class="diagnostic-result-chart">
