@@ -5,27 +5,15 @@
  * オリジナルダッシュボード
  * Version 1.0.0
  */
-$diagnostic_query = new WP_Query(array(
-  'post_type'      => 'product',
-  'posts_per_page' => 2,
-  'order'          => 'DESC',
-  'orderby'        => 'date',
-  'tax_query'      => array(
-    array(
-      'taxonomy' => 'product_cat',
-      'field'    => 'slug',
-      'terms'    => 'diagnostic',
-    ),
-  ),
-));
+$diagnostic_query = get_diagnostic_products([
+  'posts_per_page' => 2
+]); // 最新2件を取得
 
 $latest_product      = null;
 $previous_product    = null;
-
 if ($diagnostic_query->have_posts()) {
   $diagnostic_query->the_post();
   $latest_product = get_post(); // 1件目
-
   if ($diagnostic_query->have_posts()) {
     $diagnostic_query->the_post();
     $previous_product = get_post(); // 2件目
@@ -83,60 +71,18 @@ if ($latest_product): ?>
 <?php endif; ?>
 
 <?php if ($previous_product) :
-  $current_use_id = get_current_user_id();
 
-  $result_query = new WP_Query(array(
-    'post_type'  => 'diagnostic_result',
-    'meta_query' => array(
-      'relation' => 'AND',
-      array(
-        'key'     => 'test_name',
-        'value'   => '"' . $previous_product->ID . '"',
-        'compare' => 'LIKE'
-      ),
-      array(
-        'key'     => 'target_user',
-        'value'   => $current_use_id,
-        'compare' => '='
-      ),
-    ),
-  ));
-  $chart_data = array();
-  $all_chart_data = array();
-  if ($result_query->have_posts()) :
-    while ($result_query->have_posts()) : $result_query->the_post();
+  $user_id = get_current_user_id();
+  $result = get_user_diagnostic_result($previous_product->ID, $user_id);
 
-      // ===== 基本データ取得 =====
-      $evaluation  = get_field('evaluation');
-      $comment     = get_field('Feedback');
-      $pdf_file    = get_field('feedback_img');
-
-      // ===== 科目別得点（repeater） =====
-
-      $rows = get_field('category_scores');
-      if ($rows) {
-        foreach ($rows as $row) {
-          $category_array = $row['category']; // ← ここは配列確定
-          $points         = $row['points'];
-          if (!empty($category_array)) {
-            $category_id = (int)$category_array[0]; // 必ず0番目を取る
-            $term = get_term($category_id, 'product_cat');
-            if ($term && !is_wp_error($term)) {
-              $rate = round(($points / $row['question_number']) * 100); // 得点率を計算
-              $chart_data[$term->name] = $rate;
-            }
-          }
-        }
-      }
-      $all_chart_data[] = [
-        'scores' => $chart_data,
-        "evaluation" => $evaluation,
-        "comment" => $comment,
-        "pdf" => $pdf_file ? $pdf_file['url'] : null,
-      ];
-    endwhile;
-    wp_localize_script('diagnostic_result_chart', 'diagnosticChartsData', $all_chart_data); // ← PHPの配列を渡す;
-  endif; ?>
+  if ($result) {
+    $data = get_diagnostic_result_data($result->ID);
+    wp_localize_script(
+      'diagnostic_result_chart',
+      'diagnosticChartsData',
+      [$data]
+    );
+  } ?>
   <article class="dashboard-content diagnostic-result-info section-padding section-margin bd bd-navy radius bg-white">
     <section class="title-box">
       <h2 class="title-main">最新の実力診断テスト結果</h2><!-- .title-main end-->
@@ -145,12 +91,12 @@ if ($latest_product): ?>
     </section>
     <!-- .title-box end-->
     <div class="diagnostic-result-evaluation">
-      <h4 class="evaluation">総合評価&nbsp<?php echo $evaluation; ?></h4><!-- .evaluation end-->
+      <h4 class="evaluation">総合評価&nbsp;<span class="large"><!-- .large end--><?php echo $data['evaluation']; ?></span></h4><!-- .evaluation end-->
     </div><!-- .diagnostic-result-evaluation end-->
 
-    <?php if ($pdf_file): ?>
+    <?php if ($data['pdf']): ?>
       <div class="feedback-pdf">
-        <a href="<?php echo esc_url($pdf_file['url']); ?>" target="_blank" class="link btn btn-yellow radius">結果PDFを見る</a>
+        <a href="<?php echo esc_url($data['pdf']); ?>" target="_blank" class="link btn btn-yellow radius">結果PDFを見る</a>
       </div>
     <?php endif; ?>
     <section class="diagnostic-result-chart">
@@ -164,7 +110,7 @@ if ($latest_product): ?>
     </section><!-- .title-box end-->
     <p class="comment">
       <?php
-      echo $comment;
+      echo $data['comment'];
       ?>
     </p>
 

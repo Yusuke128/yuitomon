@@ -1,0 +1,18 @@
+@use '../variables' as v;
+
+.old_diagnostic {
+  &-card {
+    display: block;
+
+    &-title {
+      font-size: 1.5rem;
+      font-weight: var(--font-weight-black);
+      text-align: center;
+    }
+
+    .link {
+      max-width: 100%;
+      margin-inline: auto;
+    }
+  }
+}

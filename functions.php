@@ -136,16 +136,6 @@ function get_product_category_image_url($term_id)
 }
 
 /** ===============================
- ** 未装飾ページのとりあえずコンテナ追加
- ** =============================== */
-add_filter('the_content', function ($content) {
-  if (is_cart() || is_checkout() || is_account_page()) {
-    return '<div class="container section-padding section-margin">' . $content . '</div>';
-  }
-  return $content;
-}, 9);
-
-/** ===============================
  ** 機能カスタマイズ
  ** 1. Forminator で入力されたデータをカスタム投稿タイプに保存
  ** =============================== */
@@ -160,7 +150,7 @@ add_action(
 
 /** ===============================
  ** 機能カスタマイズ
- ** セール商品文言の編集を管理画面から可能にする
+ ** 2.セール商品文言の編集を管理画面から可能にする
  ** =============================== */
 function mytheme_register_sale_setting()
 {
@@ -177,10 +167,10 @@ function mytheme_register_sale_setting()
   );
 }
 add_action('admin_init', 'mytheme_register_sale_setting');
-// /** ===============================
-//  * 機能カスタマイズ
-//  * パンクズリストでオリジナルエンドポイントも出力する
-//  * =============================== */
+/** ===============================
+ * 機能カスタマイズ
+ * 3.パンクズリストでオリジナルエンドポイントも出力する
+ * =============================== */
 add_filter('woocommerce_get_breadcrumb', function ($crumbs) {
 
   if (!is_account_page()) return $crumbs;
@@ -215,20 +205,37 @@ add_filter('woocommerce_get_breadcrumb', function ($crumbs) {
 
   return $crumbs;
 });
+/** ===============================
+ * 機能カスタマイズ
+ * 4.フィードバックの重複禁止
+ * =============================== */
+add_action('save_post_diagnostic_result', function ($post_id) {
+
+  $user = $_POST['acf']['field_user'];
+  $test = $_POST['acf']['field_test'];
+
+  $exists = new WP_Query([
+    'post_type' => 'diagnostic_result',
+    'meta_query' => [
+      [
+        'key' => 'target_user',
+        'value' => $user
+      ],
+      [
+        'key' => 'test_name',
+        'value' => $test
+      ]
+    ]
+  ]);
+
+  if ($exists->have_posts()) {
+    wp_die('既にこのテスト結果を入力済です');
+  }
+});
 
 /** ===============================
  * マイページカスタマイズ
- * ダッシュボード差し替え
- * =============================== */
-remove_action('woocommerce_account_dashboard', 'woocommerce_account_dashboard');
-add_action('woocommerce_account_dashboard', 'custom_dashboard');
-function custom_dashboard()
-{
-  get_template_part('template-parts/mypage/dashboard');
-}
-/**　===============================
- * マイページカスタマイズ
- * カスタムエンドポイント管理
+ * 1.カスタムエンドポイント管理
  * =============================== */
 function get_myaccount_menu_config()
 {
@@ -242,12 +249,13 @@ function get_myaccount_menu_config()
     'payment-methods'    => ['label' => '決済設定',               'template' => null, 'show_in_menu' => true],
     'edit-account'       => ['label' => 'アカウント設定',         'template' => null, 'show_in_menu' => true],
     'customer-logout'    => ['label' => 'ログアウト',             'template' => null, 'show_in_menu' => true],
+    // 'older-result'    => ['label' => '%sの診断結果',             'template' => null, 'show_in_menu' => false],
   ];
 }
 
 /** ===============================
  * マイページカスタマイズ
- * ナビゲーションメニューのカスタマイズ
+ * 2.ナビゲーションメニューのカスタマイズ
  *  =============================== */
 add_filter('woocommerce_account_menu_items', function ($items) {
 
@@ -264,7 +272,7 @@ add_filter('woocommerce_account_menu_items', function ($items) {
 });
 /** ===============================
  * マイページカスタマイズ
- * カスタムエンドポイント管理,テンプレートの割り当て
+ * 3.カスタムエンドポイント管理,テンプレートの割り当て
  * =============================== */
 add_action('init', function () {
 
@@ -291,7 +299,7 @@ add_filter('woocommerce_get_query_vars', function ($vars) {
 });
 /**　===============================
  * マイページカスタマイズ
- * Forminatorで入力済かどうか判断
+ * 4.Forminatorで入力済かどうか判断(実力診断用)
  * =============================== */
 function has_submitted_result($diagnostic_form_id, $product_id, $user_id)
 {
@@ -319,7 +327,7 @@ function has_submitted_result($diagnostic_form_id, $product_id, $user_id)
 }
 /**　===============================
  * マイページカスタマイズ
- * Forminatorで入力済かどうか判断（アンケート用）
+ * 5.Forminatorで入力済かどうか判断（アンケート用）
  * =============================== */
 function has_questionnaire_result($form_id, $user_id)
 {
@@ -340,4 +348,111 @@ function has_questionnaire_result($form_id, $user_id)
   ", $form_id, $user_id));
 
   return empty($entry_id);
+}
+/** ===============================
+ * マイページカスタマイズ
+ * 6.過去の診断テスト取得
+ * =============================== */
+function get_diagnostic_products($args = [])
+{
+  $default = [
+    'post_type'      => 'product',
+    'posts_per_page' => 12,
+    'paged'          => get_query_var('paged') ?: 1,
+    'order'          => 'DESC',
+    'orderby'        => 'date',
+    'tax_query'      => [
+      [
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => 'diagnostic',
+      ]
+    ]
+  ];
+
+  $args = wp_parse_args($args, $default);
+
+  return new WP_Query($args);
+}
+/** ===============================
+ * マイページカスタマイズ
+ * 7.フィードバック取得
+ * =============================== */
+function get_user_diagnostic_result($product_id, $user_id)
+{
+  $query = new WP_Query([
+    'post_type' => 'diagnostic_result',
+    'posts_per_page' => 1,
+    'meta_query' => [
+      'relation' => 'AND',
+      [
+        'key' => 'test_name',
+        'value' =>  $product_id,
+        'compare' => '='
+      ],
+      [
+        'key' => 'target_user',
+        'value' => $user_id,
+        'compare' => '='
+      ],
+    ]
+  ]);
+
+  if ($query->have_posts()) {
+    $query->the_post();
+    $result = get_post();
+    wp_reset_postdata();
+    return $result;
+  }
+
+  return null;
+}
+/** ===============================
+ * マイページカスタマイズ
+ * 8.フィードバックのデータ整形
+ * =============================== */
+function get_diagnostic_result_data($result_id)
+{
+  $evaluation  = get_field('evaluation', $result_id);
+  $comment     = get_field('Feedback', $result_id);
+  $pdf_file    = get_field('feedback_img', $result_id);
+
+  $chart_data = [];
+
+  $rows = get_field('category_scores', $result_id);
+
+  if ($rows) {
+    foreach ($rows as $row) {
+
+      $category = $row['category'];
+      $points   = $row['points'];
+      $questions = $row['question_number'];
+
+      if (!$category || !$questions) {
+        continue;
+      }
+
+      // taxonomyの返り値対応
+      if (is_object($category)) {
+        $term = $category;
+      } elseif (is_array($category)) {
+        $term = get_term($category[0], 'product_cat');
+      } else {
+        $term = get_term($category, 'product_cat');
+      }
+
+      if ($term && !is_wp_error($term)) {
+
+        $rate = round(($points / $questions) * 100);
+        $chart_data[$term->name] = $rate;
+      }
+    }
+  }
+
+  return [
+    "scores" => $chart_data,
+    "evaluation" => $evaluation,
+    "comment" => $comment,
+    "pdf" => $pdf_file ? $pdf_file['url'] : null,
+  ];
 }

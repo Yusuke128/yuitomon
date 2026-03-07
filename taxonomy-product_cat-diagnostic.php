@@ -27,20 +27,7 @@ echo woocommerce_breadcrumb();
       add_filter('woocommerce_get_price_html', '__return_empty_string', 10, 2);
 
       $paged = get_query_var('paged') ? get_query_var('paged') : 1;
-
-      $category_products_args = array(
-        'post_type' => 'product',
-        'posts_per_page' => 12,
-        'paged' => $paged,
-        'tax_query' => array(
-          array(
-            'taxonomy' => 'product_cat',
-            'field'    => 'slug',
-            'terms'    => $term->slug,
-          ),
-        ),
-      );
-      $loop = new WP_Query($category_products_args);
+      $loop = get_diagnostic_products();
 
       if ($loop->have_posts()):
       ?>

@@ -22,6 +22,7 @@ if (is_wc_endpoint_url()) {
     'dashboard-content',
     'section-padding',
     'bd',
+    'bd-w5',
     'bd-navy',
     'radius',
     'bg-white',
@@ -29,7 +30,7 @@ if (is_wc_endpoint_url()) {
 }
 ?>
 
-<div class="woocommerce-MyAccount-wrapper">
+<div class="woocommerce-MyAccount-wrapper container section-margin section-padding">
   <?php do_action('woocommerce_account_navigation'); ?>
 
   <div class="<?php echo esc_attr(implode(' ', $classes)); ?>">
