@@ -2,7 +2,13 @@
 
 .old_diagnostic {
   &-card {
-    display: block;
+    grid-template-rows: 1fr;
+    text-align: center;
+    box-shadow: 6px 6px 10px 0 rgb(20 108 148 / 100%);
+
+    &-content {
+      gap: 2.5rem;
+    }
 
     &-title {
       font-size: 1.5rem;

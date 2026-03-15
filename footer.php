@@ -43,7 +43,7 @@
           </li>
           <!-- .footer-nav-item end-->
           <li class="footer-nav-item">
-            <a href="" class="link">特商標表記</a>
+            <a href="<?php echo home_url('/sct'); ?>" class="link">特定商取引法表記</a>
             <!-- .link end-->
           </li>
           <!-- .footer-nav-item end-->

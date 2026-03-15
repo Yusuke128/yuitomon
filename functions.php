@@ -139,14 +139,14 @@ function get_product_category_image_url($term_id)
  ** 機能カスタマイズ
  ** 1. Forminator で入力されたデータをカスタム投稿タイプに保存
  ** =============================== */
-add_action(
-  'forminator_custom_form_after_handle_submit',
-  function ($form_id, $response) {
-    error_log('HANDLE SUBMIT OK : ' . $form_id);
-  },
-  10,
-  2
-);
+// add_action(
+//   'forminator_custom_form_after_handle_submit',
+//   function ($form_id, $response) {
+//     error_log('HANDLE SUBMIT OK : ' . $form_id);
+//   },
+//   10,
+//   2
+// );
 
 /** ===============================
  ** 機能カスタマイズ

@@ -35,12 +35,13 @@ if ($latest_product): ?>
       <?php
       $diagnostic_form_id    = 156; // ← 実際のフォームID
       $product_id = $latest_product->ID;
+      $product_name = get_the_title($product_id);
       $user_id    = get_current_user_id();
 
       $has_submitted = has_submitted_result($diagnostic_form_id, $product_id, $user_id);
       ?>
       <?php if ($has_submitted) : ?>
-        <a href="<?php echo home_url('/my-account/result-input?product_id=' . $product_id); ?>"
+        <a href="<?php echo home_url('/my-account/result-input?product_id=' . $product_id . '&product_title=' . rawurlencode($product_name)); ?>"
           class="link btn btn-yellow radius">
           結果入力
         </a>
