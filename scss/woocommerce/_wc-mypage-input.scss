@@ -1,0 +1,35 @@
+.answer-review {
+  font-size: var(--font-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.review {
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  &-item {
+    padding: 1rem;
+    border-bottom: solid 1px var(--gray);
+
+    .textarea {
+      grid-column: span 2;
+    }
+  }
+}
+
+.diagnostic {
+  &-reviewer,
+  &-review {
+    margin-bottom: 2rem;
+  }
+}
+
+.questionnaire-school {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: span 2;
+  gap: 0.5rem;
+}

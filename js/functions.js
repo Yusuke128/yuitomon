@@ -126,3 +126,16 @@ window.addEventListener('scroll', () => {
     hidden = false;
   }, 150);
 });
+// フォーム入力時からのものは非表示
+function hideEmptyReview() {
+  document.querySelectorAll('.op-0').forEach((el) => {
+    const v = el.querySelector('.value');
+
+    if (!v || v.textContent.trim() === '') {
+      el.style.opacity = 0;
+      el.style.pointerEvents = 'none';
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', hideEmptyReview);
