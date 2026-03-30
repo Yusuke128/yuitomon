@@ -57,15 +57,6 @@ global $product;
               </div>
               <div class="swiper single-thumb-swiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <?php
-                    echo (get_the_post_thumbnail(
-                      get_the_ID(),
-                      'medium',
-                      array('class' => 'swiper-img')
-                    )); ?>
-                  </div>
-                  <!-- .swiper-slide end-->
                   <?php
                   $image_gallery_ids = $product->get_gallery_image_ids();
                   foreach ($image_gallery_ids as $image_id) : ?>
@@ -91,14 +82,14 @@ global $product;
             <!-- .swiper single-swiper end-->
             <div class="entry-summary">
               <div class="bg-white radius section-padding">
-                <h1 class="product-title entry-title">
+                <p class="product-title entry-title">
                   <?php if (!empty($taglist)) : ?>
                     <span class="tag">
                       <?php echo $taglist; ?>
                     </span><!-- .tag end-->
                   <?php endif; ?>
                   <?php the_title(); ?>
-                </h1>
+                </p>
                 <?php if ($post->post_excerpt): ?>
                   <div class="woocommerce-product-details__short-description">
                     <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt); ?>
@@ -135,6 +126,10 @@ global $product;
                     購入する
                   </button>
                 </form>
+                <div class="single-info">
+                  <p>ご購入後すぐにダウンロードいただけ、何度でも印刷してご利用可能です。</p>
+                  <p>デジタル商品の特性上、ご購入後の返品・返金はお受けできません。</p>
+                </div><!-- .single-info end-->
                 <div class="product_meta">
                   <span class="sku_wrapper">
                     商品コード:
@@ -154,11 +149,12 @@ global $product;
                 </div>
                 <!-- .title-box end-->
                 <?php
-                if (get_field('youtube_url')) {
-                  echo wp_oembed_get(get_field('youtube_url'));
-                } else {
+                if (get_field('youtube_url')):
+                  echo wp_oembed_get(get_field('youtube_url')); ?>
+                  <a href="<?php echo get_field('youtube_url') ?>" target="_blank" class="link btn btn-yellow">YouTubeで試聴する</a>
+                <?php else :
                   echo '<p>動画準備中</p>';
-                }
+                endif;
                 ?>
               </section>
               <!-- .sample-movie end-->

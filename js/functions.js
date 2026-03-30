@@ -47,7 +47,7 @@ const thumb_swiper = new Swiper('.single-thumb-swiper', {
   centeredSlides: true,
   watchSlidesProgress: true,
   allowTouchMove: false,
-  loop: true,
+  loop: false,
   navigation: {
     nextEl: '.single-thumb-next',
     prevEl: '.single-thumb-prev'
@@ -61,9 +61,17 @@ const thumb_swiper = new Swiper('.single-thumb-swiper', {
 
 const single_swiper = new Swiper('.single-swiper', {
   observer: true,
-  observeParents: true,
-  thumbs: {
-    swiper: thumb_swiper
+  observeParents: true
+});
+thumb_swiper.on('click', function () {
+  const clickIndex = thumb_swiper.clickedIndex;
+
+  if (clickIndex !== undefined && clickIndex !== null) {
+    const targetIndex = clickIndex + 1;
+
+    if (targetIndex < single_swiper.slides.length) {
+      single_swiper.slideTo(targetIndex);
+    }
   }
 });
 

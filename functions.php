@@ -456,3 +456,23 @@ function get_diagnostic_result_data($result_id)
     "pdf" => $pdf_file ? $pdf_file['url'] : null,
   ];
 }
+/** ===============================
+ * カートカスタマイズ
+ * エリアラベル追加
+ * =============================== */
+
+add_filter('render_block', function ($block_content, $block) {
+
+  // カートアイテム行だけを対象
+  if ($block['blockName'] === 'woocommerce/cart-line-items-block') {
+
+    // 削除ボタンに aria-label を追加
+    $block_content = str_replace(
+      'wc-block-cart-item__remove-link',
+      'wc-block-cart-item__remove-link" aria-label="商品をカートから削除',
+      $block_content
+    );
+  }
+
+  return $block_content;
+}, 10, 2);

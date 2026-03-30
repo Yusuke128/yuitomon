@@ -5,3 +5,9 @@
     }
   }
 }
+
+.wc-block-cart-item__remove-link::after {
+  margin-left: 6px;
+  font-size: 12px;
+  content: '削除';
+}

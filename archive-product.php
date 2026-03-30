@@ -34,7 +34,7 @@ echo woocommerce_breadcrumb();
           array(
             'taxonomy' => 'product_cat',
             'parent' => 0,
-            'hide_empty' => false,
+            'hide_empty' => true,
             'exclude' => $exclude_ids
           )
         );

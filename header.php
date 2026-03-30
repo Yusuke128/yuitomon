@@ -62,7 +62,7 @@
         </ul>
         <!-- .header-nav sp end-->
       </nav>
-      <?php if (is_account_page()) : ?>
+      <?php if (is_account_page() && is_login()) : ?>
         <?php get_template_part('template-parts/header/mypage'); ?>
       <?php else : ?>
         <?php get_template_part('template-parts/header/default'); ?>

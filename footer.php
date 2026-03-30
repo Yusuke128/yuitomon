@@ -64,7 +64,7 @@
     <!-- .nav-container end-->
   </div>
   <!-- .container end-->
-  <small class="copyright">&copy;2025&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</small>
+  <small class="copyright">&copy;<?php echo date('Y'); ?>&nbsp;ALL&nbsp;Rights&nbsp;Reserved.</small>
   <!-- .copyright end-->
 </footer>
 <?php wp_footer(); ?>
