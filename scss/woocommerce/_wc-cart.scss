@@ -11,3 +11,25 @@
   font-size: 12px;
   content: '削除';
 }
+
+.wc-block-components {
+  &-button__text {
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: var(--font-lg);
+    line-height: 1;
+    color: var(--black);
+    background-color: var(--yellow);
+    border: 2px solid rgb(0 0 0 / 0%);
+    border-radius: 30px;
+  }
+
+  &-checkout-place-order-button {
+    border: none;
+  }
+
+  &-express-payment-continue-rule {
+    display: none;
+  }
+}

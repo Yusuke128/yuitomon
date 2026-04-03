@@ -476,3 +476,37 @@ add_filter('render_block', function ($block_content, $block) {
 
   return $block_content;
 }, 10, 2);
+
+
+/**　==============================
+ * 共通関数
+ * 最新の実力診断テスト取得
+ *  ===============================*/
+function get_latest_diagnostic_product_id()
+{
+  static $cached_id = null;
+
+  if ($cached_id !== null) {
+    return $cached_id;
+  }
+
+  $posts = get_posts([
+    'post_type'      => 'product',
+    'post_status'    => 'publish',
+    'posts_per_page' => 1,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'tax_query'      => [
+      [
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => 'diagnostic',
+      ]
+    ],
+    'fields' => 'ids'
+  ]);
+
+  $cached_id = $posts ? $posts[0] : null;
+
+  return $cached_id;
+}

@@ -111,6 +111,7 @@ global $product;
                     <p>
                       フィードバックをさせていただくためには、テスト実施後の採点結果をマイページで教えて頂く必要があります。結果を受け取ってから翌日～１週間以内でマイページ上にフィードバックをお送りいたします。
                     </p>
+                    <p>本サービスは1回のご購入につき、1名分のフィードバックを行います。双子など複数名分のフィードバックをご希望の場合は、人数分ご購入ください。</p>
                   <?php else: ?>
                     <p>教材購入後、ダウンロードした教材を印刷し、活用いただくことをお勧めいたします。</p>
                     <p>単元別教材は、フィードバックのサービスはございません。</p>
@@ -151,7 +152,6 @@ global $product;
                 <?php
                 if (get_field('youtube_url')):
                   echo wp_oembed_get(get_field('youtube_url')); ?>
-                  <a href="<?php echo get_field('youtube_url') ?>" target="_blank" class="link btn btn-yellow">YouTubeで試聴する</a>
                 <?php else :
                   echo '<p>動画準備中</p>';
                 endif;

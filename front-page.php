@@ -321,7 +321,8 @@ get_header(); ?>
     <!-- .container end-->
   </section>
   <!-- .howto container end-->
-
+  <?php $diagnostic_body = get_latest_diagnostic_product_id();
+  ?>
   <!-- 教材紹介 -->
   <section class="prep section-padding section-margin bg-white bd bd-navy bd-dashed bd-noside">
     <div class="container">
@@ -348,7 +349,8 @@ get_header(); ?>
           </div>
           <!-- .bd bd-yellow bg-lightyellow end-->
           <p class="first-action btn bg-yellow">まずはここから!!</p>
-          <a href="<?php echo home_url('product-category/diagnostic') ?>" class="link btn btn-yellow bg-lightyellow">詳細を見る</a>
+
+          <a href="<?php echo get_permalink($diagnostic_body) ?>" class="link btn btn-yellow bg-lightyellow">詳細を見る</a>
           <!-- .link btn btn-yellow bg-lightyellow end-->
         </li>
         <!-- .card prep-card  end-->
@@ -368,7 +370,7 @@ get_header(); ?>
             <!-- .prep-imgbox end-->
           </div>
           <!-- .bd bd-navy end-->
-          <a href="<?php echo home_url('product-category/diagnostic') ?>" class="link btn btn-lightnavy">詳細を見る</a>
+          <a href="<?php echo get_permalink($diagnostic_body) ?>" class="link btn btn-lightnavy">詳細を見る</a>
           <!-- .link btn btn-navy end-->
         </li>
         <!-- .card prep-card  end-->

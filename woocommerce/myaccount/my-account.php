@@ -8,7 +8,6 @@
 global $wp;
 
 $endpoint_slug = 'dashboard';
-
 foreach (get_myaccount_menu_config() as $slug => $data) {
   if (isset($wp->query_vars[$slug])) {
     $endpoint_slug = $slug;
