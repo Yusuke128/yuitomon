@@ -8,7 +8,7 @@
 
     @include v.media(sp) {
       grid-template-columns: 100%;
-      gap: 0;
+      gap: 3rem;
     }
 
     &-title {
@@ -109,6 +109,35 @@
 
     &-product-details__short-description {
       margin-bottom: 3rem;
+    }
+
+    &-message {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--black);
+      background-color: var(--yellow);
+      border-radius: 30px;
+
+      @include v.flex;
+
+      @include v.media(mobile) {
+        flex-direction: column;
+      }
+
+      &::before {
+        font-size: 1.5rem;
+        color: var(--light-navy);
+      }
+
+      .wc-forword {
+        margin-right: 0;
+        margin-left: auto;
+        font-weight: var(--font-weight-medium);
+        color: var(--white);
+        background-color: var(--light-navy);
+        border: solid 1px var(--yellow);
+        border-radius: 15px;
+      }
     }
   }
 
